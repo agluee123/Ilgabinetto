@@ -19,7 +19,7 @@ namespace Presentacion
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            Agregar agregar = new Agregar();
+            Articulos agregar = new Articulos();
             agregar.ShowDialog();   
         }
     }
