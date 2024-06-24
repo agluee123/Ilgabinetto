@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.btnArticulos = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnClientes = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnArticulos
@@ -42,21 +42,22 @@
             this.btnArticulos.UseVisualStyleBackColor = true;
             this.btnArticulos.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
-            // button1
+            // btnClientes
             // 
-            this.button1.Location = new System.Drawing.Point(331, 128);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(129, 83);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Clientes";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnClientes.Location = new System.Drawing.Point(331, 128);
+            this.btnClientes.Name = "btnClientes";
+            this.btnClientes.Size = new System.Drawing.Size(129, 83);
+            this.btnClientes.TabIndex = 1;
+            this.btnClientes.Text = "Clientes";
+            this.btnClientes.UseVisualStyleBackColor = true;
+            this.btnClientes.Click += new System.EventHandler(this.btnClientes_Click);
             // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnClientes);
             this.Controls.Add(this.btnArticulos);
             this.Name = "Dashboard";
             this.Text = "Form1";
@@ -67,7 +68,7 @@
         #endregion
 
         private System.Windows.Forms.Button btnArticulos;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnClientes;
     }
 }
 

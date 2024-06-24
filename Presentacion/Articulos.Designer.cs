@@ -120,6 +120,7 @@
             // 
             // cbxPerforacion
             // 
+            this.cbxPerforacion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxPerforacion.FormattingEnabled = true;
             this.cbxPerforacion.Items.AddRange(new object[] {
             "Tres agujeros",
@@ -132,6 +133,7 @@
             // 
             // cbxColor
             // 
+            this.cbxColor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxColor.FormattingEnabled = true;
             this.cbxColor.Items.AddRange(new object[] {
             "Blanco",

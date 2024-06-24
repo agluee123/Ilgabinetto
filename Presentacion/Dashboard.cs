@@ -22,5 +22,11 @@ namespace Presentacion
             Articulos agregar = new Articulos();
             agregar.ShowDialog();   
         }
+
+        private void btnClientes_Click(object sender, EventArgs e)
+        {
+            Clientes agregar = new Clientes();
+            agregar.ShowDialog();
+        }
     }
 }
