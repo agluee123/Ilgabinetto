@@ -83,6 +83,10 @@ namespace Negocio
                 Console.WriteLine("Error al eliminar el artículo: " + ex.Message);
 
             }
+            finally
+            {
+                datos.cerrarConexion(); 
+            }
 
         }
 

@@ -76,6 +76,28 @@ namespace Negocio
             }
         }
 
+        public void EliminarCliente(Cliente eliminar)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setearConsulta("delete from clientes where id_cliente = @Id");
+                datos.setearParametro("@Id", eliminar.IdCliente);
+                datos.ejecutarAccion();
+                Console.WriteLine("Cliente eliminado correctamente");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al eliminar el cliente: " + ex.Message);
+                throw; 
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
+
 
 
     }

@@ -63,5 +63,30 @@ namespace Presentacion
         {
             CargarDatos();
         }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            eliminar();
+
+        }
+
+        private void eliminar()
+        {
+            ClienteNegocio negocio = new ClienteNegocio();
+            try
+            {
+                DialogResult respuesta = MessageBox.Show("¿De verdad querés eliminarlo?", "Eliminando", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (respuesta == DialogResult.Yes)
+                {
+                    Cliente seleccionado = (Cliente)dgvClientes.CurrentRow.DataBoundItem;
+                    negocio.EliminarCliente(seleccionado);
+                    CargarDatos();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
     }
 }
