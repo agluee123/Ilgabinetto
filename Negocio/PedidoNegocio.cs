@@ -21,7 +21,7 @@ namespace Negocio
             {
                 conexion.ConnectionString = "server=.\\SQLEXPRESS; database=ILGABINETTO; integrated security=true";
                 comando.CommandType = System.Data.CommandType.Text;
-                comando.CommandText = "select nombre from articulo";
+                comando.CommandText = "select id_articulo,nombre from articulo";
                 comando.Connection = conexion;
 
                 conexion.Open();

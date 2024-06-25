@@ -14,5 +14,10 @@ namespace Dominio
         public string Medida { get; set; }
         public string Perforacion { get; set; }
         public string Color { get; set; }
+
+        public override string ToString()
+        {
+            return Nombre;
+        }
     }
 }

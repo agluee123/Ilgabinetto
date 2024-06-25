@@ -51,7 +51,6 @@
             this.cbxArticulo.Name = "cbxArticulo";
             this.cbxArticulo.Size = new System.Drawing.Size(182, 21);
             this.cbxArticulo.TabIndex = 1;
-            this.cbxArticulo.SelectedIndexChanged += new System.EventHandler(this.cbxArticulo_SelectedIndexChanged);
             // 
             // lblCliente
             // 
@@ -91,6 +90,7 @@
             this.Controls.Add(this.cbxCliente);
             this.Name = "Pedidos";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Pedidos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

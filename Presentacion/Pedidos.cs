@@ -19,26 +19,17 @@ namespace Presentacion
             InitializeComponent();
         }
 
-        private void cbxArticulo_SelectedIndexChanged(object sender, EventArgs e)
-        {
-         
-            
-        }
+        
 
-        private void CargarNombresArticulosEnComboBox()
+        private void Pedidos_Load(object sender, EventArgs e)
         {
-            PedidoNegocio negocio= new PedidoNegocio(); 
-            try
-            {
-                List<string> listaNombresArticulos = negocio.listarNombre();
+           
+            PedidoNegocio negocio = new PedidoNegocio();
+            cbxArticulo.DataSource = negocio.listarNombre();
+            ClienteNegocio cliente = new ClienteNegocio();
+            cbxCliente.DataSource = cliente.listar(); 
 
-                // Configurar el ComboBox para mostrar solo los nombres de los artículos
-                cbxArticulo.DataSource = listaNombresArticulos;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error al cargar los nombres de los artículos: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+
         }
     }
 }
