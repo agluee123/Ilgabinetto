@@ -14,7 +14,7 @@ namespace Presentacion
 {
     public partial class Articulos : Form
     {
-        private List<Articulo> listaArticulo;
+        private List<Articulo> lista;
         public Articulos()
         {
             InitializeComponent();
@@ -47,7 +47,7 @@ namespace Presentacion
 
         private void CargarDatos()
         {
-            List<Articulo> lista = new List<Articulo>();
+           
             try
             {
                 lista = new ArticuloNegocio().listar();
@@ -111,14 +111,14 @@ namespace Presentacion
 
             if (filtro.Length >= 3)
             {
-                listaFiltrada = listaArticulo.FindAll(x =>
+                listaFiltrada = lista.FindAll(x =>
                     x.Nombre.ToUpper().Contains(filtro) || // Filtrar por nombre que contiene el filtro
                     x.Categoria.ToUpper().Contains(filtro) // Filtrar por categoría que contiene el filtro
                 );
             }
             else
             {
-                listaFiltrada = listaArticulo; // Mostrar la lista completa si el filtro es corto
+                listaFiltrada = lista; // Mostrar la lista completa si el filtro es corto
             }
 
             // Actualizar el DataSource del DataGridView con la lista filtrada
