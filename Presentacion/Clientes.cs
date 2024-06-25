@@ -88,5 +88,20 @@ namespace Presentacion
                 MessageBox.Show(ex.ToString());
             }
         }
+
+        private void dgvArticulos_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgvClientes.CurrentRow != null)
+            {
+                Cliente seleccionado = (Cliente)dgvClientes.CurrentRow.DataBoundItem;
+                tbxNombre.Text = seleccionado.Nombre;
+                tbxDireccion.Text = seleccionado.Direccion;
+                tbxCuit.Text = seleccionado.Cuit;
+                tbxLocalidad.Text=seleccionado.Localidad;
+                tbxTelefono.Text=seleccionado.Telefono;
+
+
+            }
+        }
     }
 }
