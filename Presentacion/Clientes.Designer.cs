@@ -83,6 +83,7 @@
             this.tbxFiltro.Name = "tbxFiltro";
             this.tbxFiltro.Size = new System.Drawing.Size(531, 20);
             this.tbxFiltro.TabIndex = 30;
+            this.tbxFiltro.TextChanged += new System.EventHandler(this.tbxFiltro_TextChanged);
             // 
             // btnEliminar
             // 

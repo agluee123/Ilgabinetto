@@ -1,6 +1,7 @@
 ﻿using Dominio;
 using Negocio;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,6 +15,7 @@ namespace Presentacion
 {
     public partial class Clientes : Form
     {
+        private List<Cliente> listaCliente;
         public Clientes()
         {
             InitializeComponent();
@@ -55,12 +57,12 @@ namespace Presentacion
 
         private void CargarDatos()
         {
-            List<Cliente> lista = new List<Cliente>();
+            
             try
             {
-                lista = new ClienteNegocio().listar();
+                listaCliente = new ClienteNegocio().listar();
 
-                dgvClientes.DataSource = lista;
+                dgvClientes.DataSource = listaCliente;
             }
             catch (Exception ex)
             {
@@ -155,6 +157,30 @@ namespace Presentacion
             tbxLocalidad.Text = "";
             tbxTelefono.Text = "";
 
+        }
+
+        private void tbxFiltro_TextChanged(object sender, EventArgs e)
+        {
+            List<Cliente> listaFiltrada;
+            string filtro = tbxFiltro.Text.ToUpper();
+
+            if (filtro.Length >= 3)
+            {
+                listaFiltrada = listaCliente.FindAll(x =>
+                    x.Nombre.ToUpper().Contains(filtro) || // Filtrar por nombre que contiene el filtro
+                    x.Localidad.ToUpper().Contains(filtro)||
+                    x.Telefono.ToUpper().Contains(filtro)
+                // Filtrar por categoría que contiene el filtro
+                );
+            }
+            else
+            {
+                listaFiltrada = listaCliente; 
+            }
+
+            // Actualizar el DataSource del DataGridView con la lista filtrada
+            dgvClientes.DataSource = null; 
+            dgvClientes.DataSource = listaFiltrada; 
         }
     }
 }
