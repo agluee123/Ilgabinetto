@@ -97,6 +97,37 @@ namespace Negocio
             }
         }
 
+        public void ModificarCliente(Cliente modificar)
+        {
+            AccesoDatos datos=new AccesoDatos();
+            try
+            {
+                datos.setearConsulta("UPDATE clientes SET nombre = @Nombre, direccion = @Direccion, cuit = @CUIT, localidad = @Localidad, telefono = @Telefono WHERE id_cliente = @IdCliente;");
+
+                datos.setearParametro("@IdCliente", modificar.IdCliente);
+                datos.setearParametro("@Nombre", modificar.Nombre);
+                datos.setearParametro("@Direccion", modificar.Direccion);
+                datos.setearParametro("@CUIT", modificar.Cuit);
+                datos.setearParametro("@Localidad", modificar.Localidad);
+                datos.setearParametro("@Telefono", modificar.Telefono);
+
+                datos.ejecutarAccion();
+        
+
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
 
 
 

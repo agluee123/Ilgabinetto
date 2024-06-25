@@ -27,22 +27,31 @@ namespace Presentacion
             {
                 NuevoCliente.Nombre = tbxNombre.Text;
                 NuevoCliente.Direccion = tbxDireccion.Text;
-                NuevoCliente.Cuit = tbxCuit.Text;   
-                NuevoCliente.Localidad =tbxLocalidad.Text;  
-                NuevoCliente.Telefono = tbxTelefono.Text;   
+                NuevoCliente.Cuit = tbxCuit.Text;
+                NuevoCliente.Localidad = tbxLocalidad.Text;
+                NuevoCliente.Telefono = tbxTelefono.Text;
 
-                negocio.Agregar(NuevoCliente);
+                DialogResult resultado = MessageBox.Show("¿Está seguro que desea agregar este cliente?",
+                                                          "Confirmación",
+                                                          MessageBoxButtons.YesNo,
+                                                          MessageBoxIcon.Question);
 
-                MessageBox.Show("Cliente agregado exitosamente");
-                CargarDatos();
+                if (resultado == DialogResult.Yes)
+                {
+                    negocio.Agregar(NuevoCliente);
 
+                    MessageBox.Show("Cliente agregado exitosamente");
+                    CargarDatos();
+                }
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show(ex.ToString());
             }
         }
+
+
+
 
         private void CargarDatos()
         {
@@ -89,7 +98,8 @@ namespace Presentacion
             }
         }
 
-        private void dgvArticulos_SelectionChanged(object sender, EventArgs e)
+
+        private void dgvClientes_SelectionChanged(object sender, EventArgs e)
         {
             if (dgvClientes.CurrentRow != null)
             {
@@ -97,11 +107,54 @@ namespace Presentacion
                 tbxNombre.Text = seleccionado.Nombre;
                 tbxDireccion.Text = seleccionado.Direccion;
                 tbxCuit.Text = seleccionado.Cuit;
-                tbxLocalidad.Text=seleccionado.Localidad;
-                tbxTelefono.Text=seleccionado.Telefono;
+                tbxLocalidad.Text = seleccionado.Localidad;
+                tbxTelefono.Text = seleccionado.Telefono;
 
 
             }
+
+        }
+
+        private void modificar()
+        {
+            try
+            {
+                Cliente seleccionado = (Cliente)dgvClientes.CurrentRow.DataBoundItem;
+
+                seleccionado.Nombre = tbxNombre.Text;
+                seleccionado.Direccion = tbxDireccion.Text;
+                seleccionado.Cuit = tbxCuit.Text;
+                seleccionado.Localidad=tbxLocalidad.Text;
+                seleccionado.Telefono = tbxTelefono.Text;
+
+                ClienteNegocio negocio = new ClienteNegocio();
+                negocio.ModificarCliente(seleccionado);
+
+                // Mostrar mensaje de éxito
+                MessageBox.Show("Cliente modificado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                CargarDatos();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al modificar el Cliente: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
+        private void btnModificar_Click_1(object sender, EventArgs e)
+        {
+            modificar();
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            tbxNombre.Text = "";
+            tbxDireccion.Text = "";
+            tbxCuit.Text = "";
+            tbxLocalidad.Text = "";
+            tbxTelefono.Text = "";
+
         }
     }
 }

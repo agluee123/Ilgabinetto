@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.btnLimpiar = new System.Windows.Forms.Button();
-            this.btnModiicar = new System.Windows.Forms.Button();
+            this.btnModificar = new System.Windows.Forms.Button();
             this.lblFiltro = new System.Windows.Forms.Label();
             this.tbxFiltro = new System.Windows.Forms.TextBox();
             this.btnEliminar = new System.Windows.Forms.Button();
@@ -56,15 +56,17 @@
             this.btnLimpiar.TabIndex = 33;
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
-            // btnModiicar
+            // btnModificar
             // 
-            this.btnModiicar.Location = new System.Drawing.Point(203, 301);
-            this.btnModiicar.Name = "btnModiicar";
-            this.btnModiicar.Size = new System.Drawing.Size(75, 23);
-            this.btnModiicar.TabIndex = 32;
-            this.btnModiicar.Text = "Modificar";
-            this.btnModiicar.UseVisualStyleBackColor = true;
+            this.btnModificar.Location = new System.Drawing.Point(203, 301);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(75, 23);
+            this.btnModificar.TabIndex = 32;
+            this.btnModificar.Text = "Modificar";
+            this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click_1);
             // 
             // lblFiltro
             // 
@@ -100,6 +102,7 @@
             this.dgvClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvClientes.Size = new System.Drawing.Size(659, 518);
             this.dgvClientes.TabIndex = 28;
+            this.dgvClientes.SelectionChanged += new System.EventHandler(this.dgvClientes_SelectionChanged);
             // 
             // btnAgregar
             // 
@@ -200,7 +203,7 @@
             this.Controls.Add(this.tbxDireccion);
             this.Controls.Add(this.tbxLocalidad);
             this.Controls.Add(this.btnLimpiar);
-            this.Controls.Add(this.btnModiicar);
+            this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.lblFiltro);
             this.Controls.Add(this.tbxFiltro);
             this.Controls.Add(this.btnEliminar);
@@ -225,7 +228,7 @@
         #endregion
 
         private System.Windows.Forms.Button btnLimpiar;
-        private System.Windows.Forms.Button btnModiicar;
+        private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Label lblFiltro;
         private System.Windows.Forms.TextBox tbxFiltro;
         private System.Windows.Forms.Button btnEliminar;

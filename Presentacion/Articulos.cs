@@ -32,10 +32,19 @@ namespace Presentacion
                 NuevoArticulo.Perforacion=cbxPerforacion.SelectedItem?.ToString();   
                 NuevoArticulo.Color=cbxColor.SelectedItem?.ToString();
 
-                negocio.Agregar(NuevoArticulo);
+                DialogResult resultado = MessageBox.Show("¿Está seguro que desea agregar este articulo?",
+                                                         "Confirmación",
+                                                         MessageBoxButtons.YesNo,
+                                                         MessageBoxIcon.Question);
 
-                MessageBox.Show("Artículo agregado correctamente");
-                CargarDatos();
+                if (resultado == DialogResult.Yes)
+                {
+                    negocio.Agregar(NuevoArticulo);
+
+                    MessageBox.Show("Articulo agregado exitosamente");
+                    CargarDatos();
+                }
+
 
             }
             catch (Exception ex)
