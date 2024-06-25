@@ -164,7 +164,7 @@ namespace Presentacion
             List<Cliente> listaFiltrada;
             string filtro = tbxFiltro.Text.ToUpper();
 
-            if (filtro.Length >= 3)
+            if (filtro.Length >= 1)
             {
                 listaFiltrada = listaCliente.FindAll(x =>
                     x.Nombre.ToUpper().Contains(filtro) || // Filtrar por nombre que contiene el filtro

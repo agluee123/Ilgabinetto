@@ -118,7 +118,7 @@ namespace Presentacion
             List<Articulo> listaFiltrada;
             string filtro = tbxFiltro.Text.ToUpper(); // Convertir el filtro a mayúsculas una vez
 
-            if (filtro.Length >= 3)
+            if (filtro.Length >= 1)
             {
                 listaFiltrada = lista.FindAll(x =>
                     x.Nombre.ToUpper().Contains(filtro) || // Filtrar por nombre que contiene el filtro

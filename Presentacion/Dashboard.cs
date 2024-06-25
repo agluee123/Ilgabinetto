@@ -28,5 +28,12 @@ namespace Presentacion
             Clientes agregar = new Clientes();
             agregar.ShowDialog();
         }
+
+        private void btnPedidos_Click(object sender, EventArgs e)
+        {
+            Pedidos agregar= new Pedidos();
+            agregar.ShowDialog();
+
+        }
     }
 }

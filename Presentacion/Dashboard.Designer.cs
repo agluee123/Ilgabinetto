@@ -30,6 +30,7 @@
         {
             this.btnArticulos = new System.Windows.Forms.Button();
             this.btnClientes = new System.Windows.Forms.Button();
+            this.btnPedidos = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnArticulos
@@ -52,11 +53,22 @@
             this.btnClientes.UseVisualStyleBackColor = true;
             this.btnClientes.Click += new System.EventHandler(this.btnClientes_Click);
             // 
+            // btnPedidos
+            // 
+            this.btnPedidos.Location = new System.Drawing.Point(331, 242);
+            this.btnPedidos.Name = "btnPedidos";
+            this.btnPedidos.Size = new System.Drawing.Size(129, 83);
+            this.btnPedidos.TabIndex = 2;
+            this.btnPedidos.Text = "Pedidos";
+            this.btnPedidos.UseVisualStyleBackColor = true;
+            this.btnPedidos.Click += new System.EventHandler(this.btnPedidos_Click);
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnPedidos);
             this.Controls.Add(this.btnClientes);
             this.Controls.Add(this.btnArticulos);
             this.Name = "Dashboard";
@@ -69,6 +81,7 @@
 
         private System.Windows.Forms.Button btnArticulos;
         private System.Windows.Forms.Button btnClientes;
+        private System.Windows.Forms.Button btnPedidos;
     }
 }
 
