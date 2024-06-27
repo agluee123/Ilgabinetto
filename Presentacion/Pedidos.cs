@@ -29,10 +29,7 @@ namespace Presentacion
             ClienteNegocio cliente = new ClienteNegocio();
             cbxCliente.DataSource = cliente.listar();
 
-            
-            cbxCliente.DisplayMember = "nombre";
-            cbxCliente.ValueMember = "Id_cliente";
-
+          
 
         }
 
@@ -42,11 +39,8 @@ namespace Presentacion
 
             Pedido pedido = new Pedido();
 
-            Cliente nuevo = new Cliente();
-
             try
             {
-
 
                 if (cbxCliente.SelectedItem != null)
                 {
@@ -54,14 +48,13 @@ namespace Presentacion
                     pedido.Fecha = dtpFechaPedido.Value;
                     pedido.ClienteId = seleccionado.IdCliente;
 
+                    negocio.CrearPedido(pedido);
+
                 }
                 else
                 {
                     MessageBox.Show("Por favor, seleccione un cliente.");
                 }
-
-
-
 
                 MessageBox.Show("pedido cargado");
 
