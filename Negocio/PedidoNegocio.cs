@@ -45,5 +45,40 @@ namespace Negocio
                 throw ex;
             }
         }
+
+
+        public void CrearPedido(Pedido nuevo)
+        {
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.setearConsulta("insert into Pedidos (fecha, cliente_id) values ( @fecha , @cliente_id )");
+                datos.setearParametro("@fecha", nuevo.Fecha);
+                datos.setearParametro("@cliente_id", nuevo.ClienteId);
+
+                datos.ejecutarAccion();
+
+
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+
+            }
+
+            finally { 
+
+                datos.cerrarConexion();
+            
+            }
+
+        }
+
+
+
+
     }
 }

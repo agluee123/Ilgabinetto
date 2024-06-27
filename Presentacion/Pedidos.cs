@@ -19,16 +19,61 @@ namespace Presentacion
             InitializeComponent();
         }
 
-        
+
 
         private void Pedidos_Load(object sender, EventArgs e)
         {
-           
+
             PedidoNegocio negocio = new PedidoNegocio();
-            cbxArticulo.DataSource = negocio.listarNombre();
+            //cbxArticulo.DataSource = negocio.listarNombre();
             ClienteNegocio cliente = new ClienteNegocio();
-            cbxCliente.DataSource = cliente.listar(); 
+            cbxCliente.DataSource = cliente.listar();
+
+            
+            cbxCliente.DisplayMember = "nombre";
+            cbxCliente.ValueMember = "Id_cliente";
+
 
         }
+
+        private void BtnAgregarProducto_Click(object sender, EventArgs e)
+        {
+            PedidoNegocio negocio = new PedidoNegocio();
+
+            Pedido pedido = new Pedido();
+
+            Cliente nuevo = new Cliente();
+
+            try
+            {
+
+
+                if (cbxCliente.SelectedItem != null)
+                {
+                    Cliente seleccionado = (Cliente)cbxCliente.SelectedItem;
+                    pedido.Fecha = dtpFechaPedido.Value;
+                    pedido.ClienteId = seleccionado.IdCliente;
+
+                }
+                else
+                {
+                    MessageBox.Show("Por favor, seleccione un cliente.");
+                }
+
+
+
+
+                MessageBox.Show("pedido cargado");
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Ocurrió un error: " + ex.Message);
+            
+            }
+        }
+
+       
     }
 }
