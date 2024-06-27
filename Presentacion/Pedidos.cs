@@ -29,7 +29,6 @@ namespace Presentacion
             ClienteNegocio cliente = new ClienteNegocio();
             cbxCliente.DataSource = cliente.listar(); 
 
-
         }
     }
 }
