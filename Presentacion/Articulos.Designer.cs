@@ -234,7 +234,7 @@
             this.Controls.Add(this.lblCategoria);
             this.Controls.Add(this.lblNombre);
             this.Name = "Articulos";
-            this.Text = "Form1";
+            this.Text = "Articulos";
             this.Load += new System.EventHandler(this.Articulos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).EndInit();
             this.ResumeLayout(false);

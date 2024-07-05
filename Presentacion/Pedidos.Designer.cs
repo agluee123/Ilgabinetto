@@ -32,6 +32,7 @@
             this.lblCliente = new System.Windows.Forms.Label();
             this.BtnAgregarProducto = new System.Windows.Forms.Button();
             this.gbxCrearPedido = new System.Windows.Forms.GroupBox();
+            this.lblFecha = new System.Windows.Forms.Label();
             this.dtpFechaPedido = new System.Windows.Forms.DateTimePicker();
             this.gbxCrearPedido.SuspendLayout();
             this.SuspendLayout();
@@ -39,9 +40,9 @@
             // cbxCliente
             // 
             this.cbxCliente.FormattingEnabled = true;
-            this.cbxCliente.Location = new System.Drawing.Point(144, 57);
+            this.cbxCliente.Location = new System.Drawing.Point(126, 57);
             this.cbxCliente.Name = "cbxCliente";
-            this.cbxCliente.Size = new System.Drawing.Size(182, 21);
+            this.cbxCliente.Size = new System.Drawing.Size(200, 21);
             this.cbxCliente.TabIndex = 0;
             // 
             // lblCliente
@@ -55,7 +56,7 @@
             // 
             // BtnAgregarProducto
             // 
-            this.BtnAgregarProducto.Location = new System.Drawing.Point(120, 115);
+            this.BtnAgregarProducto.Location = new System.Drawing.Point(157, 136);
             this.BtnAgregarProducto.Name = "BtnAgregarProducto";
             this.BtnAgregarProducto.Size = new System.Drawing.Size(134, 23);
             this.BtnAgregarProducto.TabIndex = 3;
@@ -65,16 +66,26 @@
             // 
             // gbxCrearPedido
             // 
+            this.gbxCrearPedido.Controls.Add(this.lblFecha);
             this.gbxCrearPedido.Controls.Add(this.dtpFechaPedido);
             this.gbxCrearPedido.Controls.Add(this.lblCliente);
             this.gbxCrearPedido.Controls.Add(this.BtnAgregarProducto);
             this.gbxCrearPedido.Controls.Add(this.cbxCliente);
-            this.gbxCrearPedido.Location = new System.Drawing.Point(116, 67);
+            this.gbxCrearPedido.Location = new System.Drawing.Point(137, 68);
             this.gbxCrearPedido.Name = "gbxCrearPedido";
             this.gbxCrearPedido.Size = new System.Drawing.Size(453, 178);
             this.gbxCrearPedido.TabIndex = 4;
             this.gbxCrearPedido.TabStop = false;
             this.gbxCrearPedido.Text = "Crear Pedido";
+            // 
+            // lblFecha
+            // 
+            this.lblFecha.AutoSize = true;
+            this.lblFecha.Location = new System.Drawing.Point(24, 89);
+            this.lblFecha.Name = "lblFecha";
+            this.lblFecha.Size = new System.Drawing.Size(40, 13);
+            this.lblFecha.TabIndex = 5;
+            this.lblFecha.Text = "Fecha:";
             // 
             // dtpFechaPedido
             // 
@@ -90,7 +101,7 @@
             this.ClientSize = new System.Drawing.Size(710, 337);
             this.Controls.Add(this.gbxCrearPedido);
             this.Name = "Pedidos";
-            this.Text = "Form1";
+            this.Text = "Crear Pedido";
             this.Load += new System.EventHandler(this.Pedidos_Load);
             this.gbxCrearPedido.ResumeLayout(false);
             this.gbxCrearPedido.PerformLayout();
@@ -105,5 +116,6 @@
         private System.Windows.Forms.Button BtnAgregarProducto;
         private System.Windows.Forms.GroupBox gbxCrearPedido;
         private System.Windows.Forms.DateTimePicker dtpFechaPedido;
+        private System.Windows.Forms.Label lblFecha;
     }
 }

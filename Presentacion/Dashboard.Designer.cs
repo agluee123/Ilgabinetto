@@ -71,8 +71,9 @@
             this.Controls.Add(this.btnPedidos);
             this.Controls.Add(this.btnClientes);
             this.Controls.Add(this.btnArticulos);
+            this.MaximizeBox = false;
             this.Name = "Dashboard";
-            this.Text = "Form1";
+            this.Text = "Dashboard";
             this.ResumeLayout(false);
 
         }
