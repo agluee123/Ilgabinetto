@@ -23,7 +23,8 @@ namespace Presentacion
         private void Cargar_Pedido_Load(object sender, EventArgs e)
         {
             ArticuloNegocio negocio=new ArticuloNegocio();
-            List<Articulo> articulos=negocio.listar();  
+            List<Articulo> articulos=negocio.listar();
+            cbxArticulo.DataSource=articulos;
         }
 
         //aguante boca 

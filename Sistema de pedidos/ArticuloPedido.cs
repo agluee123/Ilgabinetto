@@ -12,5 +12,6 @@ namespace Dominio
         public int PedidoId { get; set; }
         public int ArticuloId { get; set; }
         public int Cantidad { get; set; }
+        public string Observacion { get; set; }
     }
 }

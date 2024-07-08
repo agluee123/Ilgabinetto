@@ -34,7 +34,7 @@
             this.lblCantidad = new System.Windows.Forms.Label();
             this.nmCantidad = new System.Windows.Forms.NumericUpDown();
             this.lblArticulo = new System.Windows.Forms.Label();
-            this.cbxArtculo = new System.Windows.Forms.ComboBox();
+            this.cbxArticulo = new System.Windows.Forms.ComboBox();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.gbxPedido.SuspendLayout();
@@ -49,7 +49,7 @@
             this.gbxPedido.Controls.Add(this.lblCantidad);
             this.gbxPedido.Controls.Add(this.nmCantidad);
             this.gbxPedido.Controls.Add(this.lblArticulo);
-            this.gbxPedido.Controls.Add(this.cbxArtculo);
+            this.gbxPedido.Controls.Add(this.cbxArticulo);
             this.gbxPedido.Location = new System.Drawing.Point(108, 12);
             this.gbxPedido.Name = "gbxPedido";
             this.gbxPedido.Size = new System.Drawing.Size(587, 125);
@@ -98,13 +98,13 @@
             this.lblArticulo.TabIndex = 1;
             this.lblArticulo.Text = "Seleccione el Articulo:";
             // 
-            // cbxArtculo
+            // cbxArticulo
             // 
-            this.cbxArtculo.FormattingEnabled = true;
-            this.cbxArtculo.Location = new System.Drawing.Point(111, 46);
-            this.cbxArtculo.Name = "cbxArtculo";
-            this.cbxArtculo.Size = new System.Drawing.Size(179, 21);
-            this.cbxArtculo.TabIndex = 0;
+            this.cbxArticulo.FormattingEnabled = true;
+            this.cbxArticulo.Location = new System.Drawing.Point(111, 46);
+            this.cbxArticulo.Name = "cbxArticulo";
+            this.cbxArticulo.Size = new System.Drawing.Size(179, 21);
+            this.cbxArticulo.TabIndex = 0;
             // 
             // btnAgregar
             // 
@@ -146,7 +146,7 @@
 
         private System.Windows.Forms.GroupBox gbxPedido;
         private System.Windows.Forms.Label lblArticulo;
-        private System.Windows.Forms.ComboBox cbxArtculo;
+        private System.Windows.Forms.ComboBox cbxArticulo;
         private System.Windows.Forms.Label lblCantidad;
         private System.Windows.Forms.NumericUpDown nmCantidad;
         private System.Windows.Forms.Button btnAgregar;
