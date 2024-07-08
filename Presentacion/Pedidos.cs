@@ -14,7 +14,6 @@ namespace Presentacion
 {
     public partial class Pedidos : Form
     {
-        private List<Cliente> clientes; 
         public Pedidos()
         {
             InitializeComponent();
@@ -24,6 +23,9 @@ namespace Presentacion
 
         private void Pedidos_Load(object sender, EventArgs e)
         {
+
+
+
             try
             {
                 PedidoNegocio negocio = new PedidoNegocio();
@@ -57,18 +59,7 @@ namespace Presentacion
             }
 
 
-
-
-            cbxCliente.ValueMember = "Id_cliente";
-
-            cbxCliente.ValueMember = "Id_cliente";
-
-            cbxCliente.ValueMember = "Id_cliente";
-
-            cbxCliente.ValueMember = "Id_cliente";
-
-            cbxCliente.ValueMember = "Id_cliente";
-
+           
 
 
         }
@@ -77,40 +68,40 @@ namespace Presentacion
         {
             PedidoNegocio negocio = new PedidoNegocio();
 
+            Pedido pedido = new Pedido();
 
-
+            try
             {
 
-
-                    negocio.CrearPedido(pedido);
-
-                    Cargar_Pedido agregar= new Cargar_Pedido();
-                    agregar.ShowDialog();
                 if (cbxCliente.SelectedItem != null)
                 {
                     Cliente seleccionado = (Cliente)cbxCliente.SelectedItem;
                     pedido.Fecha = dtpFechaPedido.Value;
                     pedido.ClienteId = seleccionado.IdCliente;
 
+                    negocio.CrearPedido(pedido);
 
 
-
-                MessageBox.Show("pedido cargado");
-
-
+                    Cargar_Pedido agregar = new Cargar_Pedido();
+                    agregar.ShowDialog();
 
 
+                }
+                else
+                {
+                    MessageBox.Show("Por favor, seleccione un cliente.");
+                }
 
-                MessageBox.Show("pedido cargado");
+            
 
             }
             catch (Exception ex)
             {
+
                 MessageBox.Show("Ocurrió un error: " + ex.Message);
+
             }
-
         }
-
 
 
     }
