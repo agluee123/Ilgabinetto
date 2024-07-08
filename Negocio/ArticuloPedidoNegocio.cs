@@ -20,10 +20,12 @@ namespace Negocio
                 datos.setearParametro("@cantidad", nuevo.Cantidad);
                 datos.setearParametro("@observacion", nuevo.Observacion);
 
+                datos.ejecutarAccion();
+
             }
 			catch (Exception ex)
 			{
-
+                datos.cerrarConexion();
 				throw ex;
 			}
 
