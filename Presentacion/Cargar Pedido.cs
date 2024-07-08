@@ -25,5 +25,7 @@ namespace Presentacion
             ArticuloNegocio negocio=new ArticuloNegocio();
             List<Articulo> articulos=negocio.listar();  
         }
+
+        //aguante boca 
     }
 }
