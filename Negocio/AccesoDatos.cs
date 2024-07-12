@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Dominio;
 using System.Data.SqlClient;
+using System.Data;
 
 namespace Negocio
 {
@@ -69,6 +70,24 @@ namespace Negocio
                 lector.Close();
             conexion.Close();
         }
+
+        public object ejecutarAccionEscalar()
+        {
+            return comando.ExecuteScalar();
+        }
+
+        public void abrirConexion()
+        {
+            if (conexion.State == ConnectionState.Closed)
+            {
+                conexion.Open();
+            }
+            comando.Connection = conexion;
+        }
+
+
+
+
 
     }
 }

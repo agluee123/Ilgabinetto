@@ -58,49 +58,38 @@ namespace Presentacion
                 MessageBox.Show("Ocurrió un error al filtrar clientes: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-
-           
-
-
         }
 
         private void BtnAgregarProducto_Click(object sender, EventArgs e)
         {
             PedidoNegocio negocio = new PedidoNegocio();
 
-            Pedido pedido = new Pedido();
-
             try
             {
-
                 if (cbxCliente.SelectedItem != null)
                 {
                     Cliente seleccionado = (Cliente)cbxCliente.SelectedItem;
-                    pedido.Fecha = dtpFechaPedido.Value;
-                    pedido.ClienteId = seleccionado.IdCliente;
+                    Pedido pedido = new Pedido
+                    {
+                        Fecha = dtpFechaPedido.Value,
+                        ClienteId = seleccionado.IdCliente
+                    };
 
-                    negocio.CrearPedido(pedido);
+                    int pedidoId = negocio.InsertarPedido(pedido);
 
-
-                    Cargar_Pedido agregar = new Cargar_Pedido();
+                    Cargar_Pedido agregar = new Cargar_Pedido(pedidoId);
                     agregar.ShowDialog();
-
-
                 }
                 else
                 {
                     MessageBox.Show("Por favor, seleccione un cliente.");
                 }
-
-            
-
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show("Ocurrió un error: " + ex.Message);
-
             }
+
         }
 
 

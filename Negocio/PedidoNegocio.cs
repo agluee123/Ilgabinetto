@@ -1,6 +1,7 @@
 ﻿using Dominio;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -47,35 +48,68 @@ namespace Negocio
         }
 
 
-        public void CrearPedido(Pedido nuevo)
-        {
-            AccesoDatos datos = new AccesoDatos();
+        //public void CrearPedido(Pedido nuevo)
+        //{
+        //    AccesoDatos datos = new AccesoDatos();
 
+        //    try
+        //    {
+        //        datos.setearConsulta("insert into Pedidos (fecha, cliente_id) values ( @fecha , @cliente_id )");
+        //        datos.setearParametro("@fecha", nuevo.Fecha);
+        //        datos.setearParametro("@cliente_id", nuevo.ClienteId);
+
+
+        //         datos.ejecutarAccion();
+
+                
+
+
+        //    }
+        //    catch (Exception ex)
+        //    {
+
+        //        throw ex;
+
+        //    }
+
+        //    finally { 
+
+        //        datos.cerrarConexion();
+            
+        //    }
+
+        //}
+
+
+        public int InsertarPedido(Pedido nuevo)
+        {
+            int pedidoId = 0;
+            AccesoDatos datos = new AccesoDatos();
             try
             {
-                datos.setearConsulta("insert into Pedidos (fecha, cliente_id) values ( @fecha , @cliente_id )");
-                datos.setearParametro("@fecha", nuevo.Fecha);
-                datos.setearParametro("@cliente_id", nuevo.ClienteId);
+                // Configurar la consulta SQL para insertar un pedido y obtener el ID generado automáticamente
+                datos.setearConsulta("insert into Pedidos (fecha, cliente_id) output inserted.id_pedido values (@Fecha, @ClienteId)");
+                datos.setearParametro("@Fecha", nuevo.Fecha);
+                datos.setearParametro("@ClienteId", nuevo.ClienteId);
 
-                datos.ejecutarAccion();
+                datos.abrirConexion();  
+                // Ejecutar la consulta y obtener el ID del pedido
+                pedidoId = (int)datos.ejecutarAccionEscalar();
 
-
-
+                
             }
             catch (Exception ex)
             {
-
                 throw ex;
-
             }
-
-            finally { 
-
+            finally
+            {
                 datos.cerrarConexion();
-            
             }
 
+            return pedidoId;
         }
+
 
 
 
