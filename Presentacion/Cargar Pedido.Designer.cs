@@ -36,10 +36,10 @@
             this.lblArticulo = new System.Windows.Forms.Label();
             this.cbxArticulo = new System.Windows.Forms.ComboBox();
             this.btnAgregar = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvPedido = new System.Windows.Forms.DataGridView();
             this.gbxPedido.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nmCantidad)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPedido)).BeginInit();
             this.SuspendLayout();
             // 
             // gbxPedido
@@ -116,20 +116,21 @@
             this.btnAgregar.UseVisualStyleBackColor = true;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
-            // dataGridView1
+            // dgvPedido
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 199);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(776, 402);
-            this.dataGridView1.TabIndex = 2;
+            this.dgvPedido.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPedido.Location = new System.Drawing.Point(12, 199);
+            this.dgvPedido.Name = "dgvPedido";
+            this.dgvPedido.Size = new System.Drawing.Size(776, 402);
+            this.dgvPedido.TabIndex = 2;
+            this.dgvPedido.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPedido_CellContentClick);
             // 
             // Cargar_Pedido
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 613);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvPedido);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.gbxPedido);
             this.Name = "Cargar_Pedido";
@@ -138,7 +139,7 @@
             this.gbxPedido.ResumeLayout(false);
             this.gbxPedido.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nmCantidad)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPedido)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -153,6 +154,6 @@
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.TextBox tbxObservacion;
         private System.Windows.Forms.Label lblObservacion;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvPedido;
     }
 }
