@@ -60,8 +60,14 @@ namespace Presentacion
             try
             {
                 lista = new ArticuloNegocio().listar();
-
                 dgvArticulos.DataSource = lista;
+                dgvArticulos.Columns["idArticulo"].Visible = false;
+
+                dgvArticulos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+
+                // Si quieres que la última columna ocupe el espacio restante
+                dgvArticulos.Columns[dgvArticulos.Columns.Count - 1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                dgvArticulos.ReadOnly = true;
             }
             catch (Exception ex)
             {

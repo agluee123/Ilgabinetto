@@ -119,9 +119,9 @@
             // dgvPedido
             // 
             this.dgvPedido.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPedido.Location = new System.Drawing.Point(12, 199);
+            this.dgvPedido.Location = new System.Drawing.Point(41, 172);
             this.dgvPedido.Name = "dgvPedido";
-            this.dgvPedido.Size = new System.Drawing.Size(776, 402);
+            this.dgvPedido.Size = new System.Drawing.Size(713, 402);
             this.dgvPedido.TabIndex = 2;
             this.dgvPedido.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPedido_CellContentClick);
             // 
@@ -129,7 +129,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 613);
+            this.ClientSize = new System.Drawing.Size(789, 613);
             this.Controls.Add(this.dgvPedido);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.gbxPedido);

@@ -15,6 +15,7 @@ namespace Presentacion
     public partial class Cargar_Pedido : Form
     {
         private List <Articulo> articulos;
+        private List <ArticuloPedido> pedidos;  
         public int PedidoId { get; set; }
         
 
@@ -31,6 +32,7 @@ namespace Presentacion
             cbxArticulo.DataSource=articulos;
             cbxArticulo.DisplayMember = "Nombre";
             cbxArticulo.ValueMember = "IdArticulo";
+            CargarDatos();
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -49,6 +51,7 @@ namespace Presentacion
                 negocio.agregar(nuevo);
 
                 MessageBox.Show("Artículo agregado al pedido.");
+                CargarDatos();
             }
             catch (Exception ex)
             {
@@ -59,6 +62,36 @@ namespace Presentacion
         private void dgvPedido_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void CargarDatos()
+        {
+
+            try
+            {
+                ArticuloPedidoNegocio negocio = new ArticuloPedidoNegocio();
+                pedidos = negocio.listar();
+                dgvPedido.DataSource = pedidos;
+                dgvPedido.Columns["IdArticulosPedido"].Visible = false;
+                dgvPedido.Columns["PedidoId"].Visible = false;
+                dgvPedido.Columns["ArticuloId"].Visible = false;
+
+                dgvPedido.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+
+                // Si quieres que la última columna ocupe el espacio restante
+                dgvPedido.Columns[dgvPedido.Columns.Count - 1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+
+        private void LimpiarDataGridView()
+        {
+            dgvPedido.DataSource = null;
+            dgvPedido.Rows.Clear();
+            dgvPedido.Columns.Clear();
         }
     }
 }
