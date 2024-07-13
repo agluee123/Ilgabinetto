@@ -71,7 +71,9 @@ namespace Presentacion
             {
                 ArticuloPedidoNegocio negocio = new ArticuloPedidoNegocio();
                 pedidos = negocio.listar();
-                dgvPedido.DataSource = pedidos;
+                var pedidosFiltrados = pedidos.Where(p => p.PedidoId == PedidoId).ToList();
+
+                dgvPedido.DataSource = pedidosFiltrados;
                 dgvPedido.Columns["IdArticulosPedido"].Visible = false;
                 dgvPedido.Columns["PedidoId"].Visible = false;
                 dgvPedido.Columns["ArticuloId"].Visible = false;
@@ -85,6 +87,8 @@ namespace Presentacion
             {
                 MessageBox.Show("Error: " + ex.Message);
             }
+
+
         }
 
         private void LimpiarDataGridView()
