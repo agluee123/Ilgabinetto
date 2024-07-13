@@ -33,6 +33,8 @@ namespace Presentacion
             cbxArticulo.DisplayMember = "Nombre";
             cbxArticulo.ValueMember = "IdArticulo";
             CargarDatos();
+            CambiarOrdenColumnas();
+            
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -91,11 +93,15 @@ namespace Presentacion
 
         }
 
-        private void LimpiarDataGridView()
+        private void CambiarOrdenColumnas()
         {
-            dgvPedido.DataSource = null;
-            dgvPedido.Rows.Clear();
-            dgvPedido.Columns.Clear();
+            
+            dgvPedido.Columns["Cantidad"].DisplayIndex = 0; // Primera columna
+            dgvPedido.Columns["NombreArticulo"].DisplayIndex = 1; // Segunda columna
+            dgvPedido.Columns["Observacion"].DisplayIndex = 2; // Tercera columna
+                                                                  
         }
+
+
     }
 }

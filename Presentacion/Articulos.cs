@@ -28,7 +28,6 @@ namespace Presentacion
             {
                 NuevoArticulo.Nombre=tbxNombre.Text; 
                 NuevoArticulo.Categoria=cbxCategoria.SelectedItem?.ToString(); 
-                NuevoArticulo.Medida=tbxMedida.Text; 
                 NuevoArticulo.Perforacion=cbxPerforacion.SelectedItem?.ToString();   
                 NuevoArticulo.Color=cbxColor.SelectedItem?.ToString();
 
@@ -61,13 +60,7 @@ namespace Presentacion
             {
                 lista = new ArticuloNegocio().listar();
                 dgvArticulos.DataSource = lista;
-                dgvArticulos.Columns["idArticulo"].Visible = false;
-
-                dgvArticulos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-
-                // Si quieres que la última columna ocupe el espacio restante
-                dgvArticulos.Columns[dgvArticulos.Columns.Count - 1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-                dgvArticulos.ReadOnly = true;
+                
             }
             catch (Exception ex)
             {
@@ -78,6 +71,7 @@ namespace Presentacion
         private void Articulos_Load(object sender, EventArgs e)
         {
             CargarDatos();
+            ModificarColumnas();
         }
 
         private void dgvArticulos_SelectionChanged(object sender, EventArgs e)
@@ -87,7 +81,6 @@ namespace Presentacion
                 Articulo seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
                 tbxNombre.Text = seleccionado.Nombre;
                 cbxCategoria.SelectedItem = seleccionado.Categoria;
-                tbxMedida.Text = seleccionado.Medida;
                 cbxPerforacion.SelectedItem = seleccionado.Perforacion;
                 cbxColor.SelectedItem = seleccionado.Color; 
 
@@ -139,6 +132,7 @@ namespace Presentacion
             // Actualizar el DataSource del DataGridView con la lista filtrada
             dgvArticulos.DataSource = null; // Limpiar el DataSource previo si lo hubiera
             dgvArticulos.DataSource = listaFiltrada; // Asignar la lista filtrada como DataSource del DataGridView
+            ModificarColumnas();
 
 
         }
@@ -151,7 +145,6 @@ namespace Presentacion
 
                 seleccionado.Nombre = tbxNombre.Text;
                 seleccionado.Categoria = cbxCategoria.SelectedItem?.ToString();
-                seleccionado.Medida = tbxMedida.Text;
                 seleccionado.Perforacion = cbxPerforacion.SelectedItem?.ToString();
                 seleccionado.Color = cbxColor.SelectedItem?.ToString();
 
@@ -178,9 +171,22 @@ namespace Presentacion
         {
             tbxNombre.Clear();
             cbxCategoria.SelectedItem = null;
-            tbxMedida.Clear();
             cbxPerforacion.SelectedItem=null;
             cbxColor.SelectedItem = null;   
+        }
+
+       private void ModificarColumnas()
+        {
+            dgvArticulos.Columns["idArticulo"].Visible = false;
+            dgvArticulos.Columns["Medida"].Visible = false;
+
+
+            dgvArticulos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+
+            // Si quieres que la última columna ocupe el espacio restante
+            dgvArticulos.Columns[dgvArticulos.Columns.Count - 1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvArticulos.ReadOnly = true;
+
         }
     }
 }

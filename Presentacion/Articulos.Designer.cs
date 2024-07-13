@@ -30,12 +30,10 @@
         {
             this.lblNombre = new System.Windows.Forms.Label();
             this.lblCategoria = new System.Windows.Forms.Label();
-            this.lblMedida = new System.Windows.Forms.Label();
             this.lblPerforacion = new System.Windows.Forms.Label();
             this.lblColor = new System.Windows.Forms.Label();
             this.tbxNombre = new System.Windows.Forms.TextBox();
             this.cbxCategoria = new System.Windows.Forms.ComboBox();
-            this.tbxMedida = new System.Windows.Forms.TextBox();
             this.cbxPerforacion = new System.Windows.Forms.ComboBox();
             this.cbxColor = new System.Windows.Forms.ComboBox();
             this.btnAgregar = new System.Windows.Forms.Button();
@@ -45,13 +43,15 @@
             this.lblFiltro = new System.Windows.Forms.Label();
             this.btnModiicar = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
+            this.gbxArticulo = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).BeginInit();
+            this.gbxArticulo.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblNombre
             // 
             this.lblNombre.AutoSize = true;
-            this.lblNombre.Location = new System.Drawing.Point(71, 78);
+            this.lblNombre.Location = new System.Drawing.Point(71, 19);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(44, 13);
             this.lblNombre.TabIndex = 0;
@@ -60,25 +60,16 @@
             // lblCategoria
             // 
             this.lblCategoria.AutoSize = true;
-            this.lblCategoria.Location = new System.Drawing.Point(71, 125);
+            this.lblCategoria.Location = new System.Drawing.Point(71, 66);
             this.lblCategoria.Name = "lblCategoria";
             this.lblCategoria.Size = new System.Drawing.Size(52, 13);
             this.lblCategoria.TabIndex = 1;
             this.lblCategoria.Text = "Categoria";
             // 
-            // lblMedida
-            // 
-            this.lblMedida.AutoSize = true;
-            this.lblMedida.Location = new System.Drawing.Point(71, 166);
-            this.lblMedida.Name = "lblMedida";
-            this.lblMedida.Size = new System.Drawing.Size(42, 13);
-            this.lblMedida.TabIndex = 2;
-            this.lblMedida.Text = "Medida";
-            // 
             // lblPerforacion
             // 
             this.lblPerforacion.AutoSize = true;
-            this.lblPerforacion.Location = new System.Drawing.Point(71, 213);
+            this.lblPerforacion.Location = new System.Drawing.Point(71, 106);
             this.lblPerforacion.Name = "lblPerforacion";
             this.lblPerforacion.Size = new System.Drawing.Size(61, 13);
             this.lblPerforacion.TabIndex = 3;
@@ -87,7 +78,7 @@
             // lblColor
             // 
             this.lblColor.AutoSize = true;
-            this.lblColor.Location = new System.Drawing.Point(71, 261);
+            this.lblColor.Location = new System.Drawing.Point(71, 154);
             this.lblColor.Name = "lblColor";
             this.lblColor.Size = new System.Drawing.Size(31, 13);
             this.lblColor.TabIndex = 4;
@@ -95,7 +86,7 @@
             // 
             // tbxNombre
             // 
-            this.tbxNombre.Location = new System.Drawing.Point(152, 78);
+            this.tbxNombre.Location = new System.Drawing.Point(152, 19);
             this.tbxNombre.Name = "tbxNombre";
             this.tbxNombre.Size = new System.Drawing.Size(100, 20);
             this.tbxNombre.TabIndex = 5;
@@ -106,17 +97,10 @@
             this.cbxCategoria.Items.AddRange(new object[] {
             "Mueble",
             "Mesada"});
-            this.cbxCategoria.Location = new System.Drawing.Point(152, 122);
+            this.cbxCategoria.Location = new System.Drawing.Point(152, 63);
             this.cbxCategoria.Name = "cbxCategoria";
             this.cbxCategoria.Size = new System.Drawing.Size(121, 21);
             this.cbxCategoria.TabIndex = 6;
-            // 
-            // tbxMedida
-            // 
-            this.tbxMedida.Location = new System.Drawing.Point(152, 163);
-            this.tbxMedida.Name = "tbxMedida";
-            this.tbxMedida.Size = new System.Drawing.Size(100, 20);
-            this.tbxMedida.TabIndex = 7;
             // 
             // cbxPerforacion
             // 
@@ -126,7 +110,7 @@
             "Tres agujeros",
             "Monocomando",
             "No corresponde"});
-            this.cbxPerforacion.Location = new System.Drawing.Point(152, 213);
+            this.cbxPerforacion.Location = new System.Drawing.Point(152, 106);
             this.cbxPerforacion.Name = "cbxPerforacion";
             this.cbxPerforacion.Size = new System.Drawing.Size(121, 21);
             this.cbxPerforacion.TabIndex = 8;
@@ -138,14 +122,14 @@
             this.cbxColor.Items.AddRange(new object[] {
             "Blanco",
             "Wengue"});
-            this.cbxColor.Location = new System.Drawing.Point(152, 258);
+            this.cbxColor.Location = new System.Drawing.Point(152, 151);
             this.cbxColor.Name = "cbxColor";
             this.cbxColor.Size = new System.Drawing.Size(121, 21);
             this.cbxColor.TabIndex = 9;
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(32, 304);
+            this.btnAgregar.Location = new System.Drawing.Point(32, 197);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(129, 23);
             this.btnAgregar.TabIndex = 10;
@@ -166,7 +150,7 @@
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(74, 362);
+            this.btnEliminar.Location = new System.Drawing.Point(74, 255);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(75, 23);
             this.btnEliminar.TabIndex = 12;
@@ -193,7 +177,7 @@
             // 
             // btnModiicar
             // 
-            this.btnModiicar.Location = new System.Drawing.Point(206, 303);
+            this.btnModiicar.Location = new System.Drawing.Point(206, 196);
             this.btnModiicar.Name = "btnModiicar";
             this.btnModiicar.Size = new System.Drawing.Size(75, 23);
             this.btnModiicar.TabIndex = 15;
@@ -203,7 +187,7 @@
             // 
             // btnLimpiar
             // 
-            this.btnLimpiar.Location = new System.Drawing.Point(206, 361);
+            this.btnLimpiar.Location = new System.Drawing.Point(206, 254);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(75, 23);
             this.btnLimpiar.TabIndex = 16;
@@ -211,32 +195,42 @@
             this.btnLimpiar.UseVisualStyleBackColor = true;
             this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
+            // gbxArticulo
+            // 
+            this.gbxArticulo.Controls.Add(this.tbxNombre);
+            this.gbxArticulo.Controls.Add(this.btnLimpiar);
+            this.gbxArticulo.Controls.Add(this.lblNombre);
+            this.gbxArticulo.Controls.Add(this.btnModiicar);
+            this.gbxArticulo.Controls.Add(this.lblCategoria);
+            this.gbxArticulo.Controls.Add(this.lblPerforacion);
+            this.gbxArticulo.Controls.Add(this.lblColor);
+            this.gbxArticulo.Controls.Add(this.btnEliminar);
+            this.gbxArticulo.Controls.Add(this.cbxCategoria);
+            this.gbxArticulo.Controls.Add(this.cbxPerforacion);
+            this.gbxArticulo.Controls.Add(this.btnAgregar);
+            this.gbxArticulo.Controls.Add(this.cbxColor);
+            this.gbxArticulo.Location = new System.Drawing.Point(30, 68);
+            this.gbxArticulo.Name = "gbxArticulo";
+            this.gbxArticulo.Size = new System.Drawing.Size(361, 528);
+            this.gbxArticulo.TabIndex = 17;
+            this.gbxArticulo.TabStop = false;
+            this.gbxArticulo.Text = "Cargar Articulo";
+            // 
             // Articulos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1149, 634);
-            this.Controls.Add(this.btnLimpiar);
-            this.Controls.Add(this.btnModiicar);
+            this.Controls.Add(this.gbxArticulo);
             this.Controls.Add(this.lblFiltro);
             this.Controls.Add(this.tbxFiltro);
-            this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.dgvArticulos);
-            this.Controls.Add(this.btnAgregar);
-            this.Controls.Add(this.cbxColor);
-            this.Controls.Add(this.cbxPerforacion);
-            this.Controls.Add(this.tbxMedida);
-            this.Controls.Add(this.cbxCategoria);
-            this.Controls.Add(this.tbxNombre);
-            this.Controls.Add(this.lblColor);
-            this.Controls.Add(this.lblPerforacion);
-            this.Controls.Add(this.lblMedida);
-            this.Controls.Add(this.lblCategoria);
-            this.Controls.Add(this.lblNombre);
             this.Name = "Articulos";
             this.Text = "Articulos";
             this.Load += new System.EventHandler(this.Articulos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).EndInit();
+            this.gbxArticulo.ResumeLayout(false);
+            this.gbxArticulo.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -246,12 +240,10 @@
 
         private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.Label lblCategoria;
-        private System.Windows.Forms.Label lblMedida;
         private System.Windows.Forms.Label lblPerforacion;
         private System.Windows.Forms.Label lblColor;
         private System.Windows.Forms.TextBox tbxNombre;
         private System.Windows.Forms.ComboBox cbxCategoria;
-        private System.Windows.Forms.TextBox tbxMedida;
         private System.Windows.Forms.ComboBox cbxPerforacion;
         private System.Windows.Forms.ComboBox cbxColor;
         private System.Windows.Forms.Button btnAgregar;
@@ -261,5 +253,6 @@
         private System.Windows.Forms.Label lblFiltro;
         private System.Windows.Forms.Button btnModiicar;
         private System.Windows.Forms.Button btnLimpiar;
+        private System.Windows.Forms.GroupBox gbxArticulo;
     }
 }

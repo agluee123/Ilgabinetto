@@ -61,15 +61,8 @@ namespace Presentacion
             try
             {
                 listaCliente = new ClienteNegocio().listar();
-
                 dgvClientes.DataSource = listaCliente;
 
-                dgvClientes.Columns["idCliente"].Visible = false;
-                dgvClientes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-
-                // Si quieres que la última columna ocupe el espacio restante
-                dgvClientes.Columns[dgvClientes.Columns.Count - 1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-                dgvClientes.ReadOnly = true;
             }
             catch (Exception ex)
             {
@@ -80,6 +73,7 @@ namespace Presentacion
         private void Clientes_Load(object sender, EventArgs e)
         {
             CargarDatos();
+            ModificarColumnas();
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -187,7 +181,21 @@ namespace Presentacion
 
             // Actualizar el DataSource del DataGridView con la lista filtrada
             dgvClientes.DataSource = null; 
-            dgvClientes.DataSource = listaFiltrada; 
+            dgvClientes.DataSource = listaFiltrada;
+            ModificarColumnas();
+        }
+
+        private void ModificarColumnas()
+        {
+            dgvClientes.Columns["idCliente"].Visible = false;
+
+
+            dgvClientes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+
+            // Si quieres que la última columna ocupe el espacio restante
+            dgvClientes.Columns[dgvClientes.Columns.Count - 1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvClientes.ReadOnly = true;
+
         }
     }
 }

@@ -34,7 +34,10 @@
             this.gbxCrearPedido = new System.Windows.Forms.GroupBox();
             this.lblFecha = new System.Windows.Forms.Label();
             this.dtpFechaPedido = new System.Windows.Forms.DateTimePicker();
+            this.dgvListaPedidos = new System.Windows.Forms.DataGridView();
+            this.button1 = new System.Windows.Forms.Button();
             this.gbxCrearPedido.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListaPedidos)).BeginInit();
             this.SuspendLayout();
             // 
             // cbxCliente
@@ -56,7 +59,7 @@
             // 
             // BtnAgregarProducto
             // 
-            this.BtnAgregarProducto.Location = new System.Drawing.Point(157, 136);
+            this.BtnAgregarProducto.Location = new System.Drawing.Point(45, 153);
             this.BtnAgregarProducto.Name = "BtnAgregarProducto";
             this.BtnAgregarProducto.Size = new System.Drawing.Size(134, 23);
             this.BtnAgregarProducto.TabIndex = 3;
@@ -66,14 +69,15 @@
             // 
             // gbxCrearPedido
             // 
+            this.gbxCrearPedido.Controls.Add(this.button1);
             this.gbxCrearPedido.Controls.Add(this.lblFecha);
             this.gbxCrearPedido.Controls.Add(this.dtpFechaPedido);
             this.gbxCrearPedido.Controls.Add(this.lblCliente);
             this.gbxCrearPedido.Controls.Add(this.BtnAgregarProducto);
             this.gbxCrearPedido.Controls.Add(this.cbxCliente);
-            this.gbxCrearPedido.Location = new System.Drawing.Point(137, 68);
+            this.gbxCrearPedido.Location = new System.Drawing.Point(12, 26);
             this.gbxCrearPedido.Name = "gbxCrearPedido";
-            this.gbxCrearPedido.Size = new System.Drawing.Size(453, 178);
+            this.gbxCrearPedido.Size = new System.Drawing.Size(364, 199);
             this.gbxCrearPedido.TabIndex = 4;
             this.gbxCrearPedido.TabStop = false;
             this.gbxCrearPedido.Text = "Crear Pedido";
@@ -94,17 +98,36 @@
             this.dtpFechaPedido.Size = new System.Drawing.Size(200, 20);
             this.dtpFechaPedido.TabIndex = 4;
             // 
+            // dgvListaPedidos
+            // 
+            this.dgvListaPedidos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvListaPedidos.Location = new System.Drawing.Point(440, 26);
+            this.dgvListaPedidos.Name = "dgvListaPedidos";
+            this.dgvListaPedidos.Size = new System.Drawing.Size(632, 481);
+            this.dgvListaPedidos.TabIndex = 5;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(207, 153);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(134, 23);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "Eliminar Pedido";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // Pedidos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(710, 337);
+            this.ClientSize = new System.Drawing.Size(1098, 613);
+            this.Controls.Add(this.dgvListaPedidos);
             this.Controls.Add(this.gbxCrearPedido);
             this.Name = "Pedidos";
             this.Text = "Crear Pedido";
             this.Load += new System.EventHandler(this.Pedidos_Load);
             this.gbxCrearPedido.ResumeLayout(false);
             this.gbxCrearPedido.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListaPedidos)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -117,5 +140,7 @@
         private System.Windows.Forms.GroupBox gbxCrearPedido;
         private System.Windows.Forms.DateTimePicker dtpFechaPedido;
         private System.Windows.Forms.Label lblFecha;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridView dgvListaPedidos;
     }
 }
