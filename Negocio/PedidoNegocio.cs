@@ -48,39 +48,7 @@ namespace Negocio
         }
 
 
-        //public void CrearPedido(Pedido nuevo)
-        //{
-        //    AccesoDatos datos = new AccesoDatos();
-
-        //    try
-        //    {
-        //        datos.setearConsulta("insert into Pedidos (fecha, cliente_id) values ( @fecha , @cliente_id )");
-        //        datos.setearParametro("@fecha", nuevo.Fecha);
-        //        datos.setearParametro("@cliente_id", nuevo.ClienteId);
-
-
-        //         datos.ejecutarAccion();
-
-                
-
-
-        //    }
-        //    catch (Exception ex)
-        //    {
-
-        //        throw ex;
-
-        //    }
-
-        //    finally { 
-
-        //        datos.cerrarConexion();
-            
-        //    }
-
-        //}
-
-
+       
         public int InsertarPedido(Pedido nuevo)
         {
             int pedidoId = 0;
@@ -108,6 +76,50 @@ namespace Negocio
             }
 
             return pedidoId;
+        }
+
+        public  List<Pedido> ListarPedidos()
+        {
+            List<Pedido> lista = new List<Pedido>();
+            SqlConnection conexion = new SqlConnection();
+            SqlCommand comando = new SqlCommand();
+            SqlDataReader lector;
+
+            try
+            {
+                conexion.ConnectionString = "server=.\\SQLEXPRESS; database=ILGABINETTO; integrated security=true";
+                comando.CommandType = System.Data.CommandType.Text;
+
+                comando.CommandText = "select  Pedidos.id_pedido ,  clientes.nombre as Nombre_Cliente, Pedidos.fecha as fecha_Del_Pedido from Pedidos join Clientes on Clientes.id_cliente = Pedidos.cliente_id;";
+                comando.Connection = conexion;
+
+                conexion.Open();
+                lector= comando.ExecuteReader();
+
+                while (lector.Read())
+                {
+                    Pedido aux = new Pedido
+                    {
+                        IdPedido = (int)lector["id_pedido"],
+                        NombreCliente = (string)lector["Nombre_Cliente"],
+                        Fecha = (DateTime)lector["Fecha_Del_Pedido"]
+                    };
+
+                    lista.Add(aux);
+
+                }
+
+                conexion.Close();
+                return lista;
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+
         }
 
 

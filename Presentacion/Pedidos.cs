@@ -14,6 +14,7 @@ namespace Presentacion
 {
     public partial class Pedidos : Form
     {
+        private List<Pedido> pedidos;
         public Pedidos()
         {
             InitializeComponent();
@@ -57,6 +58,7 @@ namespace Presentacion
             {
                 MessageBox.Show("Ocurrió un error al filtrar clientes: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            ListarPedido();
 
         }
 
@@ -89,6 +91,15 @@ namespace Presentacion
             {
                 MessageBox.Show("Ocurrió un error: " + ex.Message);
             }
+
+        }
+
+        private void ListarPedido()
+        {
+            PedidoNegocio nuevo= new PedidoNegocio();
+            List<Pedido> pedidos = nuevo.ListarPedidos();
+            dgvListaPedidos.DataSource = pedidos;
+
 
         }
 
