@@ -115,7 +115,7 @@
             this.dgvListaPedidos.Size = new System.Drawing.Size(632, 481);
             this.dgvListaPedidos.TabIndex = 5;
             this.dgvListaPedidos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListaPedidos_CellClick);
-            // 
+           // 
             // Pedidos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);

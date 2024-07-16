@@ -19,7 +19,7 @@ namespace Presentacion
         public Pedidos()
         {
             InitializeComponent();
-            dgvListaPedidos.CellClick += new DataGridViewCellEventHandler(dgvListaPedidos_CellClick);
+            //dgvListaPedidos.CellClick += new DataGridViewCellEventHandler(dgvListaPedidos_CellClick);
         }
 
 
@@ -56,13 +56,16 @@ namespace Presentacion
                 cbxCliente.DataSource = clientesFiltrados; // Establecer el DataSource con la lista filtrada
                 cbxCliente.DisplayMember = "Nombre"; // Especificar la propiedad que quieres mostrar en la ComboBox
                 ListarPedido();
+
                 AgregarBoton();
-           
+               
+
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Ocurrió un error al filtrar clientes: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
 
         }
 
@@ -122,17 +125,16 @@ namespace Presentacion
 
         private void dgvListaPedidos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == dgvListaPedidos.Columns["VerPedido"].Index && e.RowIndex >= 0)
+
+            if (e.ColumnIndex == dgvListaPedidos.Columns["Ver Pedido"].Index && e.RowIndex >= 0)
             {
                 try
                 {
                     int pedidoId = (int)dgvListaPedidos.Rows[e.RowIndex].Cells["IdPedido"].Value;
-                    ArticuloPedidoNegocio negocio = new ArticuloPedidoNegocio();
-                    List<ArticuloPedido> listaArticulosPedido = negocio.listar(pedidoId);
 
-                    // Mostrar el formulario de detalles del pedido
-                    Cargar_Pedido form=new Cargar_Pedido(listaArticulosPedido); 
+                    Cargar_Pedido form = new Cargar_Pedido(pedidoId);
                     form.ShowDialog();
+
                 }
                 catch (Exception ex)
                 {
@@ -141,6 +143,9 @@ namespace Presentacion
             }
 
 
+
         }
+
+      
     }
 }
