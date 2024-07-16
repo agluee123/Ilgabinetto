@@ -61,11 +61,6 @@ namespace Presentacion
             }
         }
 
-        private void dgvPedido_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void CargarDatos()
         {
 

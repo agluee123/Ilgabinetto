@@ -123,7 +123,6 @@
             this.dgvPedido.Name = "dgvPedido";
             this.dgvPedido.Size = new System.Drawing.Size(713, 402);
             this.dgvPedido.TabIndex = 2;
-            this.dgvPedido.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPedido_CellContentClick);
             // 
             // Cargar_Pedido
             // 

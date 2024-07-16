@@ -15,9 +15,11 @@ namespace Presentacion
     public partial class Pedidos : Form
     {
         private List<Pedido> pedidos;
+        private List<Pedido> VerPedido;
         public Pedidos()
         {
             InitializeComponent();
+            dgvListaPedidos.CellClick += new DataGridViewCellEventHandler(dgvListaPedidos_CellClick);
         }
 
 
@@ -53,12 +55,14 @@ namespace Presentacion
                 cbxCliente.DataSource = null; // Limpiar el DataSource para evitar conflictos
                 cbxCliente.DataSource = clientesFiltrados; // Establecer el DataSource con la lista filtrada
                 cbxCliente.DisplayMember = "Nombre"; // Especificar la propiedad que quieres mostrar en la ComboBox
+                ListarPedido();
+                AgregarBoton();
+           
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Ocurrió un error al filtrar clientes: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            ListarPedido();
 
         }
 
@@ -103,6 +107,40 @@ namespace Presentacion
 
         }
 
+        private void AgregarBoton()
+        {
+            DataGridViewButtonColumn VerPedido= new DataGridViewButtonColumn();
+            VerPedido.Name = "Ver Pedido";
+            VerPedido.Text = "Ver Pedido";
+            VerPedido.UseColumnTextForButtonValue = true;
+            VerPedido.DefaultCellStyle.BackColor = Color.LightBlue;
+            VerPedido.DefaultCellStyle.ForeColor = Color.DarkBlue;
+            VerPedido.DefaultCellStyle.SelectionBackColor = Color.LightGreen;
+            VerPedido.DefaultCellStyle.SelectionForeColor = Color.DarkGreen;
+            VerPedido.HeaderText = "Acciones";     dgvListaPedidos.Columns.Add(VerPedido); 
+        }
 
+        private void dgvListaPedidos_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == dgvListaPedidos.Columns["VerPedido"].Index && e.RowIndex >= 0)
+            {
+                try
+                {
+                    int pedidoId = (int)dgvListaPedidos.Rows[e.RowIndex].Cells["IdPedido"].Value;
+                    ArticuloPedidoNegocio negocio = new ArticuloPedidoNegocio();
+                    List<ArticuloPedido> listaArticulosPedido = negocio.listar(pedidoId);
+
+                    // Mostrar el formulario de detalles del pedido
+                    Cargar_Pedido form=new Cargar_Pedido(listaArticulosPedido); 
+                    form.ShowDialog();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Ocurrió un error al cargar los detalles del pedido: " + ex.Message);
+                }
+            }
+
+
+        }
     }
 }
