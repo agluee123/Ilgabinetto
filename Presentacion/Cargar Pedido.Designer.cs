@@ -85,9 +85,19 @@
             // nmCantidad
             // 
             this.nmCantidad.Location = new System.Drawing.Point(398, 47);
+            this.nmCantidad.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.nmCantidad.Name = "nmCantidad";
             this.nmCantidad.Size = new System.Drawing.Size(53, 20);
             this.nmCantidad.TabIndex = 2;
+            this.nmCantidad.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // lblArticulo
             // 

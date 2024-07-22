@@ -35,5 +35,11 @@ namespace Presentacion
             agregar.ShowDialog();
 
         }
+
+        private void btnRegistros_Click(object sender, EventArgs e)
+        {
+            Registros agregar= new Registros();
+            agregar.ShowDialog();
+        }
     }
 }

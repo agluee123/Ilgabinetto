@@ -80,7 +80,7 @@
             this.gbxCrearPedido.Size = new System.Drawing.Size(364, 199);
             this.gbxCrearPedido.TabIndex = 4;
             this.gbxCrearPedido.TabStop = false;
-            this.gbxCrearPedido.Text = "Crear Pedido";
+            this.gbxCrearPedido.Text = "Crear Nuevo Pedido";
             // 
             // button1
             // 
@@ -115,7 +115,7 @@
             this.dgvListaPedidos.Size = new System.Drawing.Size(632, 481);
             this.dgvListaPedidos.TabIndex = 5;
             this.dgvListaPedidos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListaPedidos_CellClick);
-           // 
+            // 
             // Pedidos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);

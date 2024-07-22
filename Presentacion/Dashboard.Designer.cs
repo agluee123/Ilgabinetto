@@ -31,11 +31,12 @@
             this.btnArticulos = new System.Windows.Forms.Button();
             this.btnClientes = new System.Windows.Forms.Button();
             this.btnPedidos = new System.Windows.Forms.Button();
+            this.btnRegistros = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnArticulos
             // 
-            this.btnArticulos.Location = new System.Drawing.Point(331, 21);
+            this.btnArticulos.Location = new System.Drawing.Point(290, 12);
             this.btnArticulos.Name = "btnArticulos";
             this.btnArticulos.Size = new System.Drawing.Size(129, 83);
             this.btnArticulos.TabIndex = 0;
@@ -45,7 +46,7 @@
             // 
             // btnClientes
             // 
-            this.btnClientes.Location = new System.Drawing.Point(331, 128);
+            this.btnClientes.Location = new System.Drawing.Point(290, 119);
             this.btnClientes.Name = "btnClientes";
             this.btnClientes.Size = new System.Drawing.Size(129, 83);
             this.btnClientes.TabIndex = 1;
@@ -55,7 +56,7 @@
             // 
             // btnPedidos
             // 
-            this.btnPedidos.Location = new System.Drawing.Point(331, 242);
+            this.btnPedidos.Location = new System.Drawing.Point(290, 233);
             this.btnPedidos.Name = "btnPedidos";
             this.btnPedidos.Size = new System.Drawing.Size(129, 83);
             this.btnPedidos.TabIndex = 2;
@@ -63,11 +64,22 @@
             this.btnPedidos.UseVisualStyleBackColor = true;
             this.btnPedidos.Click += new System.EventHandler(this.btnPedidos_Click);
             // 
+            // btnRegistros
+            // 
+            this.btnRegistros.Location = new System.Drawing.Point(290, 345);
+            this.btnRegistros.Name = "btnRegistros";
+            this.btnRegistros.Size = new System.Drawing.Size(129, 83);
+            this.btnRegistros.TabIndex = 3;
+            this.btnRegistros.Text = "Registros";
+            this.btnRegistros.UseVisualStyleBackColor = true;
+            this.btnRegistros.Click += new System.EventHandler(this.btnRegistros_Click);
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(711, 467);
+            this.Controls.Add(this.btnRegistros);
             this.Controls.Add(this.btnPedidos);
             this.Controls.Add(this.btnClientes);
             this.Controls.Add(this.btnArticulos);
@@ -83,6 +95,7 @@
         private System.Windows.Forms.Button btnArticulos;
         private System.Windows.Forms.Button btnClientes;
         private System.Windows.Forms.Button btnPedidos;
+        private System.Windows.Forms.Button btnRegistros;
     }
 }
 

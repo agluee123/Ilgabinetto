@@ -58,6 +58,8 @@ namespace Presentacion
                 ListarPedido();
 
                 AgregarBoton();
+                ModificarColumnas();    
+                
                
 
             }
@@ -146,6 +148,20 @@ namespace Presentacion
 
         }
 
-      
+        private void ModificarColumnas()
+        {
+            dgvListaPedidos.Columns["idPedido"].Visible = false;
+            dgvListaPedidos.Columns["ClienteId"].Visible = false;
+
+
+            dgvListaPedidos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+
+            // Si quieres que la última columna ocupe el espacio restante
+            dgvListaPedidos.Columns[dgvListaPedidos.Columns.Count - 1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvListaPedidos.ReadOnly = true;
+
+        }
+
+
     }
 }
