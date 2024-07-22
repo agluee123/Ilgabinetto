@@ -83,8 +83,9 @@ namespace Presentacion
                     Pedido pedido = new Pedido
                     {
                         Fecha = dtpFechaPedido.Value,
-                        ClienteId = seleccionado.IdCliente
-                    };
+                        ClienteId = seleccionado.IdCliente,
+                        Tipo = cbxTipo.SelectedItem?.ToString()
+                };
 
                     int pedidoId = negocio.InsertarPedido(pedido);
 

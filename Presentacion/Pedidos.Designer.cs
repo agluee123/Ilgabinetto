@@ -32,6 +32,8 @@
             this.lblCliente = new System.Windows.Forms.Label();
             this.BtnAgregarProducto = new System.Windows.Forms.Button();
             this.gbxCrearPedido = new System.Windows.Forms.GroupBox();
+            this.lblTipo = new System.Windows.Forms.Label();
+            this.cbxTipo = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.lblFecha = new System.Windows.Forms.Label();
             this.dtpFechaPedido = new System.Windows.Forms.DateTimePicker();
@@ -59,7 +61,7 @@
             // 
             // BtnAgregarProducto
             // 
-            this.BtnAgregarProducto.Location = new System.Drawing.Point(45, 153);
+            this.BtnAgregarProducto.Location = new System.Drawing.Point(39, 187);
             this.BtnAgregarProducto.Name = "BtnAgregarProducto";
             this.BtnAgregarProducto.Size = new System.Drawing.Size(134, 23);
             this.BtnAgregarProducto.TabIndex = 3;
@@ -69,6 +71,8 @@
             // 
             // gbxCrearPedido
             // 
+            this.gbxCrearPedido.Controls.Add(this.lblTipo);
+            this.gbxCrearPedido.Controls.Add(this.cbxTipo);
             this.gbxCrearPedido.Controls.Add(this.button1);
             this.gbxCrearPedido.Controls.Add(this.lblFecha);
             this.gbxCrearPedido.Controls.Add(this.dtpFechaPedido);
@@ -77,14 +81,34 @@
             this.gbxCrearPedido.Controls.Add(this.cbxCliente);
             this.gbxCrearPedido.Location = new System.Drawing.Point(12, 26);
             this.gbxCrearPedido.Name = "gbxCrearPedido";
-            this.gbxCrearPedido.Size = new System.Drawing.Size(364, 199);
+            this.gbxCrearPedido.Size = new System.Drawing.Size(364, 243);
             this.gbxCrearPedido.TabIndex = 4;
             this.gbxCrearPedido.TabStop = false;
             this.gbxCrearPedido.Text = "Crear Nuevo Pedido";
             // 
+            // lblTipo
+            // 
+            this.lblTipo.AutoSize = true;
+            this.lblTipo.Location = new System.Drawing.Point(24, 129);
+            this.lblTipo.Name = "lblTipo";
+            this.lblTipo.Size = new System.Drawing.Size(82, 13);
+            this.lblTipo.TabIndex = 8;
+            this.lblTipo.Text = "Tipo de Pedido:";
+            // 
+            // cbxTipo
+            // 
+            this.cbxTipo.FormattingEnabled = true;
+            this.cbxTipo.Items.AddRange(new object[] {
+            "Viaje",
+            "Semanal"});
+            this.cbxTipo.Location = new System.Drawing.Point(126, 121);
+            this.cbxTipo.Name = "cbxTipo";
+            this.cbxTipo.Size = new System.Drawing.Size(200, 21);
+            this.cbxTipo.TabIndex = 7;
+            // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(207, 153);
+            this.button1.Location = new System.Drawing.Point(210, 187);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(134, 23);
             this.button1.TabIndex = 6;
@@ -143,5 +167,7 @@
         private System.Windows.Forms.Label lblFecha;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView dgvListaPedidos;
+        private System.Windows.Forms.Label lblTipo;
+        private System.Windows.Forms.ComboBox cbxTipo;
     }
 }

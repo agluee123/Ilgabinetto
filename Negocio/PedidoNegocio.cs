@@ -56,9 +56,10 @@ namespace Negocio
             try
             {
                 // Configurar la consulta SQL para insertar un pedido y obtener el ID generado automáticamente
-                datos.setearConsulta("insert into Pedidos (fecha, cliente_id) output inserted.id_pedido values (@Fecha, @ClienteId)");
+                datos.setearConsulta("insert into Pedidos (fecha, cliente_id,tipo) output inserted.id_pedido values (@Fecha, @ClienteId,@Tipo)");
                 datos.setearParametro("@Fecha", nuevo.Fecha);
                 datos.setearParametro("@ClienteId", nuevo.ClienteId);
+                datos.setearParametro("@Tipo", nuevo.Tipo);
 
                 datos.abrirConexion();  
                 // Ejecutar la consulta y obtener el ID del pedido
