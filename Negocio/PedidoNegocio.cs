@@ -125,6 +125,32 @@ namespace Negocio
 
 
 
+        public void EliminarPedido(Pedido eliminar)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+
+                datos.setearConsulta("DELETE FROM PEDIDOS WHERE id_pedido = @Id");
+                datos.setearParametro("@Id", eliminar.IdPedido);
+                datos.ejecutarAccion();
+            }
+
+            catch (Exception ex)
+            {
+
+                Console.WriteLine("Error al eliminar el pedido: " + ex.Message);
+
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+
+        }
+
+
+
 
     }
 }

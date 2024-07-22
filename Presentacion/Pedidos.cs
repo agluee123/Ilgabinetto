@@ -162,6 +162,11 @@ namespace Presentacion
 
         }
 
-
+        private void button1_Click(object sender, EventArgs e)
+        {
+            PedidoNegocio negocio = new PedidoNegocio();
+            Pedido seleccionado = (Pedido)dgvListaPedidos.CurrentRow.DataBoundItem;
+            negocio.EliminarPedido(seleccionado);
+        }
     }
 }
