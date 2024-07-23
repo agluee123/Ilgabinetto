@@ -116,6 +116,7 @@
             this.btnEliminarPedido.Text = "Eliminar Pedido";
             this.btnEliminarPedido.UseVisualStyleBackColor = true;
             this.btnEliminarPedido.Click += new System.EventHandler(this.btnEliminarPedido_Click);
+          
             // 
             // lblFecha
             // 

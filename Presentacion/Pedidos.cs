@@ -19,7 +19,6 @@ namespace Presentacion
         public Pedidos()
         {
             InitializeComponent();
-            //dgvListaPedidos.CellClick += new DataGridViewCellEventHandler(dgvListaPedidos_CellClick);
         }
 
 
@@ -194,7 +193,6 @@ namespace Presentacion
             }
             ListarPedido();
         }
-
 
 
     }
