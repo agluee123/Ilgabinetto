@@ -1,5 +1,6 @@
 ﻿using Dominio;
 using Negocio;
+using Sistema_de_pedidos;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -27,10 +28,11 @@ namespace Presentacion
         private void Registros_Load(object sender, EventArgs e)
         {
 
-            PedidoNegocio nuevo = new PedidoNegocio();
-            List<Pedido> pedidos = nuevo.Registros();
+            RegistroNegocio nuevo = new RegistroNegocio();
+        
+            List<Registro> registros = nuevo.Registros();
 
-            dgvRegistros.DataSource = pedidos;
+            dgvRegistros.DataSource = registros;
 
         }
     }
