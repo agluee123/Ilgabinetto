@@ -101,6 +101,7 @@ namespace Presentacion
             {
                 MessageBox.Show("Ocurrió un error: " + ex.Message);
             }
+            ListarPedido();
 
         }
 
@@ -119,10 +120,6 @@ namespace Presentacion
             VerPedido.Name = "Ver Pedido";
             VerPedido.Text = "Ver Pedido";
             VerPedido.UseColumnTextForButtonValue = true;
-            VerPedido.DefaultCellStyle.BackColor = Color.LightBlue;
-            VerPedido.DefaultCellStyle.ForeColor = Color.DarkBlue;
-            VerPedido.DefaultCellStyle.SelectionBackColor = Color.LightGreen;
-            VerPedido.DefaultCellStyle.SelectionForeColor = Color.DarkGreen;
             VerPedido.HeaderText = "Acciones";     dgvListaPedidos.Columns.Add(VerPedido); 
         }
 
@@ -162,6 +159,42 @@ namespace Presentacion
             dgvListaPedidos.ReadOnly = true;
 
         }
+
+        private void btnEliminarPedido_Click(object sender, EventArgs e)
+        {
+
+            if (dgvListaPedidos.CurrentRow == null)
+            {
+                MessageBox.Show("No hay ningún pedido seleccionado para eliminar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            Pedido seleccionado = dgvListaPedidos.CurrentRow.DataBoundItem as Pedido;
+
+            if (seleccionado == null)
+            {
+                MessageBox.Show("El pedido seleccionado no es válido.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            try
+            {
+                PedidoNegocio negocio = new PedidoNegocio();
+                negocio.EliminarPedido(seleccionado);
+
+                // Eliminación exitosa
+                MessageBox.Show("Pedido eliminado correctamente.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                negocio.ListarPedidos();
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al eliminar pedido: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            ListarPedido();
+        }
+
 
 
     }

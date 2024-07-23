@@ -34,7 +34,7 @@
             this.gbxCrearPedido = new System.Windows.Forms.GroupBox();
             this.lblTipo = new System.Windows.Forms.Label();
             this.cbxTipo = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnEliminarPedido = new System.Windows.Forms.Button();
             this.lblFecha = new System.Windows.Forms.Label();
             this.dtpFechaPedido = new System.Windows.Forms.DateTimePicker();
             this.dgvListaPedidos = new System.Windows.Forms.DataGridView();
@@ -73,7 +73,7 @@
             // 
             this.gbxCrearPedido.Controls.Add(this.lblTipo);
             this.gbxCrearPedido.Controls.Add(this.cbxTipo);
-            this.gbxCrearPedido.Controls.Add(this.button1);
+            this.gbxCrearPedido.Controls.Add(this.btnEliminarPedido);
             this.gbxCrearPedido.Controls.Add(this.lblFecha);
             this.gbxCrearPedido.Controls.Add(this.dtpFechaPedido);
             this.gbxCrearPedido.Controls.Add(this.lblCliente);
@@ -97,6 +97,7 @@
             // 
             // cbxTipo
             // 
+            this.cbxTipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxTipo.FormattingEnabled = true;
             this.cbxTipo.Items.AddRange(new object[] {
             "Viaje",
@@ -106,14 +107,15 @@
             this.cbxTipo.Size = new System.Drawing.Size(200, 21);
             this.cbxTipo.TabIndex = 7;
             // 
-            // button1
+            // btnEliminarPedido
             // 
-            this.button1.Location = new System.Drawing.Point(210, 187);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(134, 23);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Eliminar Pedido";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnEliminarPedido.Location = new System.Drawing.Point(210, 187);
+            this.btnEliminarPedido.Name = "btnEliminarPedido";
+            this.btnEliminarPedido.Size = new System.Drawing.Size(134, 23);
+            this.btnEliminarPedido.TabIndex = 6;
+            this.btnEliminarPedido.Text = "Eliminar Pedido";
+            this.btnEliminarPedido.UseVisualStyleBackColor = true;
+            this.btnEliminarPedido.Click += new System.EventHandler(this.btnEliminarPedido_Click);
             // 
             // lblFecha
             // 
@@ -136,6 +138,8 @@
             this.dgvListaPedidos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvListaPedidos.Location = new System.Drawing.Point(440, 26);
             this.dgvListaPedidos.Name = "dgvListaPedidos";
+            this.dgvListaPedidos.ReadOnly = true;
+            this.dgvListaPedidos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvListaPedidos.Size = new System.Drawing.Size(632, 481);
             this.dgvListaPedidos.TabIndex = 5;
             this.dgvListaPedidos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListaPedidos_CellClick);
@@ -144,6 +148,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1098, 613);
             this.Controls.Add(this.dgvListaPedidos);
             this.Controls.Add(this.gbxCrearPedido);
@@ -165,7 +170,7 @@
         private System.Windows.Forms.GroupBox gbxCrearPedido;
         private System.Windows.Forms.DateTimePicker dtpFechaPedido;
         private System.Windows.Forms.Label lblFecha;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnEliminarPedido;
         private System.Windows.Forms.DataGridView dgvListaPedidos;
         private System.Windows.Forms.Label lblTipo;
         private System.Windows.Forms.ComboBox cbxTipo;
