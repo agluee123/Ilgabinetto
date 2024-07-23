@@ -151,5 +151,70 @@ namespace Negocio
 
 
 
+
+        public List<Pedido> Registros()
+        {
+            List<Pedido> lista = new List<Pedido>();
+            SqlConnection conexion = new SqlConnection();
+            SqlCommand comando = new SqlCommand();
+            SqlDataReader lector;
+
+            try
+            {
+                conexion.ConnectionString = "server=.\\SQLEXPRESS; database=ILGABINETTO; integrated security=true";
+                comando.CommandType = System.Data.CommandType.Text;
+                comando.CommandText = @"
+            SELECT 
+                Pedidos.id_pedido, 
+                Clientes.nombre AS cliente_nombre, 
+                Pedidos.fecha AS fecha_Del_Pedido, 
+                ArticulosPedidos.cantidad AS cantidad,
+                Articulo.nombre AS nombreArticulo, 
+                Articulo.color AS color,
+                Articulo.perforacion AS perforacion,
+                Pedidos.Tipo AS Tipo_De_Pedido,
+                ArticulosPedidos.observacion AS observacion
+            FROM Pedidos
+            JOIN Clientes ON Clientes.id_cliente = Pedidos.cliente_id
+            JOIN ArticulosPedidos ON Pedidos.id_pedido = ArticulosPedidos.pedido_id
+            JOIN Articulo ON ArticulosPedidos.articulo_id = Articulo.id_articulo";
+
+                comando.Connection = conexion;
+
+                conexion.Open();
+                lector = comando.ExecuteReader();
+
+                while (lector.Read())
+                {
+                        Pedido aux = new Pedido
+                    {
+                        IdPedido = (int)lector["id_pedido"],
+                        NombreCliente = (string)lector["cliente_nombre"],
+                        Fecha = (DateTime)lector["fecha_Del_Pedido"],
+                        Cantidad = (int)lector["cantidad"],
+                        NombreArticulo = (string)lector["nombreArticulo"],
+                        Color = (string)lector["color"],
+                        Perforacion = (string)lector["perforacion"],
+                        Tipo = (string)lector["Tipo_De_Pedido"],
+                        Observacion = lector["observacion"] != DBNull.Value ? (string)lector["observacion"] : null
+                    };
+
+                    lista.Add(aux);
+                }
+
+                conexion.Close();
+                return lista;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
+
+
+
+
     }
 }

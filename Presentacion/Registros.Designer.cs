@@ -32,19 +32,19 @@
             this.lblFiltro = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.gbxFecha = new System.Windows.Forms.GroupBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.lblDesde = new System.Windows.Forms.Label();
             this.lblHasta = new System.Windows.Forms.Label();
+            this.lblDesde = new System.Windows.Forms.Label();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.lblTipodePedido = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnImprimir = new System.Windows.Forms.Button();
             this.gbxBuscarPedido = new System.Windows.Forms.GroupBox();
+            this.btnImprimir2 = new System.Windows.Forms.Button();
             this.gbxCantidades = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.btnImprimir2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRegistros)).BeginInit();
             this.gbxFecha.SuspendLayout();
             this.gbxBuscarPedido.SuspendLayout();
@@ -89,19 +89,14 @@
             this.gbxFecha.TabStop = false;
             this.gbxFecha.Text = "Ingresar Fecha";
             // 
-            // dateTimePicker1
+            // lblHasta
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(15, 40);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(216, 20);
-            this.dateTimePicker1.TabIndex = 0;
-            // 
-            // dateTimePicker2
-            // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(15, 85);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(216, 20);
-            this.dateTimePicker2.TabIndex = 1;
+            this.lblHasta.AutoSize = true;
+            this.lblHasta.Location = new System.Drawing.Point(18, 67);
+            this.lblHasta.Name = "lblHasta";
+            this.lblHasta.Size = new System.Drawing.Size(38, 13);
+            this.lblHasta.TabIndex = 3;
+            this.lblHasta.Text = "Hasta:";
             // 
             // lblDesde
             // 
@@ -112,14 +107,19 @@
             this.lblDesde.TabIndex = 2;
             this.lblDesde.Text = "Desde:";
             // 
-            // lblHasta
+            // dateTimePicker2
             // 
-            this.lblHasta.AutoSize = true;
-            this.lblHasta.Location = new System.Drawing.Point(18, 67);
-            this.lblHasta.Name = "lblHasta";
-            this.lblHasta.Size = new System.Drawing.Size(38, 13);
-            this.lblHasta.TabIndex = 3;
-            this.lblHasta.Text = "Hasta:";
+            this.dateTimePicker2.Location = new System.Drawing.Point(15, 85);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(216, 20);
+            this.dateTimePicker2.TabIndex = 1;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(15, 40);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(216, 20);
+            this.dateTimePicker1.TabIndex = 0;
             // 
             // lblTipodePedido
             // 
@@ -173,6 +173,15 @@
             this.gbxBuscarPedido.TabStop = false;
             this.gbxBuscarPedido.Text = "Buscar Pedidos";
             // 
+            // btnImprimir2
+            // 
+            this.btnImprimir2.Location = new System.Drawing.Point(70, 97);
+            this.btnImprimir2.Name = "btnImprimir2";
+            this.btnImprimir2.Size = new System.Drawing.Size(119, 25);
+            this.btnImprimir2.TabIndex = 11;
+            this.btnImprimir2.Text = "Imprimir Produccion";
+            this.btnImprimir2.UseVisualStyleBackColor = true;
+            // 
             // gbxCantidades
             // 
             this.gbxCantidades.Controls.Add(this.button1);
@@ -202,15 +211,6 @@
             this.button2.Text = "Imprimir";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // btnImprimir2
-            // 
-            this.btnImprimir2.Location = new System.Drawing.Point(70, 97);
-            this.btnImprimir2.Name = "btnImprimir2";
-            this.btnImprimir2.Size = new System.Drawing.Size(119, 25);
-            this.btnImprimir2.TabIndex = 11;
-            this.btnImprimir2.Text = "Imprimir Produccion";
-            this.btnImprimir2.UseVisualStyleBackColor = true;
-            // 
             // Registros
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -224,6 +224,7 @@
             this.Controls.Add(this.dgvRegistros);
             this.Name = "Registros";
             this.Text = "Registros";
+            this.Load += new System.EventHandler(this.Registros_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvRegistros)).EndInit();
             this.gbxFecha.ResumeLayout(false);
             this.gbxFecha.PerformLayout();
