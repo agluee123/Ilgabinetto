@@ -34,17 +34,17 @@
             this.gbxFecha = new System.Windows.Forms.GroupBox();
             this.lblHasta = new System.Windows.Forms.Label();
             this.lblDesde = new System.Windows.Forms.Label();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dTPreg2 = new System.Windows.Forms.DateTimePicker();
+            this.dTPReg1 = new System.Windows.Forms.DateTimePicker();
             this.lblTipodePedido = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.CBXTipoPed = new System.Windows.Forms.ComboBox();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnImprimir = new System.Windows.Forms.Button();
             this.gbxBuscarPedido = new System.Windows.Forms.GroupBox();
             this.btnImprimir2 = new System.Windows.Forms.Button();
             this.gbxCantidades = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnBuscarVendidos = new System.Windows.Forms.Button();
+            this.btnImprimirVendidos = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRegistros)).BeginInit();
             this.gbxFecha.SuspendLayout();
             this.gbxBuscarPedido.SuspendLayout();
@@ -80,8 +80,8 @@
             // 
             this.gbxFecha.Controls.Add(this.lblHasta);
             this.gbxFecha.Controls.Add(this.lblDesde);
-            this.gbxFecha.Controls.Add(this.dateTimePicker2);
-            this.gbxFecha.Controls.Add(this.dateTimePicker1);
+            this.gbxFecha.Controls.Add(this.dTPreg2);
+            this.gbxFecha.Controls.Add(this.dTPReg1);
             this.gbxFecha.Location = new System.Drawing.Point(12, 48);
             this.gbxFecha.Name = "gbxFecha";
             this.gbxFecha.Size = new System.Drawing.Size(248, 130);
@@ -107,19 +107,19 @@
             this.lblDesde.TabIndex = 2;
             this.lblDesde.Text = "Desde:";
             // 
-            // dateTimePicker2
+            // dTPreg2
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(15, 85);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(216, 20);
-            this.dateTimePicker2.TabIndex = 1;
+            this.dTPreg2.Location = new System.Drawing.Point(15, 85);
+            this.dTPreg2.Name = "dTPreg2";
+            this.dTPreg2.Size = new System.Drawing.Size(216, 20);
+            this.dTPreg2.TabIndex = 1;
             // 
-            // dateTimePicker1
+            // dTPReg1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(15, 40);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(216, 20);
-            this.dateTimePicker1.TabIndex = 0;
+            this.dTPReg1.Location = new System.Drawing.Point(15, 40);
+            this.dTPReg1.Name = "dTPReg1";
+            this.dTPReg1.Size = new System.Drawing.Size(216, 20);
+            this.dTPReg1.TabIndex = 0;
             // 
             // lblTipodePedido
             // 
@@ -130,16 +130,16 @@
             this.lblTipodePedido.TabIndex = 4;
             this.lblTipodePedido.Text = "Tipo de pedido:";
             // 
-            // comboBox1
+            // CBXTipoPed
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.CBXTipoPed.FormattingEnabled = true;
+            this.CBXTipoPed.Items.AddRange(new object[] {
             "Viaje",
-            "Pedido semanal"});
-            this.comboBox1.Location = new System.Drawing.Point(15, 39);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(216, 21);
-            this.comboBox1.TabIndex = 5;
+            "Semanal"});
+            this.CBXTipoPed.Location = new System.Drawing.Point(15, 39);
+            this.CBXTipoPed.Name = "CBXTipoPed";
+            this.CBXTipoPed.Size = new System.Drawing.Size(216, 21);
+            this.CBXTipoPed.TabIndex = 5;
             // 
             // btnBuscar
             // 
@@ -149,6 +149,7 @@
             this.btnBuscar.TabIndex = 6;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // btnImprimir
             // 
@@ -162,7 +163,7 @@
             // gbxBuscarPedido
             // 
             this.gbxBuscarPedido.Controls.Add(this.btnImprimir2);
-            this.gbxBuscarPedido.Controls.Add(this.comboBox1);
+            this.gbxBuscarPedido.Controls.Add(this.CBXTipoPed);
             this.gbxBuscarPedido.Controls.Add(this.lblTipodePedido);
             this.gbxBuscarPedido.Controls.Add(this.btnBuscar);
             this.gbxBuscarPedido.Controls.Add(this.btnImprimir);
@@ -184,8 +185,8 @@
             // 
             // gbxCantidades
             // 
-            this.gbxCantidades.Controls.Add(this.button1);
-            this.gbxCantidades.Controls.Add(this.button2);
+            this.gbxCantidades.Controls.Add(this.btnBuscarVendidos);
+            this.gbxCantidades.Controls.Add(this.btnImprimirVendidos);
             this.gbxCantidades.Location = new System.Drawing.Point(12, 350);
             this.gbxCantidades.Name = "gbxCantidades";
             this.gbxCantidades.Size = new System.Drawing.Size(248, 131);
@@ -193,23 +194,23 @@
             this.gbxCantidades.TabStop = false;
             this.gbxCantidades.Text = "Buscar Cantidad Vendida";
             // 
-            // button1
+            // btnBuscarVendidos
             // 
-            this.button1.Location = new System.Drawing.Point(6, 54);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(106, 25);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Buscar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnBuscarVendidos.Location = new System.Drawing.Point(6, 54);
+            this.btnBuscarVendidos.Name = "btnBuscarVendidos";
+            this.btnBuscarVendidos.Size = new System.Drawing.Size(106, 25);
+            this.btnBuscarVendidos.TabIndex = 6;
+            this.btnBuscarVendidos.Text = "Buscar";
+            this.btnBuscarVendidos.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnImprimirVendidos
             // 
-            this.button2.Location = new System.Drawing.Point(127, 54);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(106, 25);
-            this.button2.TabIndex = 7;
-            this.button2.Text = "Imprimir";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnImprimirVendidos.Location = new System.Drawing.Point(127, 54);
+            this.btnImprimirVendidos.Name = "btnImprimirVendidos";
+            this.btnImprimirVendidos.Size = new System.Drawing.Size(106, 25);
+            this.btnImprimirVendidos.TabIndex = 7;
+            this.btnImprimirVendidos.Text = "Imprimir";
+            this.btnImprimirVendidos.UseVisualStyleBackColor = true;
             // 
             // Registros
             // 
@@ -244,16 +245,16 @@
         private System.Windows.Forms.GroupBox gbxFecha;
         private System.Windows.Forms.Label lblHasta;
         private System.Windows.Forms.Label lblDesde;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.DateTimePicker dTPreg2;
+        private System.Windows.Forms.DateTimePicker dTPReg1;
+        private System.Windows.Forms.ComboBox CBXTipoPed;
         private System.Windows.Forms.Label lblTipodePedido;
         private System.Windows.Forms.Button btnImprimir;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.GroupBox gbxBuscarPedido;
         private System.Windows.Forms.GroupBox gbxCantidades;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnBuscarVendidos;
+        private System.Windows.Forms.Button btnImprimirVendidos;
         private System.Windows.Forms.Button btnImprimir2;
     }
 }

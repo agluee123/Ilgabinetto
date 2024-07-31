@@ -19,6 +19,7 @@ namespace Presentacion
         public Pedidos()
         {
             InitializeComponent();
+            
         }
 
 
@@ -30,6 +31,24 @@ namespace Presentacion
 
             try
             {
+                /*Prueba*/
+
+                DataGridViewCheckBoxColumn checkBoxColumn = new DataGridViewCheckBoxColumn();
+                checkBoxColumn.Name = "chkSelect";
+                checkBoxColumn.HeaderText = "Select";
+                checkBoxColumn.Width = 50;
+                checkBoxColumn.ReadOnly = false;
+                checkBoxColumn.FillWeight = 10;
+
+                // Añadir la columna de CheckBox al DataGridView
+                dgvListaPedidos.Columns.Insert(0, checkBoxColumn);
+
+
+                dgvListaPedidos.ReadOnly = false;
+                dgvListaPedidos.EditMode = DataGridViewEditMode.EditOnEnter;
+
+                /*Prueba*/
+
                 PedidoNegocio negocio = new PedidoNegocio();
                 //cbxArticulo.DataSource = negocio.listarNombre(); // Comentado porque no está relacionado con cbxCliente
                 ClienteNegocio clienteNegocio = new ClienteNegocio();
@@ -69,6 +88,22 @@ namespace Presentacion
 
 
         }
+
+
+
+
+        private void dgvListaPedidos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == dgvListaPedidos.Columns["chkSelect"].Index)
+            {
+                dgvListaPedidos.CommitEdit(DataGridViewDataErrorContexts.Commit);
+            }
+        }
+
+
+
+
+
 
         private void BtnAgregarProducto_Click(object sender, EventArgs e)
         {
@@ -194,6 +229,48 @@ namespace Presentacion
             ListarPedido();
         }
 
+        private void btnReg_Click(object sender, EventArgs e)
+        {
 
+
+            
+
+            List<int> idsSeleccionados = new List<int>();
+
+            foreach (DataGridViewRow row in dgvListaPedidos.SelectedRows)
+            {
+                int idPedido = (int)row.Cells["idPedido"].Value;
+                idsSeleccionados.Add(idPedido);
+
+            }
+
+            Registros registros = new Registros(idsSeleccionados);
+            registros.Show();
+
+            
+
+
+            /*prueba 
+
+
+            List<int> idsSeleccionados = new List<int>();
+
+            foreach (DataGridViewRow row in dgvListaPedidos.Rows)
+            {
+                bool isSelected = Convert.ToBoolean(row.Cells["chkSelect"].Value);
+                if (isSelected)
+                {
+                    int idPedido = (int)row.Cells["idPedido"].Value;
+                    idsSeleccionados.Add(idPedido);
+                }
+            }
+
+            Registros registros = new Registros(idsSeleccionados);
+            registros.Show();
+
+            */
+
+
+        }
     }
 }

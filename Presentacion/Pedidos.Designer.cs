@@ -38,6 +38,7 @@
             this.lblFecha = new System.Windows.Forms.Label();
             this.dtpFechaPedido = new System.Windows.Forms.DateTimePicker();
             this.dgvListaPedidos = new System.Windows.Forms.DataGridView();
+            this.btnReg = new System.Windows.Forms.Button();
             this.gbxCrearPedido.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaPedidos)).BeginInit();
             this.SuspendLayout();
@@ -116,7 +117,6 @@
             this.btnEliminarPedido.Text = "Eliminar Pedido";
             this.btnEliminarPedido.UseVisualStyleBackColor = true;
             this.btnEliminarPedido.Click += new System.EventHandler(this.btnEliminarPedido_Click);
-          
             // 
             // lblFecha
             // 
@@ -145,12 +145,23 @@
             this.dgvListaPedidos.TabIndex = 5;
             this.dgvListaPedidos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListaPedidos_CellClick);
             // 
+            // btnReg
+            // 
+            this.btnReg.Location = new System.Drawing.Point(138, 324);
+            this.btnReg.Name = "btnReg";
+            this.btnReg.Size = new System.Drawing.Size(134, 23);
+            this.btnReg.TabIndex = 7;
+            this.btnReg.Text = "Imprimir";
+            this.btnReg.UseVisualStyleBackColor = true;
+            this.btnReg.Click += new System.EventHandler(this.btnReg_Click);
+            // 
             // Pedidos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1098, 613);
+            this.Controls.Add(this.btnReg);
             this.Controls.Add(this.dgvListaPedidos);
             this.Controls.Add(this.gbxCrearPedido);
             this.Name = "Pedidos";
@@ -175,5 +186,6 @@
         private System.Windows.Forms.DataGridView dgvListaPedidos;
         private System.Windows.Forms.Label lblTipo;
         private System.Windows.Forms.ComboBox cbxTipo;
+        private System.Windows.Forms.Button btnReg;
     }
 }
