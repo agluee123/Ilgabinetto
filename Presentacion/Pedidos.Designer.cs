@@ -38,7 +38,9 @@
             this.lblFecha = new System.Windows.Forms.Label();
             this.dtpFechaPedido = new System.Windows.Forms.DateTimePicker();
             this.dgvListaPedidos = new System.Windows.Forms.DataGridView();
+            this.chkSelect = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.btnReg = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.gbxCrearPedido.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaPedidos)).BeginInit();
             this.SuspendLayout();
@@ -137,6 +139,8 @@
             // dgvListaPedidos
             // 
             this.dgvListaPedidos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvListaPedidos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.chkSelect});
             this.dgvListaPedidos.Location = new System.Drawing.Point(440, 26);
             this.dgvListaPedidos.Name = "dgvListaPedidos";
             this.dgvListaPedidos.ReadOnly = true;
@@ -144,6 +148,13 @@
             this.dgvListaPedidos.Size = new System.Drawing.Size(632, 481);
             this.dgvListaPedidos.TabIndex = 5;
             this.dgvListaPedidos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListaPedidos_CellClick);
+            this.dgvListaPedidos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListaPedidos_CellContentClick);
+            // 
+            // chkSelect
+            // 
+            this.chkSelect.HeaderText = "Seleccionar";
+            this.chkSelect.Name = "chkSelect";
+            this.chkSelect.ReadOnly = true;
             // 
             // btnReg
             // 
@@ -155,12 +166,21 @@
             this.btnReg.UseVisualStyleBackColor = true;
             this.btnReg.Click += new System.EventHandler(this.btnReg_Click);
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(440, 0);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(419, 20);
+            this.textBox1.TabIndex = 8;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
             // Pedidos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1098, 613);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.btnReg);
             this.Controls.Add(this.dgvListaPedidos);
             this.Controls.Add(this.gbxCrearPedido);
@@ -171,6 +191,7 @@
             this.gbxCrearPedido.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaPedidos)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -187,5 +208,7 @@
         private System.Windows.Forms.Label lblTipo;
         private System.Windows.Forms.ComboBox cbxTipo;
         private System.Windows.Forms.Button btnReg;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn chkSelect;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

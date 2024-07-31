@@ -1,6 +1,7 @@
 ﻿using Dominio;
 using Negocio;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,10 +17,12 @@ namespace Presentacion
     {
         private List<Pedido> pedidos;
         private List<Pedido> VerPedido;
+        private List<Pedido> lista;
         public Pedidos()
         {
             InitializeComponent();
-            
+
+          
         }
 
 
@@ -28,26 +31,9 @@ namespace Presentacion
         {
 
 
-
             try
             {
-                /*Prueba*/
-
-                DataGridViewCheckBoxColumn checkBoxColumn = new DataGridViewCheckBoxColumn();
-                checkBoxColumn.Name = "chkSelect";
-                checkBoxColumn.HeaderText = "Select";
-                checkBoxColumn.Width = 50;
-                checkBoxColumn.ReadOnly = false;
-                checkBoxColumn.FillWeight = 10;
-
-                // Añadir la columna de CheckBox al DataGridView
-                dgvListaPedidos.Columns.Insert(0, checkBoxColumn);
-
-
-                dgvListaPedidos.ReadOnly = false;
-                dgvListaPedidos.EditMode = DataGridViewEditMode.EditOnEnter;
-
-                /*Prueba*/
+               
 
                 PedidoNegocio negocio = new PedidoNegocio();
                 //cbxArticulo.DataSource = negocio.listarNombre(); // Comentado porque no está relacionado con cbxCliente
@@ -88,19 +74,6 @@ namespace Presentacion
 
 
         }
-
-
-
-
-        private void dgvListaPedidos_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.ColumnIndex == dgvListaPedidos.Columns["chkSelect"].Index)
-            {
-                dgvListaPedidos.CommitEdit(DataGridViewDataErrorContexts.Commit);
-            }
-        }
-
-
 
 
 
@@ -234,25 +207,6 @@ namespace Presentacion
 
 
             
-
-            List<int> idsSeleccionados = new List<int>();
-
-            foreach (DataGridViewRow row in dgvListaPedidos.SelectedRows)
-            {
-                int idPedido = (int)row.Cells["idPedido"].Value;
-                idsSeleccionados.Add(idPedido);
-
-            }
-
-            Registros registros = new Registros(idsSeleccionados);
-            registros.Show();
-
-            
-
-
-            /*prueba 
-
-
             List<int> idsSeleccionados = new List<int>();
 
             foreach (DataGridViewRow row in dgvListaPedidos.Rows)
@@ -268,9 +222,53 @@ namespace Presentacion
             Registros registros = new Registros(idsSeleccionados);
             registros.Show();
 
-            */
 
 
         }
+
+
+    
+        private void dgvListaPedidos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == dgvListaPedidos.Columns["chkSelect"].Index && e.RowIndex >= 0)
+            {
+                DataGridViewCheckBoxCell checkBoxCell = dgvListaPedidos.Rows[e.RowIndex].Cells["chkSelect"] as DataGridViewCheckBoxCell;
+                if (checkBoxCell != null)
+                {
+                   
+                    bool isChecked = Convert.ToBoolean(checkBoxCell.Value);
+                    checkBoxCell.Value = !isChecked; 
+                    dgvListaPedidos.CommitEdit(DataGridViewDataErrorContexts.Commit); 
+                }
+            }
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            PedidoNegocio pedidoNegocio = new PedidoNegocio();
+            List<Pedido> lista = pedidoNegocio.ListarPedidos();
+            List<Pedido> listaFiltrada;
+            string filtro = textBox1.Text.ToUpper(); // Convertir el filtro a mayúsculas una vez
+
+            if (filtro.Length >= 1)
+            {
+                listaFiltrada = lista.FindAll(x =>
+
+                   x.NombreCliente.ToUpper().Contains(filtro) //|| // Filtrar por nombre que contiene el filtro
+                   // x.Tipo.ToUpper().Contains(filtro) 
+                );
+            }
+            else
+            {
+                listaFiltrada = lista; // Mostrar la lista completa si el filtro es corto
+            }
+             // dgvListaPedidos.DataSource = null; // Limpiar el DataSource previo si lo hubiera
+            dgvListaPedidos.DataSource = listaFiltrada; // Asignar la lista filtrada como DataSource del DataGridView
+            
+
+        } 
+
+
+
     }
 }

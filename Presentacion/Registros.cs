@@ -34,7 +34,7 @@ namespace Presentacion
 
         private void dgvRegistros_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+         
         }
 
         private void Registros_Load(object sender, EventArgs e)
