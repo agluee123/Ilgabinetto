@@ -56,14 +56,13 @@ namespace Negocio
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                // Configurar la consulta SQL para insertar un pedido y obtener el ID generado automáticamente
                 datos.setearConsulta("insert into Pedidos (fecha, cliente_id,tipo) output inserted.id_pedido values (@Fecha, @ClienteId,@Tipo)");
                 datos.setearParametro("@Fecha", nuevo.Fecha);
                 datos.setearParametro("@ClienteId", nuevo.ClienteId);
                 datos.setearParametro("@Tipo", nuevo.Tipo);
 
                 datos.abrirConexion();  
-                // Ejecutar la consulta y obtener el ID del pedido
+
                 pedidoId = (int)datos.ejecutarAccionEscalar();
 
                 
@@ -93,7 +92,7 @@ namespace Negocio
                 conexion.ConnectionString = "server=.\\SQLEXPRESS; database=ILGABINETTO; integrated security=true";
                 comando.CommandType = System.Data.CommandType.Text;
 
-                comando.CommandText = "select  Pedidos.id_pedido ,  clientes.nombre as Nombre_Cliente, Pedidos.fecha as fecha_Del_Pedido from Pedidos join Clientes on Clientes.id_cliente = Pedidos.cliente_id;";
+                comando.CommandText = "select  Pedidos.id_pedido ,Pedidos.Tipo, clientes.nombre as Nombre_Cliente, Pedidos.fecha as fecha_Del_Pedido from Pedidos join Clientes on Clientes.id_cliente = Pedidos.cliente_id;";
                 comando.Connection = conexion;
 
                 conexion.Open();
@@ -105,7 +104,8 @@ namespace Negocio
                     {
                         IdPedido = (int)lector["id_pedido"],
                         NombreCliente = (string)lector["Nombre_Cliente"],
-                        Fecha = (DateTime)lector["Fecha_Del_Pedido"]
+                        Fecha = (DateTime)lector["Fecha_Del_Pedido"],
+                        Tipo = (string)lector["Tipo"]
                     };
 
                     lista.Add(aux);

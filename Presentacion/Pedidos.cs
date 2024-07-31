@@ -190,9 +190,6 @@ namespace Presentacion
 
         private void btnReg_Click(object sender, EventArgs e)
         {
-
-
-            
             List<int> idsSeleccionados = new List<int>();
 
             foreach (DataGridViewRow row in dgvListaPedidos.Rows)
@@ -207,8 +204,6 @@ namespace Presentacion
 
             Registros registros = new Registros(idsSeleccionados);
             registros.Show();
-
-
 
         }
 

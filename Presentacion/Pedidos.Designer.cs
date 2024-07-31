@@ -41,6 +41,7 @@
             this.chkSelect = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.btnReg = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.lblFiltro = new System.Windows.Forms.Label();
             this.gbxCrearPedido.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaPedidos)).BeginInit();
             this.SuspendLayout();
@@ -141,7 +142,7 @@
             this.dgvListaPedidos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvListaPedidos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.chkSelect});
-            this.dgvListaPedidos.Location = new System.Drawing.Point(440, 26);
+            this.dgvListaPedidos.Location = new System.Drawing.Point(440, 52);
             this.dgvListaPedidos.Name = "dgvListaPedidos";
             this.dgvListaPedidos.ReadOnly = true;
             this.dgvListaPedidos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -168,11 +169,20 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(440, 0);
+            this.textBox1.Location = new System.Drawing.Point(491, 26);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(419, 20);
+            this.textBox1.Size = new System.Drawing.Size(581, 20);
             this.textBox1.TabIndex = 8;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // lblFiltro
+            // 
+            this.lblFiltro.AutoSize = true;
+            this.lblFiltro.Location = new System.Drawing.Point(440, 33);
+            this.lblFiltro.Name = "lblFiltro";
+            this.lblFiltro.Size = new System.Drawing.Size(32, 13);
+            this.lblFiltro.TabIndex = 9;
+            this.lblFiltro.Text = "Filtro:";
             // 
             // Pedidos
             // 
@@ -180,6 +190,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1098, 613);
+            this.Controls.Add(this.lblFiltro);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.btnReg);
             this.Controls.Add(this.dgvListaPedidos);
@@ -210,5 +221,6 @@
         private System.Windows.Forms.Button btnReg;
         private System.Windows.Forms.DataGridViewCheckBoxColumn chkSelect;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label lblFiltro;
     }
 }
