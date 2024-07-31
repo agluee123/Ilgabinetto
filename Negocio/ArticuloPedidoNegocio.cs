@@ -86,7 +86,31 @@ namespace Negocio
             }
         }
 
-       
+        public void EliminarArticuloPedido(ArticuloPedido eliminar)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+
+                datos.setearConsulta("DELETE FROM ARTICULOSPEDIDOS WHERE id_articulosPedido = @Id");
+                datos.setearParametro("@Id", eliminar.IdArticulosPedido);
+                datos.ejecutarAccion();
+            }
+
+            catch (Exception ex)
+            {
+
+                Console.WriteLine("Error al eliminar el artículo: " + ex.Message);
+
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+
+        }
+
+
 
 
 

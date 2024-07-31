@@ -37,6 +37,7 @@
             this.cbxArticulo = new System.Windows.Forms.ComboBox();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.dgvPedido = new System.Windows.Forms.DataGridView();
+            this.btnEliminar = new System.Windows.Forms.Button();
             this.gbxPedido.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nmCantidad)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPedido)).BeginInit();
@@ -118,7 +119,7 @@
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(338, 143);
+            this.btnAgregar.Location = new System.Drawing.Point(241, 143);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(137, 23);
             this.btnAgregar.TabIndex = 1;
@@ -136,11 +137,22 @@
             this.dgvPedido.Size = new System.Drawing.Size(713, 402);
             this.dgvPedido.TabIndex = 2;
             // 
+            // btnEliminar
+            // 
+            this.btnEliminar.Location = new System.Drawing.Point(409, 143);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(137, 23);
+            this.btnEliminar.TabIndex = 3;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            // 
             // Cargar_Pedido
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(789, 613);
+            this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.dgvPedido);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.gbxPedido);
@@ -166,5 +178,6 @@
         private System.Windows.Forms.TextBox tbxObservacion;
         private System.Windows.Forms.Label lblObservacion;
         private System.Windows.Forms.DataGridView dgvPedido;
+        private System.Windows.Forms.Button btnEliminar;
     }
 }

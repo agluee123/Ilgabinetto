@@ -68,7 +68,6 @@ namespace Presentacion
 
         }
 
-
         private void BtnAgregarProducto_Click(object sender, EventArgs e)
         {
             PedidoNegocio negocio = new PedidoNegocio();
@@ -156,7 +155,6 @@ namespace Presentacion
 
         private void btnEliminarPedido_Click(object sender, EventArgs e)
         {
-
             if (dgvListaPedidos.CurrentRow == null)
             {
                 MessageBox.Show("No hay ningún pedido seleccionado para eliminar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -171,21 +169,26 @@ namespace Presentacion
                 return;
             }
 
-            try
+            DialogResult respuesta = MessageBox.Show("¿Está seguro que desea eliminar este pedido?",
+                                                     "Confirmación",
+                                                     MessageBoxButtons.YesNo,
+                                                     MessageBoxIcon.Question);
+
+            if (respuesta == DialogResult.Yes)
             {
-                PedidoNegocio negocio = new PedidoNegocio();
-                negocio.EliminarPedido(seleccionado);
+                try
+                {
+                    PedidoNegocio negocio = new PedidoNegocio();
+                    negocio.EliminarPedido(seleccionado);
 
-                MessageBox.Show("Pedido eliminado correctamente.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                negocio.ListarPedidos();
-
-
+                    MessageBox.Show("Pedido eliminado correctamente.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ListarPedido();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error al eliminar pedido: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error al eliminar pedido: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            ListarPedido();
         }
 
         private void btnReg_Click(object sender, EventArgs e)
