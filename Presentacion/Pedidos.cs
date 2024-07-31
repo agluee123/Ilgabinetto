@@ -15,16 +15,11 @@ namespace Presentacion
 {
     public partial class Pedidos : Form
     {
-        private List<Pedido> pedidos;
-        private List<Pedido> VerPedido;
-        private List<Pedido> lista;
+        private Dictionary<int, bool> checkboxStates = new Dictionary<int, bool>();
         public Pedidos()
         {
-            InitializeComponent();
-
-          
+            InitializeComponent();  
         }
-
 
 
         private void Pedidos_Load(object sender, EventArgs e)
@@ -62,9 +57,7 @@ namespace Presentacion
                 ListarPedido();
 
                 AgregarBoton();
-                ModificarColumnas();    
-                
-               
+                ModificarColumnas();           
 
             }
             catch (Exception ex)
@@ -74,8 +67,6 @@ namespace Presentacion
 
 
         }
-
-
 
 
         private void BtnAgregarProducto_Click(object sender, EventArgs e)
@@ -157,11 +148,7 @@ namespace Presentacion
         {
             dgvListaPedidos.Columns["idPedido"].Visible = false;
             dgvListaPedidos.Columns["ClienteId"].Visible = false;
-
-
             dgvListaPedidos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-
-            // Si quieres que la última columna ocupe el espacio restante
             dgvListaPedidos.Columns[dgvListaPedidos.Columns.Count - 1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dgvListaPedidos.ReadOnly = true;
 
@@ -189,7 +176,6 @@ namespace Presentacion
                 PedidoNegocio negocio = new PedidoNegocio();
                 negocio.EliminarPedido(seleccionado);
 
-                // Eliminación exitosa
                 MessageBox.Show("Pedido eliminado correctamente.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 negocio.ListarPedidos();
 
@@ -226,7 +212,6 @@ namespace Presentacion
 
         }
 
-
     
         private void dgvListaPedidos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -235,10 +220,22 @@ namespace Presentacion
                 DataGridViewCheckBoxCell checkBoxCell = dgvListaPedidos.Rows[e.RowIndex].Cells["chkSelect"] as DataGridViewCheckBoxCell;
                 if (checkBoxCell != null)
                 {
-                   
                     bool isChecked = Convert.ToBoolean(checkBoxCell.Value);
-                    checkBoxCell.Value = !isChecked; 
-                    dgvListaPedidos.CommitEdit(DataGridViewDataErrorContexts.Commit); 
+                    checkBoxCell.Value = !isChecked;
+                    dgvListaPedidos.CommitEdit(DataGridViewDataErrorContexts.Commit);
+
+                    // Obtén el IdPedido de la fila actual
+                    int pedidoId = (int)dgvListaPedidos.Rows[e.RowIndex].Cells["IdPedido"].Value;
+
+                    // Actualiza el estado del checkbox en el diccionario
+                    if (checkboxStates.ContainsKey(pedidoId))
+                    {
+                        checkboxStates[pedidoId] = !isChecked;
+                    }
+                    else
+                    {
+                        checkboxStates.Add(pedidoId, !isChecked);
+                    }
                 }
             }
         }
@@ -253,18 +250,27 @@ namespace Presentacion
             if (filtro.Length >= 1)
             {
                 listaFiltrada = lista.FindAll(x =>
-
-                   x.NombreCliente.ToUpper().Contains(filtro) //|| // Filtrar por nombre que contiene el filtro
-                   // x.Tipo.ToUpper().Contains(filtro) 
+                    x.NombreCliente.ToUpper().Contains(filtro) // Filtrar por nombre que contiene el filtro
                 );
             }
             else
             {
                 listaFiltrada = lista; // Mostrar la lista completa si el filtro es corto
             }
-             // dgvListaPedidos.DataSource = null; // Limpiar el DataSource previo si lo hubiera
+
             dgvListaPedidos.DataSource = listaFiltrada; // Asignar la lista filtrada como DataSource del DataGridView
-            
+
+            // Aplica los estados de los checkboxes desde el diccionario
+            foreach (DataGridViewRow row in dgvListaPedidos.Rows)
+            {
+                int pedidoId = (int)row.Cells["IdPedido"].Value;
+                if (checkboxStates.ContainsKey(pedidoId))
+                {
+                    row.Cells["chkSelect"].Value = checkboxStates[pedidoId];
+                }
+            }
+
+
 
         } 
 
