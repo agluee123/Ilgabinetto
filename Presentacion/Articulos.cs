@@ -29,7 +29,6 @@ namespace Presentacion
                 NuevoArticulo.Nombre=tbxNombre.Text; 
                 NuevoArticulo.Categoria=cbxCategoria.SelectedItem?.ToString(); 
                 NuevoArticulo.Perforacion=cbxPerforacion.SelectedItem?.ToString();   
-                NuevoArticulo.Color=cbxColor.SelectedItem?.ToString();
 
                 DialogResult resultado = MessageBox.Show("¿Está seguro que desea agregar este articulo?",
                                                          "Confirmación",
@@ -82,7 +81,6 @@ namespace Presentacion
                 tbxNombre.Text = seleccionado.Nombre;
                 cbxCategoria.SelectedItem = seleccionado.Categoria;
                 cbxPerforacion.SelectedItem = seleccionado.Perforacion;
-                cbxColor.SelectedItem = seleccionado.Color; 
 
             }
         }
@@ -146,7 +144,6 @@ namespace Presentacion
                 seleccionado.Nombre = tbxNombre.Text;
                 seleccionado.Categoria = cbxCategoria.SelectedItem?.ToString();
                 seleccionado.Perforacion = cbxPerforacion.SelectedItem?.ToString();
-                seleccionado.Color = cbxColor.SelectedItem?.ToString();
 
                 ArticuloNegocio negocio = new ArticuloNegocio();
                 negocio.Modificar(seleccionado);
@@ -171,8 +168,7 @@ namespace Presentacion
         {
             tbxNombre.Clear();
             cbxCategoria.SelectedItem = null;
-            cbxPerforacion.SelectedItem=null;
-            cbxColor.SelectedItem = null;   
+            cbxPerforacion.SelectedItem=null; 
         }
 
        private void ModificarColumnas()

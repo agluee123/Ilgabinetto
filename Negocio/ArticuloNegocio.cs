@@ -14,11 +14,10 @@ namespace Negocio
         {
 
             AccesoDatos datos = new AccesoDatos();
-            datos.setearConsulta("insert into articulo(nombre,categoria,perforacion,color) values (@nombre, @categoria, @perforacion, @color) ");
+            datos.setearConsulta("insert into articulo(nombre,categoria,perforacion) values (@nombre, @categoria, @perforacion) ");
             datos.setearParametro("@nombre", nuevo.Nombre);
             datos.setearParametro("@categoria", nuevo.Categoria);
             datos.setearParametro("@perforacion", nuevo.Perforacion);
-            datos.setearParametro("@color", nuevo.Color);
 
             datos.ejecutarAccion();
             datos.cerrarConexion();
@@ -50,7 +49,6 @@ namespace Negocio
                     aux.Nombre = (string)lector["nombre"];
                     aux.Categoria = (string)lector["categoria"];
                     aux.Perforacion = (string)lector["perforacion"];
-                    aux.Color = (string)lector["color"];
 
                     lista.Add(aux);
                 }
@@ -93,13 +91,12 @@ namespace Negocio
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                datos.setearConsulta("UPDATE ARTICULO SET nombre = @Nombre, categoria = @Categoria, perforacion = @perforacion, color= @color WHERE id_articulo = @Id");
+                datos.setearConsulta("UPDATE ARTICULO SET nombre = @Nombre, categoria = @Categoria, perforacion = @perforacion WHERE id_articulo = @Id");
 
                 datos.setearParametro("@Id",modificar.IdArticulo);
                 datos.setearParametro("@nombre", modificar.Nombre);
                 datos.setearParametro("@categoria", modificar.Categoria);
                 datos.setearParametro("@perforacion", modificar.Perforacion);
-                datos.setearParametro("@color", modificar.Color);
 
                 datos.ejecutarAccion();
 

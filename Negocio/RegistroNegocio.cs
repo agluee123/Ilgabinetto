@@ -32,7 +32,6 @@ namespace Negocio
                 Pedidos.fecha AS fecha_Del_Pedido, 
                 ArticulosPedidos.cantidad AS cantidad,
                 Articulo.nombre AS nombreArticulo, 
-                Articulo.color AS color,
                 Articulo.perforacion AS perforacion,
                 Pedidos.Tipo AS Tipo_De_Pedido,
                 ArticulosPedidos.observacion AS observacion
@@ -55,7 +54,6 @@ namespace Negocio
                         Fecha = (DateTime)lector["fecha_Del_Pedido"],
                         Cantidad = (int)lector["cantidad"],
                         NombreArticulo = (string)lector["nombreArticulo"],
-                        Color = (string)lector["color"],
                         Perforacion = (string)lector["perforacion"],
                         Tipo = (string)lector["Tipo_De_Pedido"],
                         Observacion = lector["observacion"] != DBNull.Value ? (string)lector["observacion"] : null
