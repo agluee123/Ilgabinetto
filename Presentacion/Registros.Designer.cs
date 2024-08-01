@@ -159,6 +159,7 @@
             this.btnImprimir.TabIndex = 7;
             this.btnImprimir.Text = "Imprimir Pedido";
             this.btnImprimir.UseVisualStyleBackColor = true;
+            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
             // 
             // gbxBuscarPedido
             // 
