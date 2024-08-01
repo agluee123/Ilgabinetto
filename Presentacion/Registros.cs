@@ -92,71 +92,87 @@ namespace Presentacion
 
         private void generarPDF()
         {
-            
-          
-            Document document = new Document();
-            Section section = document.AddSection();
+             
+             Document document = new Document();
+             Section section = document.AddSection();
 
-           
+
             MigraDoc.DocumentObjectModel.Font titleFont = new MigraDoc.DocumentObjectModel.Font("Arial", 14);
             MigraDoc.DocumentObjectModel.Font infoFont = new MigraDoc.DocumentObjectModel.Font("Arial", 10);
             MigraDoc.DocumentObjectModel.Font headerFont = new MigraDoc.DocumentObjectModel.Font("Arial", 12);
             MigraDoc.DocumentObjectModel.Font textFont = new MigraDoc.DocumentObjectModel.Font("Arial", 10);
+            headerFont.Bold = true;
 
-            
+           
             Paragraph paragraph = section.AddParagraph();
             paragraph.Format.Alignment = ParagraphAlignment.Center;
             paragraph.AddFormattedText("IL GABINETTO", titleFont);
             paragraph.AddLineBreak();
             paragraph.AddFormattedText("Teléfono: (123) 456-7890\nFecha: " + DateTime.Now.ToString("dd/MM/yyyy"), infoFont);
 
-            
+           
             var registros = dgvRegistros.Rows.Cast<DataGridViewRow>()
-                                .Where(row => !row.IsNewRow)
-                                .Select(row => new Registro
-                                {
-                                    IdPedido = (int)row.Cells["idPedido"].Value,
-                                    NombreCliente = (string)row.Cells["NombreCliente"].Value,
-                                    Fecha = (DateTime)row.Cells["fecha"].Value,
-                                    Cantidad = (int)row.Cells["cantidad"].Value,
-                                    NombreArticulo = (string)row.Cells["nombreArticulo"].Value,
-                                 
-                                    Perforacion = (string)row.Cells["perforacion"].Value,
-                                    Tipo = (string)row.Cells["Tipo"].Value,
-                                    Observacion = row.Cells["observacion"].Value != DBNull.Value ? (string)row.Cells["observacion"].Value : string.Empty
-                                })
-                                .OrderBy(r => r.NombreCliente)
-                                .ThenBy(r => r.IdPedido)
-                                .ToList();
+                            .Where(r => !r.IsNewRow)
+                            .Select(r => new Registro
+                            {
+                                IdPedido = (int)r.Cells["idPedido"].Value,
+                                NombreCliente = (string)r.Cells["NombreCliente"].Value,
+                                Fecha = (DateTime)r.Cells["fecha"].Value,
+                                Cantidad = (int)r.Cells["cantidad"].Value,
+                                NombreArticulo = (string)r.Cells["nombreArticulo"].Value,
+                                localidad = (string)r.Cells["localidad"].Value,
+                                Perforacion = (string)r.Cells["perforacion"].Value,
+                                Tipo = (string)r.Cells["Tipo"].Value,
+                                Observacion = r.Cells["observacion"].Value != DBNull.Value ? (string)r.Cells["observacion"].Value : string.Empty
+                            })
+                            .OrderBy(r => r.NombreCliente)
+                            .ThenBy(r => r.IdPedido)
+                            .ToList();
 
-            
             var registrosAgrupados = registros.GroupBy(r => new { r.NombreCliente, r.IdPedido });
+
+            // Crea una tabla con dos columnas
+            Table table = section.AddTable();
+            table.Borders.Width = 0.75;
+
+            // Definir columnas de la tabla
+            Column column1 = table.AddColumn(Unit.FromCentimeter(8)); 
+            Column column2 = table.AddColumn(Unit.FromCentimeter(8)); 
+
+            // Agrega una fila para los cuadros
+            Row tableRow = table.AddRow();
+            tableRow.TopPadding = 5;
+            tableRow.BottomPadding = 5;
+
+            int cuadroCount = 0;
 
             foreach (var grupo in registrosAgrupados)
             {
-                var primerRegistro = grupo.First();
+                // Agrega una nueva fila para cada par de cuadros
+                if (cuadroCount % 2 == 0 && cuadroCount > 0)
+                {
+                    tableRow = table.AddRow();
+                    tableRow.TopPadding = 5;
+                    tableRow.BottomPadding = 5;
+                }
 
-                
-                Paragraph pedidoSummary = section.AddParagraph();
-                pedidoSummary.Format.Alignment = ParagraphAlignment.Left;
-                pedidoSummary.Format.SpaceBefore = "5mm";
-                pedidoSummary.Format.SpaceAfter = "5mm";
-                pedidoSummary.AddFormattedText($"{primerRegistro.NombreCliente} - {primerRegistro.Fecha.ToString("dd/MM/yyyy")} - Pedido: {primerRegistro.IdPedido}", headerFont);
-                pedidoSummary.AddLineBreak();
+                Cell cell = (cuadroCount % 2 == 0) ? tableRow.Cells[0] : tableRow.Cells[1];
 
-                
-                Paragraph pedidoBox = section.AddParagraph();
-                pedidoBox.Format.Borders.Width = 0.75;
-                pedidoBox.Format.Borders.Color = Colors.Black;
+                // Configura el color de fondo y los bordes de las celdas
+                cell.Shading.Color = Colors.White; // Fondo blanco
+                cell.Borders.Width = 1; // bordes
+
+                Paragraph pedidoBox = cell.AddParagraph();
                 pedidoBox.Format.SpaceBefore = "2mm";
                 pedidoBox.Format.SpaceAfter = "5mm";
 
-                
+                pedidoBox.AddFormattedText($"{grupo.First().NombreCliente} - {grupo.First().localidad} - Pedido: {grupo.First().IdPedido}", headerFont);
+                pedidoBox.AddLineBreak();
+
                 foreach (var registro in grupo)
                 {
                     string line = $"{registro.Cantidad} {registro.NombreArticulo}";
 
-                    
                     if (!string.IsNullOrWhiteSpace(registro.Perforacion) && registro.Perforacion != "No corresponde")
                     {
                         line += $" {registro.Perforacion}";
@@ -170,13 +186,14 @@ namespace Presentacion
                         pedidoBox.AddFormattedText(line + "\n", textFont);
                     }
                 }
+
+                cuadroCount++;
             }
 
-            
+            // Guardar el PDF
             string timestamp = DateTime.Now.ToString("yyyyMMddHHmmss");
             string pdfPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), $"Pedidos_{timestamp}.pdf");
 
-      
             PdfDocumentRenderer pdfRenderer = new PdfDocumentRenderer(true)
             {
                 Document = document
@@ -184,7 +201,7 @@ namespace Presentacion
             pdfRenderer.RenderDocument();
             pdfRenderer.PdfDocument.Save(pdfPath);
 
-            // Informar al usuario que el PDF ha sido generado
+           
             MessageBox.Show("PDF generado exitosamente en el escritorio.");
 
         }

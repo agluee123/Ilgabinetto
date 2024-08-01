@@ -28,7 +28,8 @@ namespace Negocio
                 comando.CommandText = @"
             SELECT 
                 Pedidos.id_pedido, 
-                Clientes.nombre AS cliente_nombre, 
+                Clientes.nombre AS cliente_nombre,
+                Clientes.localidad AS localidad,
                 Pedidos.fecha AS fecha_Del_Pedido, 
                 ArticulosPedidos.cantidad AS cantidad,
                 Articulo.nombre AS nombreArticulo, 
@@ -51,6 +52,7 @@ namespace Negocio
                     {
                         IdPedido = (int)lector["id_pedido"],
                         NombreCliente = (string)lector["cliente_nombre"],
+                        localidad = (string)lector["localidad"],
                         Fecha = (DateTime)lector["fecha_Del_Pedido"],
                         Cantidad = (int)lector["cantidad"],
                         NombreArticulo = (string)lector["nombreArticulo"],

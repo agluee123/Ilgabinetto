@@ -13,6 +13,8 @@ namespace Sistema_de_pedidos
 
         public int ClienteId { get; set; }
         public string NombreCliente { get; set; }
+
+        public string localidad { get; set; }
         public string Tipo { get; set; }
 
         public int Cantidad { get; set; }
