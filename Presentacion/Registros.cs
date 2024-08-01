@@ -14,9 +14,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
 
-
-
-
 using MigraDoc.DocumentObjectModel;
 using MigraDoc.DocumentObjectModel.Tables;
 using MigraDoc.Rendering;
@@ -43,10 +40,7 @@ namespace Presentacion
             this.idsSeleccionados = idsSeleccionados;
         }
 
-        private void dgvRegistros_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-         
-        }
+      
 
         private void Registros_Load(object sender, EventArgs e)
         {

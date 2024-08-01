@@ -58,7 +58,6 @@
             this.dgvRegistros.Name = "dgvRegistros";
             this.dgvRegistros.Size = new System.Drawing.Size(559, 447);
             this.dgvRegistros.TabIndex = 0;
-            this.dgvRegistros.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRegistros_CellContentClick);
             // 
             // lblFiltro
             // 
