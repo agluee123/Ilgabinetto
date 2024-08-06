@@ -1,5 +1,6 @@
 ﻿using Dominio;
 using Negocio;
+using Sistema_de_pedidos;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -248,7 +249,8 @@ namespace Presentacion
             if (filtro.Length >= 1)
             {
                 listaFiltrada = lista.FindAll(x =>
-                    x.NombreCliente.ToUpper().Contains(filtro) // Filtrar por nombre que contiene el filtro
+                    x.NombreCliente.ToUpper().Contains(filtro) || x.Fecha.ToString().Contains(filtro) 
+                    || x.Tipo.ToUpper().Contains(filtro) // Filtrar por nombre que contiene el filtro
                 );
             }
             else
@@ -270,9 +272,23 @@ namespace Presentacion
 
 
 
-        } 
+        }
 
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            DateTime fechaInicio = dTPReg1.Value.Date;
+            DateTime fechaFin = dTPreg2.Value.Date;
+           
 
+           
 
+            PedidoNegocio nuevo = new PedidoNegocio();
+            List<Pedido> registros = nuevo.ListarPedidos();
+            
+
+            var listaFiltrada = registros.Where(r => r.Fecha >= fechaInicio && r.Fecha <= fechaFin).ToList();
+
+            dgvListaPedidos.DataSource = listaFiltrada;
+        }
     }
 }

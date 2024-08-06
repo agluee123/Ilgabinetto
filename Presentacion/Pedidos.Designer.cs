@@ -42,8 +42,15 @@
             this.btnReg = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.lblFiltro = new System.Windows.Forms.Label();
+            this.gbxFecha = new System.Windows.Forms.GroupBox();
+            this.lblHasta = new System.Windows.Forms.Label();
+            this.lblDesde = new System.Windows.Forms.Label();
+            this.dTPreg2 = new System.Windows.Forms.DateTimePicker();
+            this.dTPReg1 = new System.Windows.Forms.DateTimePicker();
+            this.btnBuscar = new System.Windows.Forms.Button();
             this.gbxCrearPedido.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaPedidos)).BeginInit();
+            this.gbxFecha.SuspendLayout();
             this.SuspendLayout();
             // 
             // cbxCliente
@@ -184,12 +191,69 @@
             this.lblFiltro.TabIndex = 9;
             this.lblFiltro.Text = "Filtro:";
             // 
+            // gbxFecha
+            // 
+            this.gbxFecha.Controls.Add(this.lblHasta);
+            this.gbxFecha.Controls.Add(this.lblDesde);
+            this.gbxFecha.Controls.Add(this.dTPreg2);
+            this.gbxFecha.Controls.Add(this.dTPReg1);
+            this.gbxFecha.Location = new System.Drawing.Point(81, 369);
+            this.gbxFecha.Name = "gbxFecha";
+            this.gbxFecha.Size = new System.Drawing.Size(248, 130);
+            this.gbxFecha.TabIndex = 10;
+            this.gbxFecha.TabStop = false;
+            this.gbxFecha.Text = "Ingresar Fecha";
+            // 
+            // lblHasta
+            // 
+            this.lblHasta.AutoSize = true;
+            this.lblHasta.Location = new System.Drawing.Point(18, 67);
+            this.lblHasta.Name = "lblHasta";
+            this.lblHasta.Size = new System.Drawing.Size(38, 13);
+            this.lblHasta.TabIndex = 3;
+            this.lblHasta.Text = "Hasta:";
+            // 
+            // lblDesde
+            // 
+            this.lblDesde.AutoSize = true;
+            this.lblDesde.Location = new System.Drawing.Point(15, 23);
+            this.lblDesde.Name = "lblDesde";
+            this.lblDesde.Size = new System.Drawing.Size(41, 13);
+            this.lblDesde.TabIndex = 2;
+            this.lblDesde.Text = "Desde:";
+            // 
+            // dTPreg2
+            // 
+            this.dTPreg2.Location = new System.Drawing.Point(15, 85);
+            this.dTPreg2.Name = "dTPreg2";
+            this.dTPreg2.Size = new System.Drawing.Size(216, 20);
+            this.dTPreg2.TabIndex = 1;
+            // 
+            // dTPReg1
+            // 
+            this.dTPReg1.Location = new System.Drawing.Point(15, 40);
+            this.dTPReg1.Name = "dTPReg1";
+            this.dTPReg1.Size = new System.Drawing.Size(216, 20);
+            this.dTPReg1.TabIndex = 0;
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Location = new System.Drawing.Point(149, 508);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(106, 25);
+            this.btnBuscar.TabIndex = 11;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
             // Pedidos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1098, 613);
+            this.Controls.Add(this.btnBuscar);
+            this.Controls.Add(this.gbxFecha);
             this.Controls.Add(this.lblFiltro);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.btnReg);
@@ -201,6 +265,8 @@
             this.gbxCrearPedido.ResumeLayout(false);
             this.gbxCrearPedido.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaPedidos)).EndInit();
+            this.gbxFecha.ResumeLayout(false);
+            this.gbxFecha.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -222,5 +288,11 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn chkSelect;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label lblFiltro;
+        private System.Windows.Forms.GroupBox gbxFecha;
+        private System.Windows.Forms.Label lblHasta;
+        private System.Windows.Forms.Label lblDesde;
+        private System.Windows.Forms.DateTimePicker dTPreg2;
+        private System.Windows.Forms.DateTimePicker dTPReg1;
+        private System.Windows.Forms.Button btnBuscar;
     }
 }

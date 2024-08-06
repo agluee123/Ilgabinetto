@@ -17,6 +17,7 @@ namespace Sistema_de_pedidos
         public string localidad { get; set; }
         public string Tipo { get; set; }
 
+        public string Categoria { get; set; }
         public int Cantidad { get; set; }
         public string NombreArticulo { get; set; }
         public string Perforacion { get; set; }
