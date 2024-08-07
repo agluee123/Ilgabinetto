@@ -47,11 +47,11 @@
             // 
             // btnImprimir
             // 
-            this.btnImprimir.Location = new System.Drawing.Point(97, 49);
+            this.btnImprimir.Location = new System.Drawing.Point(68, 49);
             this.btnImprimir.Name = "btnImprimir";
-            this.btnImprimir.Size = new System.Drawing.Size(106, 25);
+            this.btnImprimir.Size = new System.Drawing.Size(133, 25);
             this.btnImprimir.TabIndex = 7;
-            this.btnImprimir.Text = "Imprimir Pedido";
+            this.btnImprimir.Text = "Imprimir Semanal";
             this.btnImprimir.UseVisualStyleBackColor = true;
             this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
             // 
@@ -61,7 +61,7 @@
             this.btnImprimirVendidos.Name = "btnImprimirVendidos";
             this.btnImprimirVendidos.Size = new System.Drawing.Size(170, 25);
             this.btnImprimirVendidos.TabIndex = 7;
-            this.btnImprimirVendidos.Text = "Imprimir Produccion";
+            this.btnImprimirVendidos.Text = "Imprimir Viaje";
             this.btnImprimirVendidos.UseVisualStyleBackColor = true;
             this.btnImprimirVendidos.Click += new System.EventHandler(this.btnImprimirVendidos_Click);
             // 
