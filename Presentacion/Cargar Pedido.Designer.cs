@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Cargar_Pedido));
             this.gbxPedido = new System.Windows.Forms.GroupBox();
             this.tbxObservacion = new System.Windows.Forms.TextBox();
             this.lblObservacion = new System.Windows.Forms.Label();
@@ -45,6 +46,8 @@
             // 
             // gbxPedido
             // 
+            this.gbxPedido.Controls.Add(this.btnEliminar);
+            this.gbxPedido.Controls.Add(this.btnAgregar);
             this.gbxPedido.Controls.Add(this.tbxObservacion);
             this.gbxPedido.Controls.Add(this.lblObservacion);
             this.gbxPedido.Controls.Add(this.lblCantidad);
@@ -53,7 +56,7 @@
             this.gbxPedido.Controls.Add(this.cbxArticulo);
             this.gbxPedido.Location = new System.Drawing.Point(108, 12);
             this.gbxPedido.Name = "gbxPedido";
-            this.gbxPedido.Size = new System.Drawing.Size(587, 125);
+            this.gbxPedido.Size = new System.Drawing.Size(587, 154);
             this.gbxPedido.TabIndex = 0;
             this.gbxPedido.TabStop = false;
             this.gbxPedido.Text = "Agregar al pedido";
@@ -77,7 +80,7 @@
             // lblCantidad
             // 
             this.lblCantidad.AutoSize = true;
-            this.lblCantidad.Location = new System.Drawing.Point(395, 31);
+            this.lblCantidad.Location = new System.Drawing.Point(343, 31);
             this.lblCantidad.Name = "lblCantidad";
             this.lblCantidad.Size = new System.Drawing.Size(52, 13);
             this.lblCantidad.TabIndex = 2;
@@ -85,7 +88,7 @@
             // 
             // nmCantidad
             // 
-            this.nmCantidad.Location = new System.Drawing.Point(398, 47);
+            this.nmCantidad.Location = new System.Drawing.Point(346, 47);
             this.nmCantidad.Minimum = new decimal(new int[] {
             1,
             0,
@@ -119,7 +122,7 @@
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(241, 143);
+            this.btnAgregar.Location = new System.Drawing.Point(111, 125);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(137, 23);
             this.btnAgregar.TabIndex = 1;
@@ -134,12 +137,12 @@
             this.dgvPedido.Name = "dgvPedido";
             this.dgvPedido.ReadOnly = true;
             this.dgvPedido.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPedido.Size = new System.Drawing.Size(713, 402);
+            this.dgvPedido.Size = new System.Drawing.Size(713, 450);
             this.dgvPedido.TabIndex = 2;
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(409, 143);
+            this.btnEliminar.Location = new System.Drawing.Point(289, 125);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(137, 23);
             this.btnEliminar.TabIndex = 3;
@@ -151,12 +154,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(789, 613);
-            this.Controls.Add(this.btnEliminar);
+            this.ClientSize = new System.Drawing.Size(787, 634);
             this.Controls.Add(this.dgvPedido);
-            this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.gbxPedido);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "Cargar_Pedido";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Agregar al pedido";
             this.Load += new System.EventHandler(this.Cargar_Pedido_Load);
             this.gbxPedido.ResumeLayout(false);

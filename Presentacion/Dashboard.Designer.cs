@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
             this.btnArticulos = new System.Windows.Forms.Button();
             this.btnClientes = new System.Windows.Forms.Button();
             this.btnPedidos = new System.Windows.Forms.Button();
@@ -36,42 +37,54 @@
             // 
             // btnArticulos
             // 
+            this.btnArticulos.BackColor = System.Drawing.Color.Silver;
+            this.btnArticulos.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnArticulos.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnArticulos.Location = new System.Drawing.Point(290, 12);
             this.btnArticulos.Name = "btnArticulos";
             this.btnArticulos.Size = new System.Drawing.Size(129, 83);
             this.btnArticulos.TabIndex = 0;
             this.btnArticulos.Text = "Articulos";
-            this.btnArticulos.UseVisualStyleBackColor = true;
+            this.btnArticulos.UseVisualStyleBackColor = false;
             this.btnArticulos.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // btnClientes
             // 
+            this.btnClientes.BackColor = System.Drawing.Color.Silver;
+            this.btnClientes.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnClientes.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClientes.Location = new System.Drawing.Point(290, 119);
             this.btnClientes.Name = "btnClientes";
             this.btnClientes.Size = new System.Drawing.Size(129, 83);
             this.btnClientes.TabIndex = 1;
             this.btnClientes.Text = "Clientes";
-            this.btnClientes.UseVisualStyleBackColor = true;
+            this.btnClientes.UseVisualStyleBackColor = false;
             this.btnClientes.Click += new System.EventHandler(this.btnClientes_Click);
             // 
             // btnPedidos
             // 
+            this.btnPedidos.BackColor = System.Drawing.Color.Silver;
+            this.btnPedidos.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnPedidos.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPedidos.Location = new System.Drawing.Point(290, 233);
             this.btnPedidos.Name = "btnPedidos";
             this.btnPedidos.Size = new System.Drawing.Size(129, 83);
             this.btnPedidos.TabIndex = 2;
             this.btnPedidos.Text = "Pedidos";
-            this.btnPedidos.UseVisualStyleBackColor = true;
+            this.btnPedidos.UseVisualStyleBackColor = false;
             this.btnPedidos.Click += new System.EventHandler(this.btnPedidos_Click);
             // 
             // btnRegistros
             // 
+            this.btnRegistros.BackColor = System.Drawing.Color.Silver;
+            this.btnRegistros.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnRegistros.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegistros.Location = new System.Drawing.Point(290, 345);
             this.btnRegistros.Name = "btnRegistros";
             this.btnRegistros.Size = new System.Drawing.Size(129, 83);
             this.btnRegistros.TabIndex = 3;
             this.btnRegistros.Text = "Registros";
-            this.btnRegistros.UseVisualStyleBackColor = true;
+            this.btnRegistros.UseVisualStyleBackColor = false;
             this.btnRegistros.Click += new System.EventHandler(this.btnRegistros_Click);
             // 
             // Dashboard
@@ -83,9 +96,14 @@
             this.Controls.Add(this.btnPedidos);
             this.Controls.Add(this.btnClientes);
             this.Controls.Add(this.btnArticulos);
+            this.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Dashboard";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dashboard";
+            this.TransparencyKey = System.Drawing.Color.RosyBrown;
             this.ResumeLayout(false);
 
         }

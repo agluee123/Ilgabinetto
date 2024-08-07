@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Pedidos));
             this.cbxCliente = new System.Windows.Forms.ComboBox();
             this.lblCliente = new System.Windows.Forms.Label();
             this.BtnAgregarProducto = new System.Windows.Forms.Button();
@@ -90,7 +91,7 @@
             this.gbxCrearPedido.Controls.Add(this.lblCliente);
             this.gbxCrearPedido.Controls.Add(this.BtnAgregarProducto);
             this.gbxCrearPedido.Controls.Add(this.cbxCliente);
-            this.gbxCrearPedido.Location = new System.Drawing.Point(12, 26);
+            this.gbxCrearPedido.Location = new System.Drawing.Point(24, 76);
             this.gbxCrearPedido.Name = "gbxCrearPedido";
             this.gbxCrearPedido.Size = new System.Drawing.Size(364, 243);
             this.gbxCrearPedido.TabIndex = 4;
@@ -149,11 +150,11 @@
             this.dgvListaPedidos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvListaPedidos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.chkSelect});
-            this.dgvListaPedidos.Location = new System.Drawing.Point(440, 52);
+            this.dgvListaPedidos.Location = new System.Drawing.Point(440, 76);
             this.dgvListaPedidos.Name = "dgvListaPedidos";
             this.dgvListaPedidos.ReadOnly = true;
             this.dgvListaPedidos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvListaPedidos.Size = new System.Drawing.Size(632, 481);
+            this.dgvListaPedidos.Size = new System.Drawing.Size(659, 518);
             this.dgvListaPedidos.TabIndex = 5;
             this.dgvListaPedidos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListaPedidos_CellClick);
             this.dgvListaPedidos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListaPedidos_CellContentClick);
@@ -166,7 +167,7 @@
             // 
             // btnReg
             // 
-            this.btnReg.Location = new System.Drawing.Point(138, 324);
+            this.btnReg.Location = new System.Drawing.Point(134, 543);
             this.btnReg.Name = "btnReg";
             this.btnReg.Size = new System.Drawing.Size(134, 23);
             this.btnReg.TabIndex = 7;
@@ -176,33 +177,34 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(491, 26);
+            this.textBox1.Location = new System.Drawing.Point(516, 41);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(581, 20);
+            this.textBox1.Size = new System.Drawing.Size(531, 20);
             this.textBox1.TabIndex = 8;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // lblFiltro
             // 
             this.lblFiltro.AutoSize = true;
-            this.lblFiltro.Location = new System.Drawing.Point(440, 33);
+            this.lblFiltro.Location = new System.Drawing.Point(440, 44);
             this.lblFiltro.Name = "lblFiltro";
-            this.lblFiltro.Size = new System.Drawing.Size(32, 13);
+            this.lblFiltro.Size = new System.Drawing.Size(43, 13);
             this.lblFiltro.TabIndex = 9;
-            this.lblFiltro.Text = "Filtro:";
+            this.lblFiltro.Text = "Buscar:";
             // 
             // gbxFecha
             // 
+            this.gbxFecha.Controls.Add(this.btnBuscar);
             this.gbxFecha.Controls.Add(this.lblHasta);
             this.gbxFecha.Controls.Add(this.lblDesde);
             this.gbxFecha.Controls.Add(this.dTPreg2);
             this.gbxFecha.Controls.Add(this.dTPReg1);
-            this.gbxFecha.Location = new System.Drawing.Point(81, 369);
+            this.gbxFecha.Location = new System.Drawing.Point(24, 346);
             this.gbxFecha.Name = "gbxFecha";
-            this.gbxFecha.Size = new System.Drawing.Size(248, 130);
+            this.gbxFecha.Size = new System.Drawing.Size(364, 156);
             this.gbxFecha.TabIndex = 10;
             this.gbxFecha.TabStop = false;
-            this.gbxFecha.Text = "Ingresar Fecha";
+            this.gbxFecha.Text = "Buscar Por Fecha";
             // 
             // lblHasta
             // 
@@ -226,21 +228,21 @@
             // 
             this.dTPreg2.Location = new System.Drawing.Point(15, 85);
             this.dTPreg2.Name = "dTPreg2";
-            this.dTPreg2.Size = new System.Drawing.Size(216, 20);
+            this.dTPreg2.Size = new System.Drawing.Size(329, 20);
             this.dTPreg2.TabIndex = 1;
             // 
             // dTPReg1
             // 
             this.dTPReg1.Location = new System.Drawing.Point(15, 40);
             this.dTPReg1.Name = "dTPReg1";
-            this.dTPReg1.Size = new System.Drawing.Size(216, 20);
+            this.dTPReg1.Size = new System.Drawing.Size(329, 20);
             this.dTPReg1.TabIndex = 0;
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(149, 508);
+            this.btnBuscar.Location = new System.Drawing.Point(110, 125);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(106, 25);
+            this.btnBuscar.Size = new System.Drawing.Size(137, 25);
             this.btnBuscar.TabIndex = 11;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
@@ -251,15 +253,18 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1098, 613);
-            this.Controls.Add(this.btnBuscar);
+            this.ClientSize = new System.Drawing.Size(1149, 634);
             this.Controls.Add(this.gbxFecha);
             this.Controls.Add(this.lblFiltro);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.btnReg);
             this.Controls.Add(this.dgvListaPedidos);
             this.Controls.Add(this.gbxCrearPedido);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "Pedidos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Crear Pedido";
             this.Load += new System.EventHandler(this.Pedidos_Load);
             this.gbxCrearPedido.ResumeLayout(false);

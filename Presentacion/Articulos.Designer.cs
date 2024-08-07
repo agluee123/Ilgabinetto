@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Articulos));
             this.dgvArticulos = new System.Windows.Forms.DataGridView();
             this.tbxFiltro = new System.Windows.Forms.TextBox();
             this.lblFiltro = new System.Windows.Forms.Label();
@@ -48,18 +49,17 @@
             // 
             // dgvArticulos
             // 
-            this.dgvArticulos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvArticulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvArticulos.Location = new System.Drawing.Point(446, 78);
+            this.dgvArticulos.Location = new System.Drawing.Point(440, 76);
             this.dgvArticulos.Name = "dgvArticulos";
             this.dgvArticulos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvArticulos.Size = new System.Drawing.Size(604, 518);
+            this.dgvArticulos.Size = new System.Drawing.Size(659, 518);
             this.dgvArticulos.TabIndex = 11;
             this.dgvArticulos.SelectionChanged += new System.EventHandler(this.dgvArticulos_SelectionChanged);
             // 
             // tbxFiltro
             // 
-            this.tbxFiltro.Location = new System.Drawing.Point(519, 43);
+            this.tbxFiltro.Location = new System.Drawing.Point(516, 41);
             this.tbxFiltro.Name = "tbxFiltro";
             this.tbxFiltro.Size = new System.Drawing.Size(531, 20);
             this.tbxFiltro.TabIndex = 13;
@@ -68,15 +68,15 @@
             // lblFiltro
             // 
             this.lblFiltro.AutoSize = true;
-            this.lblFiltro.Location = new System.Drawing.Point(443, 46);
+            this.lblFiltro.Location = new System.Drawing.Point(440, 44);
             this.lblFiltro.Name = "lblFiltro";
-            this.lblFiltro.Size = new System.Drawing.Size(29, 13);
+            this.lblFiltro.Size = new System.Drawing.Size(43, 13);
             this.lblFiltro.TabIndex = 14;
-            this.lblFiltro.Text = "Filtro";
+            this.lblFiltro.Text = "Buscar:";
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(35, 169);
+            this.btnAgregar.Location = new System.Drawing.Point(32, 183);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(129, 23);
             this.btnAgregar.TabIndex = 10;
@@ -92,7 +92,7 @@
             "Tres agujeros",
             "Monocomando",
             "No corresponde"});
-            this.cbxPerforacion.Location = new System.Drawing.Point(152, 106);
+            this.cbxPerforacion.Location = new System.Drawing.Point(165, 118);
             this.cbxPerforacion.Name = "cbxPerforacion";
             this.cbxPerforacion.Size = new System.Drawing.Size(121, 21);
             this.cbxPerforacion.TabIndex = 8;
@@ -103,14 +103,14 @@
             this.cbxCategoria.Items.AddRange(new object[] {
             "Mueble",
             "Mesada"});
-            this.cbxCategoria.Location = new System.Drawing.Point(152, 63);
+            this.cbxCategoria.Location = new System.Drawing.Point(165, 71);
             this.cbxCategoria.Name = "cbxCategoria";
             this.cbxCategoria.Size = new System.Drawing.Size(121, 21);
             this.cbxCategoria.TabIndex = 6;
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(77, 227);
+            this.btnEliminar.Location = new System.Drawing.Point(70, 247);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(75, 23);
             this.btnEliminar.TabIndex = 12;
@@ -121,7 +121,7 @@
             // lblPerforacion
             // 
             this.lblPerforacion.AutoSize = true;
-            this.lblPerforacion.Location = new System.Drawing.Point(71, 106);
+            this.lblPerforacion.Location = new System.Drawing.Point(84, 126);
             this.lblPerforacion.Name = "lblPerforacion";
             this.lblPerforacion.Size = new System.Drawing.Size(61, 13);
             this.lblPerforacion.TabIndex = 3;
@@ -130,7 +130,7 @@
             // lblCategoria
             // 
             this.lblCategoria.AutoSize = true;
-            this.lblCategoria.Location = new System.Drawing.Point(71, 66);
+            this.lblCategoria.Location = new System.Drawing.Point(84, 79);
             this.lblCategoria.Name = "lblCategoria";
             this.lblCategoria.Size = new System.Drawing.Size(52, 13);
             this.lblCategoria.TabIndex = 1;
@@ -138,7 +138,7 @@
             // 
             // btnModiicar
             // 
-            this.btnModiicar.Location = new System.Drawing.Point(209, 168);
+            this.btnModiicar.Location = new System.Drawing.Point(209, 183);
             this.btnModiicar.Name = "btnModiicar";
             this.btnModiicar.Size = new System.Drawing.Size(75, 23);
             this.btnModiicar.TabIndex = 15;
@@ -149,7 +149,7 @@
             // lblNombre
             // 
             this.lblNombre.AutoSize = true;
-            this.lblNombre.Location = new System.Drawing.Point(71, 19);
+            this.lblNombre.Location = new System.Drawing.Point(84, 36);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(44, 13);
             this.lblNombre.TabIndex = 0;
@@ -157,7 +157,7 @@
             // 
             // btnLimpiar
             // 
-            this.btnLimpiar.Location = new System.Drawing.Point(209, 226);
+            this.btnLimpiar.Location = new System.Drawing.Point(209, 247);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(75, 23);
             this.btnLimpiar.TabIndex = 16;
@@ -167,7 +167,7 @@
             // 
             // tbxNombre
             // 
-            this.tbxNombre.Location = new System.Drawing.Point(152, 19);
+            this.tbxNombre.Location = new System.Drawing.Point(165, 36);
             this.tbxNombre.Name = "tbxNombre";
             this.tbxNombre.Size = new System.Drawing.Size(100, 20);
             this.tbxNombre.TabIndex = 5;
@@ -184,7 +184,7 @@
             this.gbxArticulo.Controls.Add(this.cbxCategoria);
             this.gbxArticulo.Controls.Add(this.cbxPerforacion);
             this.gbxArticulo.Controls.Add(this.btnAgregar);
-            this.gbxArticulo.Location = new System.Drawing.Point(30, 68);
+            this.gbxArticulo.Location = new System.Drawing.Point(24, 76);
             this.gbxArticulo.Name = "gbxArticulo";
             this.gbxArticulo.Size = new System.Drawing.Size(361, 528);
             this.gbxArticulo.TabIndex = 17;
@@ -200,7 +200,11 @@
             this.Controls.Add(this.lblFiltro);
             this.Controls.Add(this.tbxFiltro);
             this.Controls.Add(this.dgvArticulos);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "Articulos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Articulos";
             this.Load += new System.EventHandler(this.Articulos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).EndInit();
