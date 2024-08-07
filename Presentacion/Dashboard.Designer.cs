@@ -33,14 +33,16 @@
             this.btnClientes = new System.Windows.Forms.Button();
             this.btnPedidos = new System.Windows.Forms.Button();
             this.btnRegistros = new System.Windows.Forms.Button();
+            this.pbxImg = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxImg)).BeginInit();
             this.SuspendLayout();
             // 
             // btnArticulos
             // 
-            this.btnArticulos.BackColor = System.Drawing.Color.Silver;
+            this.btnArticulos.BackColor = System.Drawing.Color.LightGray;
             this.btnArticulos.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnArticulos.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnArticulos.Location = new System.Drawing.Point(290, 12);
+            this.btnArticulos.Location = new System.Drawing.Point(58, 338);
             this.btnArticulos.Name = "btnArticulos";
             this.btnArticulos.Size = new System.Drawing.Size(129, 83);
             this.btnArticulos.TabIndex = 0;
@@ -50,10 +52,10 @@
             // 
             // btnClientes
             // 
-            this.btnClientes.BackColor = System.Drawing.Color.Silver;
+            this.btnClientes.BackColor = System.Drawing.Color.LightGray;
             this.btnClientes.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnClientes.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClientes.Location = new System.Drawing.Point(290, 119);
+            this.btnClientes.Location = new System.Drawing.Point(219, 338);
             this.btnClientes.Name = "btnClientes";
             this.btnClientes.Size = new System.Drawing.Size(129, 83);
             this.btnClientes.TabIndex = 1;
@@ -63,10 +65,10 @@
             // 
             // btnPedidos
             // 
-            this.btnPedidos.BackColor = System.Drawing.Color.Silver;
+            this.btnPedidos.BackColor = System.Drawing.Color.LightGray;
             this.btnPedidos.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnPedidos.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPedidos.Location = new System.Drawing.Point(290, 233);
+            this.btnPedidos.Location = new System.Drawing.Point(377, 338);
             this.btnPedidos.Name = "btnPedidos";
             this.btnPedidos.Size = new System.Drawing.Size(129, 83);
             this.btnPedidos.TabIndex = 2;
@@ -76,10 +78,10 @@
             // 
             // btnRegistros
             // 
-            this.btnRegistros.BackColor = System.Drawing.Color.Silver;
+            this.btnRegistros.BackColor = System.Drawing.Color.LightGray;
             this.btnRegistros.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnRegistros.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegistros.Location = new System.Drawing.Point(290, 345);
+            this.btnRegistros.Location = new System.Drawing.Point(532, 338);
             this.btnRegistros.Name = "btnRegistros";
             this.btnRegistros.Size = new System.Drawing.Size(129, 83);
             this.btnRegistros.TabIndex = 3;
@@ -87,11 +89,23 @@
             this.btnRegistros.UseVisualStyleBackColor = false;
             this.btnRegistros.Click += new System.EventHandler(this.btnRegistros_Click);
             // 
+            // pbxImg
+            // 
+            this.pbxImg.Image = ((System.Drawing.Image)(resources.GetObject("pbxImg.Image")));
+            this.pbxImg.Location = new System.Drawing.Point(58, 82);
+            this.pbxImg.Name = "pbxImg";
+            this.pbxImg.Size = new System.Drawing.Size(603, 171);
+            this.pbxImg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbxImg.TabIndex = 4;
+            this.pbxImg.TabStop = false;
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(711, 467);
+            this.Controls.Add(this.pbxImg);
             this.Controls.Add(this.btnRegistros);
             this.Controls.Add(this.btnPedidos);
             this.Controls.Add(this.btnClientes);
@@ -104,6 +118,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dashboard";
             this.TransparencyKey = System.Drawing.Color.RosyBrown;
+            ((System.ComponentModel.ISupportInitialize)(this.pbxImg)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -114,6 +129,7 @@
         private System.Windows.Forms.Button btnClientes;
         private System.Windows.Forms.Button btnPedidos;
         private System.Windows.Forms.Button btnRegistros;
+        private System.Windows.Forms.PictureBox pbxImg;
     }
 }
 

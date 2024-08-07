@@ -281,7 +281,7 @@ namespace Presentacion
                 
                 bool esPerforacionNoCorresponde = grupo.Perforacion == null || grupo.Perforacion.Count == 0 || grupo.Perforacion.Contains("No corresponde");
 
-                pedidoBox.AddFormattedText($"{grupo.CantidadTotal} - {grupo.NombreArticulo} {(esPerforacionNoCorresponde ? "" : string.Join(", ", grupo.Perforacion))}", headerFont);
+                pedidoBox.AddFormattedText($"{grupo.CantidadTotal}    {grupo.NombreArticulo} {(esPerforacionNoCorresponde ? "" : string.Join(", ", grupo.Perforacion))}", headerFont);
                 pedidoBox.AddLineBreak();
                
                 foreach (var observacion in grupo.Observaciones)

@@ -30,15 +30,15 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Cargar_Pedido));
             this.gbxPedido = new System.Windows.Forms.GroupBox();
+            this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnAgregar = new System.Windows.Forms.Button();
             this.tbxObservacion = new System.Windows.Forms.TextBox();
             this.lblObservacion = new System.Windows.Forms.Label();
             this.lblCantidad = new System.Windows.Forms.Label();
             this.nmCantidad = new System.Windows.Forms.NumericUpDown();
             this.lblArticulo = new System.Windows.Forms.Label();
             this.cbxArticulo = new System.Windows.Forms.ComboBox();
-            this.btnAgregar = new System.Windows.Forms.Button();
             this.dgvPedido = new System.Windows.Forms.DataGridView();
-            this.btnEliminar = new System.Windows.Forms.Button();
             this.gbxPedido.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nmCantidad)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPedido)).BeginInit();
@@ -61,17 +61,37 @@
             this.gbxPedido.TabStop = false;
             this.gbxPedido.Text = "Agregar al pedido";
             // 
+            // btnEliminar
+            // 
+            this.btnEliminar.Location = new System.Drawing.Point(289, 125);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(137, 23);
+            this.btnEliminar.TabIndex = 3;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            // 
+            // btnAgregar
+            // 
+            this.btnAgregar.Location = new System.Drawing.Point(111, 125);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(137, 23);
+            this.btnAgregar.TabIndex = 1;
+            this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
+            // 
             // tbxObservacion
             // 
-            this.tbxObservacion.Location = new System.Drawing.Point(111, 90);
+            this.tbxObservacion.Location = new System.Drawing.Point(60, 90);
             this.tbxObservacion.Name = "tbxObservacion";
-            this.tbxObservacion.Size = new System.Drawing.Size(179, 20);
+            this.tbxObservacion.Size = new System.Drawing.Size(230, 20);
             this.tbxObservacion.TabIndex = 4;
             // 
             // lblObservacion
             // 
             this.lblObservacion.AutoSize = true;
-            this.lblObservacion.Location = new System.Drawing.Point(108, 75);
+            this.lblObservacion.Location = new System.Drawing.Point(57, 74);
             this.lblObservacion.Name = "lblObservacion";
             this.lblObservacion.Size = new System.Drawing.Size(70, 13);
             this.lblObservacion.TabIndex = 3;
@@ -106,7 +126,7 @@
             // lblArticulo
             // 
             this.lblArticulo.AutoSize = true;
-            this.lblArticulo.Location = new System.Drawing.Point(108, 31);
+            this.lblArticulo.Location = new System.Drawing.Point(57, 31);
             this.lblArticulo.Name = "lblArticulo";
             this.lblArticulo.Size = new System.Drawing.Size(112, 13);
             this.lblArticulo.TabIndex = 1;
@@ -115,20 +135,10 @@
             // cbxArticulo
             // 
             this.cbxArticulo.FormattingEnabled = true;
-            this.cbxArticulo.Location = new System.Drawing.Point(111, 46);
+            this.cbxArticulo.Location = new System.Drawing.Point(60, 46);
             this.cbxArticulo.Name = "cbxArticulo";
-            this.cbxArticulo.Size = new System.Drawing.Size(179, 21);
+            this.cbxArticulo.Size = new System.Drawing.Size(230, 21);
             this.cbxArticulo.TabIndex = 0;
-            // 
-            // btnAgregar
-            // 
-            this.btnAgregar.Location = new System.Drawing.Point(111, 125);
-            this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(137, 23);
-            this.btnAgregar.TabIndex = 1;
-            this.btnAgregar.Text = "Agregar";
-            this.btnAgregar.UseVisualStyleBackColor = true;
-            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // dgvPedido
             // 
@@ -139,16 +149,6 @@
             this.dgvPedido.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPedido.Size = new System.Drawing.Size(713, 450);
             this.dgvPedido.TabIndex = 2;
-            // 
-            // btnEliminar
-            // 
-            this.btnEliminar.Location = new System.Drawing.Point(289, 125);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(137, 23);
-            this.btnEliminar.TabIndex = 3;
-            this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.UseVisualStyleBackColor = true;
-            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // Cargar_Pedido
             // 
