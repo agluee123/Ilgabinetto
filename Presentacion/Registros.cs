@@ -59,6 +59,8 @@ namespace Presentacion
                 dgvRegistros.DataSource = registros;
             }
 
+            dgvRegistros.Columns["ClienteId"].Visible = false;
+
 
         }
 
