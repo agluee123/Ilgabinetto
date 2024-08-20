@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Cargar_Pedido));
             this.gbxPedido = new System.Windows.Forms.GroupBox();
+            this.BtnModificar = new System.Windows.Forms.Button();
+            this.lblEstado = new System.Windows.Forms.Label();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.tbxObservacion = new System.Windows.Forms.TextBox();
@@ -39,6 +41,7 @@
             this.lblArticulo = new System.Windows.Forms.Label();
             this.cbxArticulo = new System.Windows.Forms.ComboBox();
             this.dgvPedido = new System.Windows.Forms.DataGridView();
+            this.CbxEstado = new System.Windows.Forms.ComboBox();
             this.gbxPedido.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nmCantidad)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPedido)).BeginInit();
@@ -54,16 +57,35 @@
             this.gbxPedido.Controls.Add(this.nmCantidad);
             this.gbxPedido.Controls.Add(this.lblArticulo);
             this.gbxPedido.Controls.Add(this.cbxArticulo);
-            this.gbxPedido.Location = new System.Drawing.Point(108, 12);
+            this.gbxPedido.Location = new System.Drawing.Point(53, 12);
             this.gbxPedido.Name = "gbxPedido";
-            this.gbxPedido.Size = new System.Drawing.Size(587, 154);
+            this.gbxPedido.Size = new System.Drawing.Size(396, 154);
             this.gbxPedido.TabIndex = 0;
             this.gbxPedido.TabStop = false;
             this.gbxPedido.Text = "Agregar al pedido";
             // 
+            // BtnModificar
+            // 
+            this.BtnModificar.Location = new System.Drawing.Point(544, 69);
+            this.BtnModificar.Name = "BtnModificar";
+            this.BtnModificar.Size = new System.Drawing.Size(137, 23);
+            this.BtnModificar.TabIndex = 7;
+            this.BtnModificar.Text = "Modificar Estado";
+            this.BtnModificar.UseVisualStyleBackColor = true;
+            this.BtnModificar.Click += new System.EventHandler(this.BtnModificar_Click);
+            // 
+            // lblEstado
+            // 
+            this.lblEstado.AutoSize = true;
+            this.lblEstado.Location = new System.Drawing.Point(498, 26);
+            this.lblEstado.Name = "lblEstado";
+            this.lblEstado.Size = new System.Drawing.Size(98, 13);
+            this.lblEstado.TabIndex = 6;
+            this.lblEstado.Text = "Estado Del Pedido:";
+            // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(289, 125);
+            this.btnEliminar.Location = new System.Drawing.Point(187, 125);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(137, 23);
             this.btnEliminar.TabIndex = 3;
@@ -73,7 +95,7 @@
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(111, 125);
+            this.btnAgregar.Location = new System.Drawing.Point(16, 125);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(137, 23);
             this.btnAgregar.TabIndex = 1;
@@ -83,7 +105,7 @@
             // 
             // tbxObservacion
             // 
-            this.tbxObservacion.Location = new System.Drawing.Point(60, 90);
+            this.tbxObservacion.Location = new System.Drawing.Point(44, 73);
             this.tbxObservacion.Name = "tbxObservacion";
             this.tbxObservacion.Size = new System.Drawing.Size(230, 20);
             this.tbxObservacion.TabIndex = 4;
@@ -91,7 +113,7 @@
             // lblObservacion
             // 
             this.lblObservacion.AutoSize = true;
-            this.lblObservacion.Location = new System.Drawing.Point(57, 74);
+            this.lblObservacion.Location = new System.Drawing.Point(41, 57);
             this.lblObservacion.Name = "lblObservacion";
             this.lblObservacion.Size = new System.Drawing.Size(70, 13);
             this.lblObservacion.TabIndex = 3;
@@ -100,7 +122,7 @@
             // lblCantidad
             // 
             this.lblCantidad.AutoSize = true;
-            this.lblCantidad.Location = new System.Drawing.Point(343, 31);
+            this.lblCantidad.Location = new System.Drawing.Point(324, 19);
             this.lblCantidad.Name = "lblCantidad";
             this.lblCantidad.Size = new System.Drawing.Size(52, 13);
             this.lblCantidad.TabIndex = 2;
@@ -108,7 +130,7 @@
             // 
             // nmCantidad
             // 
-            this.nmCantidad.Location = new System.Drawing.Point(346, 47);
+            this.nmCantidad.Location = new System.Drawing.Point(327, 35);
             this.nmCantidad.Minimum = new decimal(new int[] {
             1,
             0,
@@ -126,7 +148,7 @@
             // lblArticulo
             // 
             this.lblArticulo.AutoSize = true;
-            this.lblArticulo.Location = new System.Drawing.Point(57, 31);
+            this.lblArticulo.Location = new System.Drawing.Point(41, 19);
             this.lblArticulo.Name = "lblArticulo";
             this.lblArticulo.Size = new System.Drawing.Size(112, 13);
             this.lblArticulo.TabIndex = 1;
@@ -135,7 +157,7 @@
             // cbxArticulo
             // 
             this.cbxArticulo.FormattingEnabled = true;
-            this.cbxArticulo.Location = new System.Drawing.Point(60, 46);
+            this.cbxArticulo.Location = new System.Drawing.Point(44, 34);
             this.cbxArticulo.Name = "cbxArticulo";
             this.cbxArticulo.Size = new System.Drawing.Size(230, 21);
             this.cbxArticulo.TabIndex = 0;
@@ -150,13 +172,27 @@
             this.dgvPedido.Size = new System.Drawing.Size(713, 450);
             this.dgvPedido.TabIndex = 2;
             // 
+            // CbxEstado
+            // 
+            this.CbxEstado.FormattingEnabled = true;
+            this.CbxEstado.Items.AddRange(new object[] {
+            "Entregado",
+            "Pendiente"});
+            this.CbxEstado.Location = new System.Drawing.Point(501, 42);
+            this.CbxEstado.Name = "CbxEstado";
+            this.CbxEstado.Size = new System.Drawing.Size(230, 21);
+            this.CbxEstado.TabIndex = 5;
+            // 
             // Cargar_Pedido
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(787, 634);
+            this.Controls.Add(this.lblEstado);
             this.Controls.Add(this.dgvPedido);
+            this.Controls.Add(this.CbxEstado);
             this.Controls.Add(this.gbxPedido);
+            this.Controls.Add(this.BtnModificar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -169,6 +205,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.nmCantidad)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPedido)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -184,5 +221,8 @@
         private System.Windows.Forms.Label lblObservacion;
         private System.Windows.Forms.DataGridView dgvPedido;
         private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.Label lblEstado;
+        private System.Windows.Forms.Button BtnModificar;
+        private System.Windows.Forms.ComboBox CbxEstado;
     }
 }

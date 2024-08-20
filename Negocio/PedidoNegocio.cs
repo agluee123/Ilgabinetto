@@ -149,6 +149,27 @@ namespace Negocio
 
         }
 
+        public void Modificar(Pedido modificar)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setearConsulta("UPDATE PEDIDOS SET estado=@Estado WHERE id_pedido = @Id");
+
+                datos.setearParametro("@Id", modificar.IdPedido);
+                datos.setearParametro("@Estado", modificar.Estado);
+
+                datos.ejecutarAccion();
+
+                datos.cerrarConexion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
+
 
 
 

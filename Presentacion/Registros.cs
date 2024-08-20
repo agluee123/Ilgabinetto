@@ -84,8 +84,6 @@ namespace Presentacion
 
 
 
-
-
         private void GenerarPedidosSemanalPDF()
         {
             Document document = new Document();

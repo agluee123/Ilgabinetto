@@ -115,5 +115,30 @@ namespace Presentacion
                 MessageBox.Show(ex.ToString());
             }
         }
+
+        private void BtnModificar_Click(object sender, EventArgs e)
+        {
+            modificar();
+        }
+
+        private void modificar()
+        {
+            try
+            {
+                PedidoNegocio negocio = new PedidoNegocio();
+                Pedido pedido = new Pedido();
+                pedido.Estado = CbxEstado.SelectedItem?.ToString();
+                pedido.IdPedido = pedido.IdPedido;  
+                negocio.Modificar(pedido);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+        }
+
+       
     }
 }

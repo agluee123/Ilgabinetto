@@ -14,6 +14,7 @@ namespace Dominio
         public int ClienteId { get; set; }
         public string NombreCliente { get; set; }
         public string Tipo { get; set; }
+        public string Estado { get; set; }
 
 
     }
