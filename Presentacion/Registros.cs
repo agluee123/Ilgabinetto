@@ -362,8 +362,8 @@ namespace Presentacion
 
             MigraDoc.DocumentObjectModel.Font titleFont = new MigraDoc.DocumentObjectModel.Font("Arial", 14);
             MigraDoc.DocumentObjectModel.Font infoFont = new MigraDoc.DocumentObjectModel.Font("Arial", 10);
-            MigraDoc.DocumentObjectModel.Font headerFont = new MigraDoc.DocumentObjectModel.Font("Arial", 8);
-            MigraDoc.DocumentObjectModel.Font textFont = new MigraDoc.DocumentObjectModel.Font("Arial", 8);
+            MigraDoc.DocumentObjectModel.Font headerFont = new MigraDoc.DocumentObjectModel.Font("Arial", 10);
+            MigraDoc.DocumentObjectModel.Font textFont = new MigraDoc.DocumentObjectModel.Font("Arial", 10);
 
             Paragraph paragraph = section.AddParagraph();
             paragraph.Format.Alignment = ParagraphAlignment.Center;

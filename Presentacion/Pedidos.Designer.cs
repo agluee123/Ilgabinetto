@@ -44,11 +44,11 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.lblFiltro = new System.Windows.Forms.Label();
             this.gbxFecha = new System.Windows.Forms.GroupBox();
+            this.btnBuscar = new System.Windows.Forms.Button();
             this.lblHasta = new System.Windows.Forms.Label();
             this.lblDesde = new System.Windows.Forms.Label();
             this.dTPreg2 = new System.Windows.Forms.DateTimePicker();
             this.dTPReg1 = new System.Windows.Forms.DateTimePicker();
-            this.btnBuscar = new System.Windows.Forms.Button();
             this.gbxCrearPedido.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaPedidos)).BeginInit();
             this.gbxFecha.SuspendLayout();
@@ -158,6 +158,7 @@
             this.dgvListaPedidos.TabIndex = 5;
             this.dgvListaPedidos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListaPedidos_CellClick);
             this.dgvListaPedidos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListaPedidos_CellContentClick);
+            this.dgvListaPedidos.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvListaPedidos_CellFormatting);
             // 
             // chkSelect
             // 
@@ -206,6 +207,16 @@
             this.gbxFecha.TabStop = false;
             this.gbxFecha.Text = "Buscar Por Fecha";
             // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Location = new System.Drawing.Point(110, 125);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(137, 25);
+            this.btnBuscar.TabIndex = 11;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
             // lblHasta
             // 
             this.lblHasta.AutoSize = true;
@@ -237,16 +248,6 @@
             this.dTPReg1.Name = "dTPReg1";
             this.dTPReg1.Size = new System.Drawing.Size(329, 20);
             this.dTPReg1.TabIndex = 0;
-            // 
-            // btnBuscar
-            // 
-            this.btnBuscar.Location = new System.Drawing.Point(110, 125);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(137, 25);
-            this.btnBuscar.TabIndex = 11;
-            this.btnBuscar.Text = "Buscar";
-            this.btnBuscar.UseVisualStyleBackColor = true;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // Pedidos
             // 

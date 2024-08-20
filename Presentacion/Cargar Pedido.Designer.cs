@@ -30,8 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Cargar_Pedido));
             this.gbxPedido = new System.Windows.Forms.GroupBox();
-            this.BtnModificar = new System.Windows.Forms.Button();
-            this.lblEstado = new System.Windows.Forms.Label();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.tbxObservacion = new System.Windows.Forms.TextBox();
@@ -40,11 +38,16 @@
             this.nmCantidad = new System.Windows.Forms.NumericUpDown();
             this.lblArticulo = new System.Windows.Forms.Label();
             this.cbxArticulo = new System.Windows.Forms.ComboBox();
+            this.BtnModificar = new System.Windows.Forms.Button();
+            this.lblEstado = new System.Windows.Forms.Label();
             this.dgvPedido = new System.Windows.Forms.DataGridView();
             this.CbxEstado = new System.Windows.Forms.ComboBox();
+            this.GbxEstado = new System.Windows.Forms.GroupBox();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.gbxPedido.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nmCantidad)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPedido)).BeginInit();
+            this.GbxEstado.SuspendLayout();
             this.SuspendLayout();
             // 
             // gbxPedido
@@ -59,29 +62,10 @@
             this.gbxPedido.Controls.Add(this.cbxArticulo);
             this.gbxPedido.Location = new System.Drawing.Point(53, 12);
             this.gbxPedido.Name = "gbxPedido";
-            this.gbxPedido.Size = new System.Drawing.Size(396, 154);
+            this.gbxPedido.Size = new System.Drawing.Size(362, 154);
             this.gbxPedido.TabIndex = 0;
             this.gbxPedido.TabStop = false;
             this.gbxPedido.Text = "Agregar al pedido";
-            // 
-            // BtnModificar
-            // 
-            this.BtnModificar.Location = new System.Drawing.Point(544, 69);
-            this.BtnModificar.Name = "BtnModificar";
-            this.BtnModificar.Size = new System.Drawing.Size(137, 23);
-            this.BtnModificar.TabIndex = 7;
-            this.BtnModificar.Text = "Modificar Estado";
-            this.BtnModificar.UseVisualStyleBackColor = true;
-            this.BtnModificar.Click += new System.EventHandler(this.BtnModificar_Click);
-            // 
-            // lblEstado
-            // 
-            this.lblEstado.AutoSize = true;
-            this.lblEstado.Location = new System.Drawing.Point(498, 26);
-            this.lblEstado.Name = "lblEstado";
-            this.lblEstado.Size = new System.Drawing.Size(98, 13);
-            this.lblEstado.TabIndex = 6;
-            this.lblEstado.Text = "Estado Del Pedido:";
             // 
             // btnEliminar
             // 
@@ -122,7 +106,7 @@
             // lblCantidad
             // 
             this.lblCantidad.AutoSize = true;
-            this.lblCantidad.Location = new System.Drawing.Point(324, 19);
+            this.lblCantidad.Location = new System.Drawing.Point(299, 18);
             this.lblCantidad.Name = "lblCantidad";
             this.lblCantidad.Size = new System.Drawing.Size(52, 13);
             this.lblCantidad.TabIndex = 2;
@@ -130,7 +114,7 @@
             // 
             // nmCantidad
             // 
-            this.nmCantidad.Location = new System.Drawing.Point(327, 35);
+            this.nmCantidad.Location = new System.Drawing.Point(302, 34);
             this.nmCantidad.Minimum = new decimal(new int[] {
             1,
             0,
@@ -162,6 +146,25 @@
             this.cbxArticulo.Size = new System.Drawing.Size(230, 21);
             this.cbxArticulo.TabIndex = 0;
             // 
+            // BtnModificar
+            // 
+            this.BtnModificar.Location = new System.Drawing.Point(89, 62);
+            this.BtnModificar.Name = "BtnModificar";
+            this.BtnModificar.Size = new System.Drawing.Size(137, 23);
+            this.BtnModificar.TabIndex = 7;
+            this.BtnModificar.Text = "Modificar Estado";
+            this.BtnModificar.UseVisualStyleBackColor = true;
+            this.BtnModificar.Click += new System.EventHandler(this.BtnModificar_Click);
+            // 
+            // lblEstado
+            // 
+            this.lblEstado.AutoSize = true;
+            this.lblEstado.Location = new System.Drawing.Point(32, 19);
+            this.lblEstado.Name = "lblEstado";
+            this.lblEstado.Size = new System.Drawing.Size(98, 13);
+            this.lblEstado.TabIndex = 6;
+            this.lblEstado.Text = "Estado Del Pedido:";
+            // 
             // dgvPedido
             // 
             this.dgvPedido.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -174,25 +177,36 @@
             // 
             // CbxEstado
             // 
+            this.CbxEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CbxEstado.FormattingEnabled = true;
             this.CbxEstado.Items.AddRange(new object[] {
             "Entregado",
             "Pendiente"});
-            this.CbxEstado.Location = new System.Drawing.Point(501, 42);
+            this.CbxEstado.Location = new System.Drawing.Point(35, 35);
             this.CbxEstado.Name = "CbxEstado";
             this.CbxEstado.Size = new System.Drawing.Size(230, 21);
             this.CbxEstado.TabIndex = 5;
+            // 
+            // GbxEstado
+            // 
+            this.GbxEstado.Controls.Add(this.BtnModificar);
+            this.GbxEstado.Controls.Add(this.lblEstado);
+            this.GbxEstado.Controls.Add(this.CbxEstado);
+            this.GbxEstado.Location = new System.Drawing.Point(421, 12);
+            this.GbxEstado.Name = "GbxEstado";
+            this.GbxEstado.Size = new System.Drawing.Size(333, 106);
+            this.GbxEstado.TabIndex = 8;
+            this.GbxEstado.TabStop = false;
+            this.GbxEstado.Text = "Estado";
             // 
             // Cargar_Pedido
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(787, 634);
-            this.Controls.Add(this.lblEstado);
+            this.Controls.Add(this.GbxEstado);
             this.Controls.Add(this.dgvPedido);
-            this.Controls.Add(this.CbxEstado);
             this.Controls.Add(this.gbxPedido);
-            this.Controls.Add(this.BtnModificar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -204,8 +218,9 @@
             this.gbxPedido.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nmCantidad)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPedido)).EndInit();
+            this.GbxEstado.ResumeLayout(false);
+            this.GbxEstado.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -224,5 +239,7 @@
         private System.Windows.Forms.Label lblEstado;
         private System.Windows.Forms.Button BtnModificar;
         private System.Windows.Forms.ComboBox CbxEstado;
+        private System.Windows.Forms.GroupBox GbxEstado;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }

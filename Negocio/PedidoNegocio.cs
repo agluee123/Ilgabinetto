@@ -56,10 +56,11 @@ namespace Negocio
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                datos.setearConsulta("insert into Pedidos (fecha, cliente_id,tipo) output inserted.id_pedido values (@Fecha, @ClienteId,@Tipo)");
+                datos.setearConsulta("insert into Pedidos (fecha, cliente_id,tipo,Estado) output inserted.id_pedido values (@Fecha, @ClienteId,@Tipo,@Estado)");
                 datos.setearParametro("@Fecha", nuevo.Fecha);
                 datos.setearParametro("@ClienteId", nuevo.ClienteId);
                 datos.setearParametro("@Tipo", nuevo.Tipo);
+                datos.setearParametro("@Estado", nuevo.Estado);
 
                 datos.abrirConexion();  
 
@@ -92,7 +93,7 @@ namespace Negocio
                 conexion.ConnectionString = "server=.\\SQLEXPRESS; database=ILGABINETTO; integrated security=true";
                 comando.CommandType = System.Data.CommandType.Text;
 
-                comando.CommandText = "select  Pedidos.id_pedido ,Pedidos.Tipo, clientes.nombre as Nombre_Cliente, Pedidos.fecha as fecha_Del_Pedido from Pedidos join Clientes on Clientes.id_cliente = Pedidos.cliente_id;";
+                comando.CommandText = "select  Pedidos.id_pedido ,Pedidos.Tipo, Pedidos.Estado, clientes.nombre as Nombre_Cliente, Pedidos.fecha as fecha_Del_Pedido from Pedidos join Clientes on Clientes.id_cliente = Pedidos.cliente_id;";
                 comando.Connection = conexion;
 
                 conexion.Open();
@@ -105,7 +106,8 @@ namespace Negocio
                         IdPedido = (int)lector["id_pedido"],
                         NombreCliente = (string)lector["Nombre_Cliente"],
                         Fecha = (DateTime)lector["Fecha_Del_Pedido"],
-                        Tipo = (string)lector["Tipo"]
+                        Tipo = (string)lector["Tipo"],
+                        Estado = (string)lector["Estado"]
                     };
 
                     lista.Add(aux);

@@ -56,9 +56,9 @@ namespace Presentacion
                 cbxCliente.DataSource = clientesFiltrados; // Establecer el DataSource con la lista filtrada
                 cbxCliente.DisplayMember = "Nombre"; // Especificar la propiedad que quieres mostrar en la ComboBox
                 ListarPedido();
-
                 AgregarBoton();
-                ModificarColumnas();           
+                ModificarColumnas();
+                
 
             }
             catch (Exception ex)
@@ -82,22 +82,24 @@ namespace Presentacion
                     {
                         Fecha = dtpFechaPedido.Value,
                         ClienteId = seleccionado.IdCliente,
-                        Tipo = cbxTipo.SelectedItem?.ToString()
-                };
-
+                        Tipo = cbxTipo.SelectedItem?.ToString(),
+                        Estado = "Pendiente"
+                    };
+                    
                     int pedidoId = negocio.InsertarPedido(pedido);
 
                     Cargar_Pedido agregar = new Cargar_Pedido(pedidoId);
                     agregar.ShowDialog();
+                    ListarPedido();
                 }
                 else
                 {
                     MessageBox.Show("Por favor, seleccione un cliente.");
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show("Ocurrió un error: " + ex.Message);
+                MessageBox.Show("Debes seleccionar el tipo de pedido");
             }
             ListarPedido();
 
@@ -132,6 +134,7 @@ namespace Presentacion
 
                     Cargar_Pedido form = new Cargar_Pedido(pedidoId);
                     form.ShowDialog();
+                    ListarPedido();
 
                 }
                 catch (Exception ex)
@@ -289,6 +292,28 @@ namespace Presentacion
             var listaFiltrada = registros.Where(r => r.Fecha >= fechaInicio && r.Fecha <= fechaFin).ToList();
 
             dgvListaPedidos.DataSource = listaFiltrada;
+        }
+
+
+        private void dgvListaPedidos_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {    
+            if (dgvListaPedidos.Columns[e.ColumnIndex].Name == "Estado")
+            {
+                string estado = e.Value?.ToString();
+
+                if (estado == "Pendiente")
+                {
+                    e.CellStyle.ForeColor = Color.Red;
+                }
+                else if (estado == "Entregado")
+                {
+                    e.CellStyle.ForeColor = Color.Green;
+                }
+                else
+                {
+                    e.CellStyle.ForeColor = Color.Black;
+                }
+            }
         }
     }
 }

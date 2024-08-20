@@ -128,17 +128,18 @@ namespace Presentacion
                 PedidoNegocio negocio = new PedidoNegocio();
                 Pedido pedido = new Pedido();
                 pedido.Estado = CbxEstado.SelectedItem?.ToString();
-                pedido.IdPedido = pedido.IdPedido;  
+                pedido.IdPedido = PedidoId;
                 negocio.Modificar(pedido);
+
+                MessageBox.Show("El estado del pedido fue cambiado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-
-                throw ex;
+                MessageBox.Show("Debes seleccionar el estado del pedido: " , "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
         }
 
-       
+
+
     }
 }
