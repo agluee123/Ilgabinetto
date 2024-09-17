@@ -41,9 +41,9 @@
             // 
             // btnIniciarSesion
             // 
-            this.btnIniciarSesion.Location = new System.Drawing.Point(111, 208);
+            this.btnIniciarSesion.Location = new System.Drawing.Point(113, 200);
             this.btnIniciarSesion.Name = "btnIniciarSesion";
-            this.btnIniciarSesion.Size = new System.Drawing.Size(75, 23);
+            this.btnIniciarSesion.Size = new System.Drawing.Size(97, 23);
             this.btnIniciarSesion.TabIndex = 11;
             this.btnIniciarSesion.Text = "Iniciar Sesion";
             this.btnIniciarSesion.UseVisualStyleBackColor = true;
@@ -73,21 +73,21 @@
             // 
             this.textBox2.Location = new System.Drawing.Point(100, 160);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
+            this.textBox2.Size = new System.Drawing.Size(126, 20);
             this.textBox2.TabIndex = 8;
             // 
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(100, 116);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.Size = new System.Drawing.Size(126, 20);
             this.textBox1.TabIndex = 7;
             // 
             // lblIniciarSesion
             // 
             this.lblIniciarSesion.AutoSize = true;
             this.lblIniciarSesion.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIniciarSesion.Location = new System.Drawing.Point(96, 71);
+            this.lblIniciarSesion.Location = new System.Drawing.Point(109, 73);
             this.lblIniciarSesion.Name = "lblIniciarSesion";
             this.lblIniciarSesion.Size = new System.Drawing.Size(111, 23);
             this.lblIniciarSesion.TabIndex = 6;
