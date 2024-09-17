@@ -113,7 +113,8 @@
             this.cbxTipo.FormattingEnabled = true;
             this.cbxTipo.Items.AddRange(new object[] {
             "Viaje",
-            "Semanal"});
+            "Semanal",
+            "Transporte"});
             this.cbxTipo.Location = new System.Drawing.Point(126, 121);
             this.cbxTipo.Name = "cbxTipo";
             this.cbxTipo.Size = new System.Drawing.Size(200, 21);

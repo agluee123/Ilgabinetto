@@ -253,7 +253,7 @@ namespace Presentacion
             {
                 listaFiltrada = lista.FindAll(x =>
                     x.NombreCliente.ToUpper().Contains(filtro) || x.Fecha.ToString().Contains(filtro) 
-                    || x.Tipo.ToUpper().Contains(filtro) // Filtrar por nombre que contiene el filtro
+                    || x.Tipo.ToUpper().Contains(filtro) || x.Estado.ToUpper().Contains(filtro) || x.Localidad.ToUpper().Contains(filtro) // Filtrar por nombre que contiene el filtro
                 );
             }
             else

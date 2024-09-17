@@ -115,6 +115,11 @@
             // nmCantidad
             // 
             this.nmCantidad.Location = new System.Drawing.Point(302, 34);
+            this.nmCantidad.Maximum = new decimal(new int[] {
+            500,
+            0,
+            0,
+            0});
             this.nmCantidad.Minimum = new decimal(new int[] {
             1,
             0,

@@ -93,7 +93,7 @@ namespace Negocio
                 conexion.ConnectionString = "server=.\\SQLEXPRESS; database=ILGABINETTO; integrated security=true";
                 comando.CommandType = System.Data.CommandType.Text;
 
-                comando.CommandText = "select  Pedidos.id_pedido ,Pedidos.Tipo, Pedidos.Estado, clientes.nombre as Nombre_Cliente, Pedidos.fecha as fecha_Del_Pedido from Pedidos join Clientes on Clientes.id_cliente = Pedidos.cliente_id;";
+                comando.CommandText = "SELECT Pedidos.id_pedido, Pedidos.Tipo, Pedidos.Estado, Clientes.nombre AS Nombre, Clientes.localidad AS Localidad, Pedidos.fecha AS fecha_Del_Pedido FROM Pedidos JOIN Clientes ON Clientes.id_cliente = Pedidos.cliente_id ORDER BY Pedidos.fecha DESC;";
                 comando.Connection = conexion;
 
                 conexion.Open();
@@ -104,10 +104,11 @@ namespace Negocio
                     Pedido aux = new Pedido
                     {
                         IdPedido = (int)lector["id_pedido"],
-                        NombreCliente = (string)lector["Nombre_Cliente"],
+                        NombreCliente = (string)lector["Nombre"],
                         Fecha = (DateTime)lector["Fecha_Del_Pedido"],
                         Tipo = (string)lector["Tipo"],
-                        Estado = (string)lector["Estado"]
+                        Estado = (string)lector["Estado"],
+                        Localidad = (string)lector["Localidad"]
                     };
 
                     lista.Add(aux);
