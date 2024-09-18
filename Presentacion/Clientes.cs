@@ -190,12 +190,6 @@ namespace Presentacion
             dgvClientes.Columns["idCliente"].Visible = false;
 
 
-            dgvClientes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-
-            // Si quieres que la última columna ocupe el espacio restante
-            dgvClientes.Columns[dgvClientes.Columns.Count - 1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dgvClientes.ReadOnly = true;
-
         }
     }
 }
