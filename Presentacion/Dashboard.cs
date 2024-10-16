@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Ilgabinetto;
+using Sistema_de_pedidos;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -40,6 +42,12 @@ namespace Presentacion
         {
             Registros agregar= new Registros();
             agregar.ShowDialog();
+        }
+
+        private void btnEmpleados_Click(object sender, EventArgs e)
+        {
+            Empleados agregar= new Empleados(); 
+            agregar.ShowDialog();     
         }
     }
 }

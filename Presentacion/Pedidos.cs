@@ -255,12 +255,11 @@ namespace Presentacion
             }
             else
             {
-                listaFiltrada = lista; // Mostrar la lista completa si el filtro es corto
+                listaFiltrada = lista;
             }
 
-            dgvListaPedidos.DataSource = listaFiltrada; // Asignar la lista filtrada como DataSource del DataGridView
+            dgvListaPedidos.DataSource = listaFiltrada;
 
-            // Aplica los estados de los checkboxes desde el diccionario
             foreach (DataGridViewRow row in dgvListaPedidos.Rows)
             {
                 int pedidoId = (int)row.Cells["IdPedido"].Value;
