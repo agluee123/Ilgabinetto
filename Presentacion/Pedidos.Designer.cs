@@ -50,9 +50,9 @@
             this.dTPreg2 = new System.Windows.Forms.DateTimePicker();
             this.dTPReg1 = new System.Windows.Forms.DateTimePicker();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.cbxSelTipo = new System.Windows.Forms.ComboBox();
-            this.cbxSelEstado = new System.Windows.Forms.ComboBox();
             this.btnBuscarEst = new System.Windows.Forms.Button();
+            this.cbxSelEstado = new System.Windows.Forms.ComboBox();
+            this.cbxSelTipo = new System.Windows.Forms.ComboBox();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.gbxCrearPedido.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaPedidos)).BeginInit();
@@ -63,7 +63,7 @@
             // cbxCliente
             // 
             this.cbxCliente.FormattingEnabled = true;
-            this.cbxCliente.Location = new System.Drawing.Point(126, 57);
+            this.cbxCliente.Location = new System.Drawing.Point(131, 22);
             this.cbxCliente.Name = "cbxCliente";
             this.cbxCliente.Size = new System.Drawing.Size(200, 21);
             this.cbxCliente.TabIndex = 0;
@@ -71,7 +71,7 @@
             // lblCliente
             // 
             this.lblCliente.AutoSize = true;
-            this.lblCliente.Location = new System.Drawing.Point(21, 60);
+            this.lblCliente.Location = new System.Drawing.Point(26, 25);
             this.lblCliente.Name = "lblCliente";
             this.lblCliente.Size = new System.Drawing.Size(91, 13);
             this.lblCliente.TabIndex = 2;
@@ -79,7 +79,7 @@
             // 
             // BtnAgregarProducto
             // 
-            this.BtnAgregarProducto.Location = new System.Drawing.Point(39, 187);
+            this.BtnAgregarProducto.Location = new System.Drawing.Point(20, 132);
             this.BtnAgregarProducto.Name = "BtnAgregarProducto";
             this.BtnAgregarProducto.Size = new System.Drawing.Size(134, 23);
             this.BtnAgregarProducto.TabIndex = 3;
@@ -99,7 +99,7 @@
             this.gbxCrearPedido.Controls.Add(this.cbxCliente);
             this.gbxCrearPedido.Location = new System.Drawing.Point(24, 76);
             this.gbxCrearPedido.Name = "gbxCrearPedido";
-            this.gbxCrearPedido.Size = new System.Drawing.Size(364, 243);
+            this.gbxCrearPedido.Size = new System.Drawing.Size(364, 168);
             this.gbxCrearPedido.TabIndex = 4;
             this.gbxCrearPedido.TabStop = false;
             this.gbxCrearPedido.Text = "Crear Nuevo Pedido";
@@ -107,7 +107,7 @@
             // lblTipo
             // 
             this.lblTipo.AutoSize = true;
-            this.lblTipo.Location = new System.Drawing.Point(24, 129);
+            this.lblTipo.Location = new System.Drawing.Point(29, 94);
             this.lblTipo.Name = "lblTipo";
             this.lblTipo.Size = new System.Drawing.Size(82, 13);
             this.lblTipo.TabIndex = 8;
@@ -115,20 +115,21 @@
             // 
             // cbxTipo
             // 
+            this.cbxTipo.Cursor = System.Windows.Forms.Cursors.Default;
             this.cbxTipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxTipo.FormattingEnabled = true;
             this.cbxTipo.Items.AddRange(new object[] {
             "Viaje",
             "Semanal",
             "Transporte"});
-            this.cbxTipo.Location = new System.Drawing.Point(126, 121);
+            this.cbxTipo.Location = new System.Drawing.Point(131, 86);
             this.cbxTipo.Name = "cbxTipo";
             this.cbxTipo.Size = new System.Drawing.Size(200, 21);
             this.cbxTipo.TabIndex = 7;
             // 
             // btnEliminarPedido
             // 
-            this.btnEliminarPedido.Location = new System.Drawing.Point(210, 187);
+            this.btnEliminarPedido.Location = new System.Drawing.Point(215, 132);
             this.btnEliminarPedido.Name = "btnEliminarPedido";
             this.btnEliminarPedido.Size = new System.Drawing.Size(134, 23);
             this.btnEliminarPedido.TabIndex = 6;
@@ -139,7 +140,7 @@
             // lblFecha
             // 
             this.lblFecha.AutoSize = true;
-            this.lblFecha.Location = new System.Drawing.Point(24, 89);
+            this.lblFecha.Location = new System.Drawing.Point(29, 54);
             this.lblFecha.Name = "lblFecha";
             this.lblFecha.Size = new System.Drawing.Size(40, 13);
             this.lblFecha.TabIndex = 5;
@@ -147,7 +148,7 @@
             // 
             // dtpFechaPedido
             // 
-            this.dtpFechaPedido.Location = new System.Drawing.Point(126, 89);
+            this.dtpFechaPedido.Location = new System.Drawing.Point(131, 54);
             this.dtpFechaPedido.Name = "dtpFechaPedido";
             this.dtpFechaPedido.Size = new System.Drawing.Size(200, 20);
             this.dtpFechaPedido.TabIndex = 4;
@@ -175,7 +176,7 @@
             // 
             // btnReg
             // 
-            this.btnReg.Location = new System.Drawing.Point(234, 590);
+            this.btnReg.Location = new System.Drawing.Point(254, 532);
             this.btnReg.Name = "btnReg";
             this.btnReg.Size = new System.Drawing.Size(134, 23);
             this.btnReg.TabIndex = 7;
@@ -207,16 +208,16 @@
             this.gbxFecha.Controls.Add(this.lblDesde);
             this.gbxFecha.Controls.Add(this.dTPreg2);
             this.gbxFecha.Controls.Add(this.dTPReg1);
-            this.gbxFecha.Location = new System.Drawing.Point(24, 325);
+            this.gbxFecha.Location = new System.Drawing.Point(24, 265);
             this.gbxFecha.Name = "gbxFecha";
-            this.gbxFecha.Size = new System.Drawing.Size(364, 156);
+            this.gbxFecha.Size = new System.Drawing.Size(364, 144);
             this.gbxFecha.TabIndex = 10;
             this.gbxFecha.TabStop = false;
             this.gbxFecha.Text = "Buscar Por Fecha";
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(110, 125);
+            this.btnBuscar.Location = new System.Drawing.Point(110, 111);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(137, 25);
             this.btnBuscar.TabIndex = 11;
@@ -261,49 +262,51 @@
             this.groupBox1.Controls.Add(this.btnBuscarEst);
             this.groupBox1.Controls.Add(this.cbxSelEstado);
             this.groupBox1.Controls.Add(this.cbxSelTipo);
-            this.groupBox1.Location = new System.Drawing.Point(24, 487);
+            this.groupBox1.Location = new System.Drawing.Point(24, 429);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(364, 87);
             this.groupBox1.TabIndex = 11;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Buscar Por Estado";
             // 
-            // cbxSelTipo
-            // 
-            this.cbxSelTipo.FormattingEnabled = true;
-            this.cbxSelTipo.Items.AddRange(new object[] {
-            "Semanal",
-            "Viaje",
-            "Transporte"});
-            this.cbxSelTipo.Location = new System.Drawing.Point(27, 31);
-            this.cbxSelTipo.Name = "cbxSelTipo";
-            this.cbxSelTipo.Size = new System.Drawing.Size(121, 21);
-            this.cbxSelTipo.TabIndex = 0;
-            // 
-            // cbxSelEstado
-            // 
-            this.cbxSelEstado.FormattingEnabled = true;
-            this.cbxSelEstado.Items.AddRange(new object[] {
-            "Pendiente",
-            "Entregado"});
-            this.cbxSelEstado.Location = new System.Drawing.Point(223, 31);
-            this.cbxSelEstado.Name = "cbxSelEstado";
-            this.cbxSelEstado.Size = new System.Drawing.Size(121, 21);
-            this.cbxSelEstado.TabIndex = 1;
-            // 
             // btnBuscarEst
             // 
-            this.btnBuscarEst.Location = new System.Drawing.Point(148, 58);
+            this.btnBuscarEst.Location = new System.Drawing.Point(110, 58);
             this.btnBuscarEst.Name = "btnBuscarEst";
-            this.btnBuscarEst.Size = new System.Drawing.Size(75, 23);
+            this.btnBuscarEst.Size = new System.Drawing.Size(137, 23);
             this.btnBuscarEst.TabIndex = 2;
             this.btnBuscarEst.Text = "Buscar";
             this.btnBuscarEst.UseVisualStyleBackColor = true;
             this.btnBuscarEst.Click += new System.EventHandler(this.btnBuscarEst_Click);
             // 
+            // cbxSelEstado
+            // 
+            this.cbxSelEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxSelEstado.FormattingEnabled = true;
+            this.cbxSelEstado.Items.AddRange(new object[] {
+            "Pendiente",
+            "Entregado"});
+            this.cbxSelEstado.Location = new System.Drawing.Point(210, 31);
+            this.cbxSelEstado.Name = "cbxSelEstado";
+            this.cbxSelEstado.Size = new System.Drawing.Size(121, 21);
+            this.cbxSelEstado.TabIndex = 1;
+            // 
+            // cbxSelTipo
+            // 
+            this.cbxSelTipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxSelTipo.FormattingEnabled = true;
+            this.cbxSelTipo.Items.AddRange(new object[] {
+            "Semanal",
+            "Viaje",
+            "Transporte"});
+            this.cbxSelTipo.Location = new System.Drawing.Point(24, 31);
+            this.cbxSelTipo.Name = "cbxSelTipo";
+            this.cbxSelTipo.Size = new System.Drawing.Size(121, 21);
+            this.cbxSelTipo.TabIndex = 0;
+            // 
             // btnLimpiar
             // 
-            this.btnLimpiar.Location = new System.Drawing.Point(32, 590);
+            this.btnLimpiar.Location = new System.Drawing.Point(24, 532);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(134, 23);
             this.btnLimpiar.TabIndex = 12;
