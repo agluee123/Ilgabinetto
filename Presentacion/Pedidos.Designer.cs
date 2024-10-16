@@ -49,9 +49,15 @@
             this.lblDesde = new System.Windows.Forms.Label();
             this.dTPreg2 = new System.Windows.Forms.DateTimePicker();
             this.dTPReg1 = new System.Windows.Forms.DateTimePicker();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbxSelTipo = new System.Windows.Forms.ComboBox();
+            this.cbxSelEstado = new System.Windows.Forms.ComboBox();
+            this.btnBuscarEst = new System.Windows.Forms.Button();
+            this.btnLimpiar = new System.Windows.Forms.Button();
             this.gbxCrearPedido.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaPedidos)).BeginInit();
             this.gbxFecha.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // cbxCliente
@@ -169,7 +175,7 @@
             // 
             // btnReg
             // 
-            this.btnReg.Location = new System.Drawing.Point(134, 543);
+            this.btnReg.Location = new System.Drawing.Point(234, 590);
             this.btnReg.Name = "btnReg";
             this.btnReg.Size = new System.Drawing.Size(134, 23);
             this.btnReg.TabIndex = 7;
@@ -201,7 +207,7 @@
             this.gbxFecha.Controls.Add(this.lblDesde);
             this.gbxFecha.Controls.Add(this.dTPreg2);
             this.gbxFecha.Controls.Add(this.dTPReg1);
-            this.gbxFecha.Location = new System.Drawing.Point(24, 346);
+            this.gbxFecha.Location = new System.Drawing.Point(24, 325);
             this.gbxFecha.Name = "gbxFecha";
             this.gbxFecha.Size = new System.Drawing.Size(364, 156);
             this.gbxFecha.TabIndex = 10;
@@ -250,12 +256,69 @@
             this.dTPReg1.Size = new System.Drawing.Size(329, 20);
             this.dTPReg1.TabIndex = 0;
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.btnBuscarEst);
+            this.groupBox1.Controls.Add(this.cbxSelEstado);
+            this.groupBox1.Controls.Add(this.cbxSelTipo);
+            this.groupBox1.Location = new System.Drawing.Point(24, 487);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(364, 87);
+            this.groupBox1.TabIndex = 11;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Buscar Por Estado";
+            // 
+            // cbxSelTipo
+            // 
+            this.cbxSelTipo.FormattingEnabled = true;
+            this.cbxSelTipo.Items.AddRange(new object[] {
+            "Semanal",
+            "Viaje",
+            "Transporte"});
+            this.cbxSelTipo.Location = new System.Drawing.Point(27, 31);
+            this.cbxSelTipo.Name = "cbxSelTipo";
+            this.cbxSelTipo.Size = new System.Drawing.Size(121, 21);
+            this.cbxSelTipo.TabIndex = 0;
+            // 
+            // cbxSelEstado
+            // 
+            this.cbxSelEstado.FormattingEnabled = true;
+            this.cbxSelEstado.Items.AddRange(new object[] {
+            "Pendiente",
+            "Entregado"});
+            this.cbxSelEstado.Location = new System.Drawing.Point(223, 31);
+            this.cbxSelEstado.Name = "cbxSelEstado";
+            this.cbxSelEstado.Size = new System.Drawing.Size(121, 21);
+            this.cbxSelEstado.TabIndex = 1;
+            // 
+            // btnBuscarEst
+            // 
+            this.btnBuscarEst.Location = new System.Drawing.Point(148, 58);
+            this.btnBuscarEst.Name = "btnBuscarEst";
+            this.btnBuscarEst.Size = new System.Drawing.Size(75, 23);
+            this.btnBuscarEst.TabIndex = 2;
+            this.btnBuscarEst.Text = "Buscar";
+            this.btnBuscarEst.UseVisualStyleBackColor = true;
+            this.btnBuscarEst.Click += new System.EventHandler(this.btnBuscarEst_Click);
+            // 
+            // btnLimpiar
+            // 
+            this.btnLimpiar.Location = new System.Drawing.Point(32, 590);
+            this.btnLimpiar.Name = "btnLimpiar";
+            this.btnLimpiar.Size = new System.Drawing.Size(134, 23);
+            this.btnLimpiar.TabIndex = 12;
+            this.btnLimpiar.Text = "Limpiar Busqueda";
+            this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
+            // 
             // Pedidos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1149, 634);
+            this.Controls.Add(this.btnLimpiar);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.gbxFecha);
             this.Controls.Add(this.lblFiltro);
             this.Controls.Add(this.textBox1);
@@ -274,6 +337,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaPedidos)).EndInit();
             this.gbxFecha.ResumeLayout(false);
             this.gbxFecha.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -301,5 +365,10 @@
         private System.Windows.Forms.DateTimePicker dTPreg2;
         private System.Windows.Forms.DateTimePicker dTPReg1;
         private System.Windows.Forms.Button btnBuscar;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button btnBuscarEst;
+        private System.Windows.Forms.ComboBox cbxSelEstado;
+        private System.Windows.Forms.ComboBox cbxSelTipo;
+        private System.Windows.Forms.Button btnLimpiar;
     }
 }

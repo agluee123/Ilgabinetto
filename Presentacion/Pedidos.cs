@@ -311,5 +311,29 @@ namespace Presentacion
                 }
             }
         }
+
+        private void btnBuscarEst_Click(object sender, EventArgs e)
+        {
+            
+            string Tipo = cbxSelTipo.SelectedItem?.ToString();
+            string Estado = cbxSelEstado.SelectedItem?.ToString();  
+
+
+            PedidoNegocio nuevo = new PedidoNegocio();
+            List<Pedido> registros = nuevo.ListarPedidos();
+
+
+            var listaFiltrada = registros.Where(r => r.Tipo == Tipo && r.Estado == Estado).ToList();
+
+            dgvListaPedidos.DataSource = listaFiltrada;
+
+
+
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            ListarPedido();
+        }
     }
 }
